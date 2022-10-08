@@ -67,6 +67,7 @@ public class CardDisplayManager : MonoBehaviour
                 cardDisplay.AttackText.text = card.CreatureAttack.ToString();
                 cardDisplay.HealthText.text = card.CreatureHealth.ToString();
                 cardDisplay.CardObj.GetComponent<CardController>().AssignedCard = card;
+                //Change Mana Display
             }
         }
     }
