@@ -73,7 +73,25 @@ public class PlayerController : MonoBehaviour
 
     public void DrawCard()
     {
+        if(playerCards.Count == 0)
+        {
+            //Player Take Damage
+            return;
+        }
 
+        Card newCard = playerCards[playerCards.Count - 1];
+
+        if(playerHand.Count < 10)
+        {
+            playerHand.Add(newCard);         
+        }
+        else
+        {
+            //Play Card Destroyed Animation
+        }
+
+        playerCards.RemoveAt(playerCards.Count - 1);
+        _cardDisplayManager.DisplayCardData(playerHand);
     }
 
     public void SortCards()

@@ -25,6 +25,8 @@ public class CardManager : MonoBehaviour
             activePlayers.Add(player);
             player.SortCards();
         }
+
+        OnNewPlayerTurn();
     }
 
     public void OnNewPlayerTurn()
@@ -37,10 +39,12 @@ public class CardManager : MonoBehaviour
         }
 
         player = activePlayers[playerIndex];
+        player.DrawCard();
     }
 
     public void OnEndPlayerTurn()
     {
 
+        OnNewPlayerTurn();
     }
 }
