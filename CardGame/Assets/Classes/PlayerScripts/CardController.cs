@@ -14,6 +14,7 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public Card AssignedCard
     {
+        get { return _assignedCard; }
         set { _assignedCard = value; }
     }
 

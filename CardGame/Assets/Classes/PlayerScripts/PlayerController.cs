@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public static CardController cardSelected;
 
     [SerializeField]
+    private int playerHealth;
+
+    [SerializeField]
     private GameObject cardSelectDisplay;
 
     [SerializeField]
@@ -16,6 +19,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private List<Card> playerHand = new List<Card>();
+
+    [SerializeField]
+    private LayerMask slotLayer;
+
+    [SerializeField]
+    private Camera _playerCam;
+
+    private int _fatigueAmount = 1;
 
     private CardDisplayManager _cardDisplayManager;
 
@@ -57,6 +68,12 @@ public class PlayerController : MonoBehaviour
                 {
                     cardSelectDisplay.SetActive(false);
                     cardSelected.gameObject.SetActive(true);
+
+                    if(cardSelected.AssignedCard.Object_cardType == Card.CardType.Mana)
+                    {
+                        CheckForSlot(cardSelected.AssignedCard);
+                    }
+
                     cardSelected = null;
                 }
             }
@@ -76,6 +93,8 @@ public class PlayerController : MonoBehaviour
         if(playerCards.Count == 0)
         {
             //Player Take Damage
+            playerHealth -= _fatigueAmount;
+            _fatigueAmount++;
             return;
         }
 
@@ -102,6 +121,20 @@ public class PlayerController : MonoBehaviour
             Card tempCard = playerCards[rnd];
             playerCards[rnd] = playerCards[i];
             playerCards[i] = tempCard;
+        }
+    }
+
+    public void CheckForSlot(Card card)
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(_playerCam.ScreenPointToRay(Input.mousePosition), out hit, slotLayer))
+        {
+            if(hit.collider.CompareTag("Slot"))
+            {
+                SlotController slotController = hit.collider.GetComponent<SlotController>();
+                slotController.AddMana(card);
+                Debug.Log("MANA MESSAGE SENT");
+            }
         }
     }
 }

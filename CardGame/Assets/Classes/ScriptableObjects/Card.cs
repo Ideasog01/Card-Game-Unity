@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
 public class Card : ScriptableObject
@@ -12,34 +13,35 @@ public class Card : ScriptableObject
 
     //Card Details
 
+    [SerializeField]
     private string _cardName;
 
+    [SerializeField]
     private string _cardDescription;
 
+    [SerializeField]
     private CardType _cardType;
 
+    [SerializeField]
     private Sprite _cardArt;
 
+    [SerializeField]
     private string[] _cardTags;
 
     //Mana Cost
 
-    private int _astralManaCost;
-
-    private int _unholyManaCost;
-
-    private int _neutralManaCost;
-
-    private int _wildManaCost;
-
-    private int _infernalManaCost;
+    [SerializeField]
+    private int _manaCost;
 
     //Creature
 
+    [SerializeField]
     private int _creatureAttack;
 
+    [SerializeField]
     private int _creatureHealth;
 
+    [SerializeField]
     private Range _creatureReach;
 
     [SerializeField]
@@ -47,6 +49,7 @@ public class Card : ScriptableObject
 
     //Enchantment
 
+    [SerializeField]
     private int _enchantmentTurnDuration;
 
     #region CardDetails
@@ -85,34 +88,10 @@ public class Card : ScriptableObject
 
     #region Mana 
 
-    public int AstralManaCost
+    public int ManaCost
     {
-        get { return _astralManaCost; }
-        set { _astralManaCost = value; }
-    }
-
-    public int UnholyManaCost
-    {
-        get { return _unholyManaCost; }
-        set { _unholyManaCost = value; }
-    }
-
-    public int NeutralManaCost
-    {
-        get { return _neutralManaCost; }
-        set { _neutralManaCost = value; }
-    }
-
-    public int WildManaCost
-    {
-        get { return _wildManaCost; }
-        set { _wildManaCost = value; }
-    }
-
-    public int InfernalManaCost
-    {
-        get { return _infernalManaCost; }
-        set { _infernalManaCost = value; }
+        get { return _manaCost; }
+        set { _manaCost = value; }
     }
 
     #endregion
@@ -196,23 +175,11 @@ public class enumInspectorEditor : Editor
         cardScript.CardArt = (Sprite)cardArtObj;
 
 
-        switch (cardScript.Object_cardType)
-        {
-            //Mana
-            case Card.CardType.Mana:
-                cardScript.ObjectManaType = (Card.ManaType)EditorGUILayout.EnumPopup("Mana Type", cardScript.ObjectManaType);
-                break;
-        }
+        cardScript.ObjectManaType = (Card.ManaType)EditorGUILayout.EnumPopup("Mana Type", cardScript.ObjectManaType);
 
-        if(cardScript.Object_cardType != Card.CardType.Mana)
+        if (cardScript.Object_cardType != Card.CardType.Mana)
         {
-            CreateInspectorLabel("Mana Cost", TextAnchor.MiddleCenter, true, Color.white);
-            
-            cardScript.AstralManaCost = EditorGUILayout.IntField("Astral Mana Cost", cardScript.AstralManaCost);
-            cardScript.UnholyManaCost = EditorGUILayout.IntField("Unholy Mana Cost", cardScript.UnholyManaCost);
-            cardScript.NeutralManaCost = EditorGUILayout.IntField("Neutral Mana Cost", cardScript.NeutralManaCost);
-            cardScript.WildManaCost = EditorGUILayout.IntField("Wild Mana Cost", cardScript.WildManaCost);
-            cardScript.InfernalManaCost = EditorGUILayout.IntField("Infernal Mana Cost", cardScript.InfernalManaCost);
+            cardScript.ManaCost = EditorGUILayout.IntField("Mana Cost", cardScript.ManaCost);
         }
         else
         {
@@ -263,6 +230,8 @@ public class enumInspectorEditor : Editor
         {
             CreateInspectorLabel("Structure Properties", TextAnchor.MiddleCenter, true, Color.white);
         }
+
+        EditorUtility.SetDirty(cardScript);
     }
 
     private void CreateInspectorLabel(string label, TextAnchor alignment, bool bold, Color color)

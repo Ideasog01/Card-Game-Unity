@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
+  _cardName: 
+  _cardDescription: 
+  _cardType: 0
+  _cardArt: {fileID: 0}
+  _cardTags: []
+  _manaCost: 0
+  _creatureAttack: 0
+  _creatureHealth: 0
+  _creatureReach: 0
   creatureEffects: 
+  _enchantmentTurnDuration: 0

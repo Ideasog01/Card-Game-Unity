@@ -51,7 +51,7 @@ public class CardDisplayManager : MonoBehaviour
             else
             {
                 cardDisplayList[i].CardObj.SetActive(false);
-                Debug.Log("CARD DISABLED");
+                //Debug.Log("CARD DISABLED");
             }
         }
 
