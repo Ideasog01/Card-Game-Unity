@@ -10,30 +10,46 @@ public class Card : ScriptableObject
 
     public enum CardEffect { Deathrattle, Battlecry, Frenzy, Avenge };
 
-    //Card Details
+    [Header("Card Details")]
 
+    [SerializeField]
     private string _cardName;
 
+    [SerializeField]
     private string _cardDescription;
 
+    [SerializeField]
     private CardType _cardType;
 
+    [SerializeField]
     private Sprite _cardArt;
 
+    [SerializeField]
     private string[] _cardTags;
 
-    //Mana Cost
+    [Header("Mana")]
 
+    [SerializeField]
     private int _manaCost;
 
-    //Creature
+    [SerializeField]
+    private ManaType _manaType;
 
+    [SerializeField]
+    private int _manaGain;
+
+    [Header("Creature")]
+
+    [SerializeField]
     private int _creatureAttack;
 
+    [SerializeField]
     private int _creatureHealth;
 
+    [SerializeField]
     private Range _creatureReach;
 
+    [SerializeField]
     private CardEffect[] creatureEffects;
 
     //Enchantment
@@ -86,10 +102,6 @@ public class Card : ScriptableObject
 
     public enum ManaType { astral, unholy, neutral, wild, infernal };
 
-    private ManaType _manaType;
-
-    private int _manaGain;
-
     public ManaType ObjectManaType
     {
         get { return _manaType; }
@@ -129,99 +141,99 @@ public class Card : ScriptableObject
 
 }
 
-//Custom inspector starts here
-#if UNITY_EDITOR
-[CustomEditor(typeof(Card))]
-public class EnumInspectorEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+////Custom inspector starts here
+//#if UNITY_EDITOR
+//[CustomEditor(typeof(Card))]
+//public class EnumInspectorEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        base.OnInspectorGUI();
 
-        CreateInspectorLabel("Card Type", TextAnchor.MiddleLeft, true, Color.white);
-        var cardScript = target as Card;
-        cardScript.Object_cardType = (Card.CardType)EditorGUILayout.EnumPopup(cardScript.Object_cardType);
+//        CreateInspectorLabel("Card Type", TextAnchor.MiddleLeft, true, Color.white);
+//        var cardScript = target as Card;
+//        cardScript.Object_cardType = (Card.CardType)EditorGUILayout.EnumPopup(cardScript.Object_cardType);
 
-        //Card Details
+//        //Card Details
 
-        CreateInspectorLabel("Card Details", TextAnchor.MiddleCenter, true, Color.white);
-        cardScript.CardName = EditorGUILayout.TextField("Card Name", cardScript.CardName);
-        cardScript.CardDescription = EditorGUILayout.TextField("Card Description", cardScript.CardDescription, GUILayout.Width(800), GUILayout.Height(100), GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(false));
+//        CreateInspectorLabel("Card Details", TextAnchor.MiddleCenter, true, Color.white);
+//        cardScript.CardName = EditorGUILayout.TextField("Card Name", cardScript.CardName);
+//        cardScript.CardDescription = EditorGUILayout.TextField("Card Description", cardScript.CardDescription, GUILayout.Width(800), GUILayout.Height(100), GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(false));
 
-        CreateInspectorLabel("Card Art", TextAnchor.MiddleLeft, false, Color.grey);
-        Object cardArtObj = EditorGUILayout.ObjectField(cardScript.CardArt, typeof(Sprite), false, GUILayout.Width(75), GUILayout.Height(75));
-        cardScript.CardArt = (Sprite)cardArtObj;
+//        CreateInspectorLabel("Card Art", TextAnchor.MiddleLeft, false, Color.grey);
+//        Object cardArtObj = EditorGUILayout.ObjectField(cardScript.CardArt, typeof(Sprite), false, GUILayout.Width(75), GUILayout.Height(75));
+//        cardScript.CardArt = (Sprite)cardArtObj;
 
 
-        cardScript.ObjectManaType = (Card.ManaType)EditorGUILayout.EnumPopup("Mana Type", cardScript.ObjectManaType);
+//        cardScript.ObjectManaType = (Card.ManaType)EditorGUILayout.EnumPopup("Mana Type", cardScript.ObjectManaType);
 
-        if (cardScript.Object_cardType != Card.CardType.Mana)
-        {
-            cardScript.ManaCost = EditorGUILayout.IntField("Mana Cost", cardScript.ManaCost);
-        }
-        else
-        {
-            cardScript.ManaGain = EditorGUILayout.IntField("Mana Gain", cardScript.ManaGain);
-        }
+//        if (cardScript.Object_cardType != Card.CardType.Mana)
+//        {
+//            cardScript.ManaCost = EditorGUILayout.IntField("Mana Cost", cardScript.ManaCost);
+//        }
+//        else
+//        {
+//            cardScript.ManaGain = EditorGUILayout.IntField("Mana Gain", cardScript.ManaGain);
+//        }
 
-        if(cardScript.Object_cardType == Card.CardType.Creature)
-        {
-            CreateInspectorLabel("Creature Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        if(cardScript.Object_cardType == Card.CardType.Creature)
+//        {
+//            CreateInspectorLabel("Creature Properties", TextAnchor.MiddleCenter, true, Color.white);
 
-            cardScript.CreatureAttack = EditorGUILayout.IntField("Creature Attack", cardScript.CreatureAttack);
-            cardScript.CreatureHealth = EditorGUILayout.IntField("Creature Health", cardScript.CreatureHealth);
-            cardScript.CreatureReach = (Card.Range)EditorGUILayout.EnumFlagsField("Creature Reach", cardScript.CreatureReach);
+//            cardScript.CreatureAttack = EditorGUILayout.IntField("Creature Attack", cardScript.CreatureAttack);
+//            cardScript.CreatureHealth = EditorGUILayout.IntField("Creature Health", cardScript.CreatureHealth);
+//            cardScript.CreatureReach = (Card.Range)EditorGUILayout.EnumFlagsField("Creature Reach", cardScript.CreatureReach);
 
-            SerializedProperty creatureEffectsProperty = serializedObject.FindProperty("creatureEffects");
+//            SerializedProperty creatureEffectsProperty = serializedObject.FindProperty("creatureEffects");
 
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.PropertyField(creatureEffectsProperty, true);
-            if (EditorGUI.EndChangeCheck()) //End Array inspector dropped down
-            {
-                serializedObject.ApplyModifiedProperties();
-            }
-        }
+//            EditorGUI.BeginChangeCheck();
+//            EditorGUILayout.PropertyField(creatureEffectsProperty, true);
+//            if (EditorGUI.EndChangeCheck()) //End Array inspector dropped down
+//            {
+//                serializedObject.ApplyModifiedProperties();
+//            }
+//        }
 
-        if(cardScript.Object_cardType == Card.CardType.Spell)
-        {
-            CreateInspectorLabel("Spell Properties", TextAnchor.MiddleCenter, true, Color.white);
-        }
+//        if(cardScript.Object_cardType == Card.CardType.Spell)
+//        {
+//            CreateInspectorLabel("Spell Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        }
 
-        if (cardScript.Object_cardType == Card.CardType.Enchantment)
-        {
-            CreateInspectorLabel("Enchantment Properties", TextAnchor.MiddleCenter, true, Color.white);
-        }
+//        if (cardScript.Object_cardType == Card.CardType.Enchantment)
+//        {
+//            CreateInspectorLabel("Enchantment Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        }
 
-        if (cardScript.Object_cardType == Card.CardType.Prophecy)
-        {
-            CreateInspectorLabel("Prophecy Properties", TextAnchor.MiddleCenter, true, Color.white);
-        }
+//        if (cardScript.Object_cardType == Card.CardType.Prophecy)
+//        {
+//            CreateInspectorLabel("Prophecy Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        }
 
-        if (cardScript.Object_cardType == Card.CardType.Equipment)
-        {
-            CreateInspectorLabel("Equipment Properties", TextAnchor.MiddleCenter, true, Color.white);
-        }
+//        if (cardScript.Object_cardType == Card.CardType.Equipment)
+//        {
+//            CreateInspectorLabel("Equipment Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        }
 
-        if (cardScript.Object_cardType == Card.CardType.Structure)
-        {
-            CreateInspectorLabel("Structure Properties", TextAnchor.MiddleCenter, true, Color.white);
-        }
+//        if (cardScript.Object_cardType == Card.CardType.Structure)
+//        {
+//            CreateInspectorLabel("Structure Properties", TextAnchor.MiddleCenter, true, Color.white);
+//        }
 
-        EditorUtility.SetDirty(cardScript);
-    }
+//        EditorUtility.SetDirty(cardScript);
+//    }
 
-    private void CreateInspectorLabel(string label, TextAnchor alignment, bool bold, Color color)
-    {
-        GUIStyle guiStyle = new GUIStyle();
-        guiStyle.alignment = alignment;
-        guiStyle.normal.textColor = color;
+//    private void CreateInspectorLabel(string label, TextAnchor alignment, bool bold, Color color)
+//    {
+//        GUIStyle guiStyle = new GUIStyle();
+//        guiStyle.alignment = alignment;
+//        guiStyle.normal.textColor = color;
 
-        if(bold)
-        {
-            guiStyle.fontStyle = FontStyle.Bold;
-        }
+//        if(bold)
+//        {
+//            guiStyle.fontStyle = FontStyle.Bold;
+//        }
 
-        EditorGUILayout.LabelField(label, guiStyle);
-    }
-}
-#endif
+//        EditorGUILayout.LabelField(label, guiStyle);
+//    }
+//}
+//#endif

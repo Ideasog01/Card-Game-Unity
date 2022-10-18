@@ -12,3 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
   m_Name: Arcane Wisdom
   m_EditorClassIdentifier: 
+  _cardName: Arcane Wisdom
+  _cardDescription: This is the description for Arcane Wisdom card.
+  _cardType: 0
+  _cardArt: {fileID: 21300000, guid: f1768ee39cca566459192f928a1bfe0f, type: 3}
+  _cardTags: []
+  _manaCost: 0
+  _manaType: 0
+  _manaGain: 2
+  _creatureAttack: 0
+  _creatureHealth: 0
+  _creatureReach: 0
+  creatureEffects: 
