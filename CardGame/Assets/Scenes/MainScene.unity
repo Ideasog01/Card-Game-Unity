@@ -18121,7 +18121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d6da38cfbc02f4db0afe1b9ecf3276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaAmountArray: 0200000000000000040000000200000002000000
+  manaAmountArray: 0000000000000000000000000000000000000000
   playerHealth: 30
   cardSelectDisplay: {fileID: 67295243}
   playerCards:
