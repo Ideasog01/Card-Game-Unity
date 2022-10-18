@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
   m_Name: Wisp Wood
   m_EditorClassIdentifier: 
-  creatureEffects: 

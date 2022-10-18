@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
 public class Card : ScriptableObject
@@ -13,44 +12,31 @@ public class Card : ScriptableObject
 
     //Card Details
 
-    [SerializeField]
     private string _cardName;
 
-    [SerializeField]
     private string _cardDescription;
 
-    [SerializeField]
     private CardType _cardType;
 
-    [SerializeField]
     private Sprite _cardArt;
 
-    [SerializeField]
     private string[] _cardTags;
 
     //Mana Cost
 
-    [SerializeField]
     private int _manaCost;
 
     //Creature
 
-    [SerializeField]
     private int _creatureAttack;
 
-    [SerializeField]
     private int _creatureHealth;
 
-    [SerializeField]
     private Range _creatureReach;
 
-    [SerializeField]
     private CardEffect[] creatureEffects;
 
     //Enchantment
-
-    [SerializeField]
-    private int _enchantmentTurnDuration;
 
     #region CardDetails
 
@@ -140,23 +126,13 @@ public class Card : ScriptableObject
 
     #endregion
 
-    #region Enchantment CardType
-
-    public int EnhantmentTurnDuration
-    {
-        get { return _enchantmentTurnDuration; }
-        set { _enchantmentTurnDuration = value; }
-    }
-
-    #endregion
-
 
 }
 
 //Custom inspector starts here
 #if UNITY_EDITOR
 [CustomEditor(typeof(Card))]
-public class enumInspectorEditor : Editor
+public class EnumInspectorEditor : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -212,8 +188,6 @@ public class enumInspectorEditor : Editor
         if (cardScript.Object_cardType == Card.CardType.Enchantment)
         {
             CreateInspectorLabel("Enchantment Properties", TextAnchor.MiddleCenter, true, Color.white);
-
-            cardScript.EnhantmentTurnDuration = EditorGUILayout.IntField("Enchantment Turn Duration", cardScript.EnhantmentTurnDuration);
         }
 
         if (cardScript.Object_cardType == Card.CardType.Prophecy)

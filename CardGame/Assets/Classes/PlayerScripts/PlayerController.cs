@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static SlotController selectedSlot;
 
     public static CardController cardSelected;
 
@@ -20,15 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private List<Card> playerHand = new List<Card>();
 
-    [SerializeField]
-    private LayerMask slotLayer;
-
-    [SerializeField]
-    private Camera _playerCam;
-
     private int _fatigueAmount = 1;
 
     private CardDisplayManager _cardDisplayManager;
+
+    private Camera _playerCam;
 
     public List<Card> PlayerHand
     {
@@ -42,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         _cardDisplayManager = this.GetComponent<CardDisplayManager>();
     }
 
@@ -69,12 +67,7 @@ public class PlayerController : MonoBehaviour
                     cardSelectDisplay.SetActive(false);
                     cardSelected.gameObject.SetActive(true);
 
-                    if(cardSelected.AssignedCard.Object_cardType == Card.CardType.Mana)
-                    {
-                        CheckForSlot(cardSelected.AssignedCard);
-                    }
-
-                    cardSelected = null;
+                    StartCoroutine(PlayCard(cardSelected.AssignedCard));
                 }
             }
         }
@@ -113,7 +106,13 @@ public class PlayerController : MonoBehaviour
         _cardDisplayManager.DisplayCardData(playerHand);
     }
 
-    public void SortCards()
+    public void RemoveCard(Card card)
+    {
+        playerHand.Remove(card);
+        _cardDisplayManager.DisplayCardData(playerHand);
+    }
+
+    public void ShuffleHand()
     {
         for (int i = 0; i < playerCards.Count; i++)
         {
@@ -124,17 +123,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CheckForSlot(Card card)
+    private IEnumerator PlayCard(Card card)
     {
-        RaycastHit hit;
-        if(Physics.Raycast(_playerCam.ScreenPointToRay(Input.mousePosition), out hit, slotLayer))
+        yield return new WaitForSeconds(0.15f);
+
+        if (selectedSlot != null)
         {
-            if(hit.collider.CompareTag("Slot"))
+            switch (card.Object_cardType)
             {
-                SlotController slotController = hit.collider.GetComponent<SlotController>();
-                slotController.AddMana(card);
-                Debug.Log("MANA MESSAGE SENT");
+                case Card.CardType.Mana:
+                    selectedSlot.AddMana(card);
+                    break;
             }
+
+            RemoveCard(cardSelected.AssignedCard);
+            cardSelected = null;
+            Debug.Log("CARD PLAYED");
         }
     }
 }

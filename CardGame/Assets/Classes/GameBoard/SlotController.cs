@@ -1,7 +1,8 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SlotController : MonoBehaviour
+public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     private SpriteRenderer _slotRenderer;
@@ -28,17 +29,16 @@ public class SlotController : MonoBehaviour
     public void AddCreature(Card creatureCard)
     {
         _creatureCard = creatureCard;
-
     }
 
-    public void OnMouseOver()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if(Input.GetMouseButtonUp(0))
-        {
-            if(PlayerController.cardSelected != null)
-            {
-                AddMana(PlayerController.cardSelected.AssignedCard);
-            }
-        }
+        PlayerController.selectedSlot = this;
+        Debug.Log("ENTER... THE SLOT");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        PlayerController.selectedSlot = null;
     }
 }

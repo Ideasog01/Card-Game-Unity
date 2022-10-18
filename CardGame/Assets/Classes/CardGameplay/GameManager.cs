@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class CardManager : MonoBehaviour
 {
     public static int playerIndex;
-    public static PlayerController player;
+    public static PlayerController currentPlayer;
     public List<PlayerController> activePlayers = new List<PlayerController>();
 
     private void Start()
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
             playerIndex = 0;
         }
 
-        player = activePlayers[playerIndex];
-        player.DrawCard();
+        currentPlayer = activePlayers[playerIndex];
+        currentPlayer.DrawCard();
     }
 
     public void OnEndPlayerTurn()
