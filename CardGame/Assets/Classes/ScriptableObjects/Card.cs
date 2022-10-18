@@ -136,6 +136,8 @@ public class EnumInspectorEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
+
         CreateInspectorLabel("Card Type", TextAnchor.MiddleLeft, true, Color.white);
         var cardScript = target as Card;
         cardScript.Object_cardType = (Card.CardType)EditorGUILayout.EnumPopup(cardScript.Object_cardType);

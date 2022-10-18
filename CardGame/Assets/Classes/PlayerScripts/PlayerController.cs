@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public static CardController cardSelected;
 
     [SerializeField]
+    private int[] manaAmountArray;
+
+    [SerializeField]
     private int playerHealth;
 
     [SerializeField]
@@ -25,8 +28,6 @@ public class PlayerController : MonoBehaviour
 
     private CardDisplayManager _cardDisplayManager;
 
-    private Camera _playerCam;
-
     public List<Card> PlayerHand
     {
         get { return playerHand; }
@@ -37,15 +38,20 @@ public class PlayerController : MonoBehaviour
         get { return playerCards; }
     }
 
+    public int[] ManaAmountArray
+    {
+        get { return manaAmountArray; }
+    }
+
     private void Awake()
     {
-        _playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         _cardDisplayManager = this.GetComponent<CardDisplayManager>();
     }
 
     private void Start()
     {
         _cardDisplayManager.DisplayCardData(playerHand);
+        _cardDisplayManager.DisplayMana();
     }
 
     private void Update()
@@ -123,6 +129,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void AddManaToCounter(Card.ManaType manaType, int amount)
+    {
+        manaAmountArray[(int)manaType] += amount;
+    }
+
     private IEnumerator PlayCard(Card card)
     {
         yield return new WaitForSeconds(0.15f);
@@ -133,6 +144,8 @@ public class PlayerController : MonoBehaviour
             {
                 case Card.CardType.Mana:
                     selectedSlot.AddMana(card);
+                    AddManaToCounter(card.ObjectManaType, card.ManaGain);
+                    _cardDisplayManager.DisplayMana();
                     break;
             }
 

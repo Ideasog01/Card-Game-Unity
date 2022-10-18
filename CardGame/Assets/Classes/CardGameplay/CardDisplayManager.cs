@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Drawing;
 
 public class CardDisplayManager : MonoBehaviour
 {
@@ -11,6 +12,18 @@ public class CardDisplayManager : MonoBehaviour
 
     [SerializeField]
     private GameObject cardSelectionObj;
+
+    [SerializeField]
+    private Image[] manaIcons;
+
+    [SerializeField]
+    private UnityEngine.Color[] manaColors;
+
+    [SerializeField]
+    private UnityEngine.Color disabledManaColor;
+
+    [SerializeField]
+    private PlayerController playerController;
 
     private List<CardDisplay> cardDisplayList = new List<CardDisplay>();
 
@@ -26,6 +39,22 @@ public class CardDisplayManager : MonoBehaviour
             CardDisplay cardDisplay = new CardDisplay();
             cardDisplay.AssignCardProperties(card);
             cardDisplayList.Add(cardDisplay);  
+        }
+    }
+
+    public void DisplayMana()
+    {
+        int[] manaAmountArray = playerController.ManaAmountArray;
+
+        int overallCount = 0;
+
+        for(int m = 0; m < manaAmountArray.Length; m++)
+        {
+            for (int i = 0; i < manaAmountArray[m]; i++)
+            {
+                manaIcons[overallCount].color = manaColors[m];
+                overallCount++;
+            }
         }
     }
 
