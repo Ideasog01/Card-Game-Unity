@@ -1,11 +1,19 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
-    private SpriteRenderer creatureRenderer;
+    private GameObject creatureUI;
+
+    private Image _creatureImage;
+
+    private TextMeshProUGUI _creatureAttackText;
+
+    private TextMeshProUGUI _creatureHealthText;
 
     private SpriteRenderer _slotRenderer;
 
@@ -44,7 +52,8 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private void Awake()
     {
         _slotRenderer = this.GetComponent<SpriteRenderer>();
-        creatureRenderer.enabled = false;
+        AssignCreatureUI();
+        creatureUI.SetActive(false);
     }
 
     public void AddMana(Card card)
@@ -57,8 +66,11 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void AddCreature(Card creatureCard)
     {
         _creatureCard = creatureCard;
-        creatureRenderer.enabled = true;
-        creatureRenderer.sprite = _creatureCard.CardBattlefieldArt;
+
+        creatureUI.SetActive(true);
+        _creatureImage.sprite = _creatureCard.CardArt;
+        _creatureAttackText.text = _creatureCard.CreatureAttack.ToString();
+        _creatureHealthText.text = _creatureCard.CreatureHealth.ToString();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -70,5 +82,12 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
         PlayerController.selectedSlot = null;
+    }
+
+    private void AssignCreatureUI()
+    {
+        _creatureImage = creatureUI.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+        _creatureAttackText = creatureUI.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        _creatureHealthText = creatureUI.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 }
