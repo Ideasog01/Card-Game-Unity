@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
-  m_Name: Wisp Wood
+  m_Name: Wisp
   m_EditorClassIdentifier: 
-  _cardName: 
-  _cardDescription: 
+  _cardName: Wisp
+  _cardDescription: A wisp.
   _cardType: 1
-  _cardArt: {fileID: 0}
+  _cardArt: {fileID: 21300000, guid: eeebbac7d0ddafe4c8180382f2323fca, type: 3}
+  _cardBattlefieldArt: {fileID: 21300000, guid: a1a48368a30771549bd59eb827d69288, type: 3}
   _cardTags: []
-  _manaCost: 0
+  _manaCost: 2
   _manaType: 0
   _manaGain: 0
-  _creatureAttack: 0
-  _creatureHealth: 0
+  _creatureAttack: 1
+  _creatureHealth: 1
   _creatureReach: 0
   creatureEffects: 

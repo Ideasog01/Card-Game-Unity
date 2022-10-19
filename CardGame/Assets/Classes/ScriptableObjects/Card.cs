@@ -25,6 +25,9 @@ public class Card : ScriptableObject
     private Sprite _cardArt;
 
     [SerializeField]
+    private Sprite _cardBattlefieldArt;
+
+    [SerializeField]
     private string[] _cardTags;
 
     [Header("Mana")]
@@ -72,6 +75,12 @@ public class Card : ScriptableObject
     {
         get { return _cardArt; }
         set { _cardArt = value; }
+    }
+
+    public Sprite CardBattlefieldArt
+    {
+        get { return _cardBattlefieldArt; }
+        set { _cardBattlefieldArt = value; }
     }
 
     public string[] CardTags

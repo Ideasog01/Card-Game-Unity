@@ -143,15 +143,46 @@ public class PlayerController : MonoBehaviour
             switch (card.Object_cardType)
             {
                 case Card.CardType.Mana:
-                    selectedSlot.AddMana(card);
-                    AddManaToCounter(card.ObjectManaType, card.ManaGain);
-                    _cardDisplayManager.DisplayMana();
+                    if(selectedSlot.ManaCard == null)
+                    {
+                        selectedSlot.AddMana(card);
+                        AddManaToCounter(card.ObjectManaType, card.ManaGain);
+                        OnCardPlayed();
+                    }
+                    break;
+                case Card.CardType.Creature:
+                    if (selectedSlot.ManaCard != null)
+                    {
+                        if (selectedSlot.CreatureCard == null)
+                        {
+                            if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                            {
+                                selectedSlot.AddCreature(card);
+                                OnCardPlayed();
+                            }
+                        }
+                    }
                     break;
             }
-
-            RemoveCard(cardSelected.AssignedCard);
-            cardSelected = null;
-            Debug.Log("CARD PLAYED");
         }
+    }
+
+    private void OnCardPlayed()
+    {
+        RemoveCard(cardSelected.AssignedCard);
+        _cardDisplayManager.DisplayMana();
+        cardSelected = null;
+        Debug.Log("CARD PLAYED");
+    }
+
+    private bool HasMana(int amount, int manaIndex)
+    {
+        if(manaAmountArray[manaIndex] >= amount)
+        {
+            manaAmountArray[manaIndex] -= amount;
+            return true;
+        }
+
+        return false;
     }
 }

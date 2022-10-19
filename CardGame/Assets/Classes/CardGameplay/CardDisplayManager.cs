@@ -44,18 +44,23 @@ public class CardDisplayManager : MonoBehaviour
 
     public void DisplayMana()
     {
-        int[] manaAmountArray = playerController.ManaAmountArray;
-
         int overallCount = 0;
 
-        for(int m = 0; m < manaAmountArray.Length; m++)
+        foreach(Image image in manaIcons)
         {
-            for (int i = 0; i < manaAmountArray[m]; i++)
+            image.color = disabledManaColor;
+        }
+
+        for(int m = 0; m < playerController.ManaAmountArray.Length; m++)
+        {
+            for (int i = 0; i < playerController.ManaAmountArray[m]; i++)
             {
                 manaIcons[overallCount].color = manaColors[m];
                 overallCount++;
             }
         }
+
+        Debug.Log("Mana Displayed");
     }
 
     public void DisplayCardSelectData(Card card)
