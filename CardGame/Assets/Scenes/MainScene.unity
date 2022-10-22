@@ -25421,7 +25421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1725062582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30224,8 +30224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1860758814}
-  addTestCreature: {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  testManaCard: {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &2016104983
 SpriteRenderer:
   m_ObjectHideFlags: 0
