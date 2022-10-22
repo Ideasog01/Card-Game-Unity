@@ -357,6 +357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1323102934}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!61 &40776219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -392,7 +394,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45929321}
-  m_Layer: 0
+  - component: {fileID: 45929322}
+  m_Layer: 2
   m_Name: Creature (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,6 +424,18 @@ RectTransform:
   m_AnchoredPosition: {x: -2.4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &45929322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45929320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &47416507
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +658,7 @@ GameObject:
   - component: {fileID: 66269224}
   - component: {fileID: 66269226}
   - component: {fileID: 66269225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +904,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 68697339}
-  m_Layer: 0
+  - component: {fileID: 68697340}
+  m_Layer: 2
   m_Name: Creature (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,6 +934,18 @@ RectTransform:
   m_AnchoredPosition: {x: 2.4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &68697340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68697338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &74166373
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +957,7 @@ GameObject:
   - component: {fileID: 74166374}
   - component: {fileID: 74166376}
   - component: {fileID: 74166375}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1034,7 @@ GameObject:
   - component: {fileID: 74980134}
   - component: {fileID: 74980133}
   - component: {fileID: 74980132}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1331,7 @@ GameObject:
   - component: {fileID: 92036969}
   - component: {fileID: 92036971}
   - component: {fileID: 92036970}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,7 +1408,7 @@ GameObject:
   - component: {fileID: 114598893}
   - component: {fileID: 114598892}
   - component: {fileID: 114598891}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1471,7 +1499,7 @@ GameObject:
   - component: {fileID: 135735534}
   - component: {fileID: 135735533}
   - component: {fileID: 135735535}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1724,7 @@ GameObject:
   - component: {fileID: 152747054}
   - component: {fileID: 152747056}
   - component: {fileID: 152747055}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1831,7 +1859,7 @@ GameObject:
   - component: {fileID: 155718275}
   - component: {fileID: 155718277}
   - component: {fileID: 155718276}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1939,7 @@ GameObject:
   - component: {fileID: 164226342}
   - component: {fileID: 164226341}
   - component: {fileID: 164226340}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2049,7 +2077,7 @@ GameObject:
   - component: {fileID: 173773339}
   - component: {fileID: 173773341}
   - component: {fileID: 173773340}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,7 +2157,7 @@ GameObject:
   - component: {fileID: 174429903}
   - component: {fileID: 174429902}
   - component: {fileID: 174429901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2509,7 +2537,7 @@ GameObject:
   - component: {fileID: 190019677}
   - component: {fileID: 190019679}
   - component: {fileID: 190019678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2905,6 +2933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 351899836}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &239084978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3448,7 +3478,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 261711049}
-  m_Layer: 0
+  - component: {fileID: 261711050}
+  m_Layer: 2
   m_Name: Creature (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3477,6 +3508,18 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &261711050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261711048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &277263474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3835,7 +3878,7 @@ GameObject:
   - component: {fileID: 308688299}
   - component: {fileID: 308688301}
   - component: {fileID: 308688300}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3970,7 +4013,7 @@ GameObject:
   - component: {fileID: 311589946}
   - component: {fileID: 311589948}
   - component: {fileID: 311589947}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4103,7 +4146,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317137594}
-  m_Layer: 0
+  - component: {fileID: 317137595}
+  m_Layer: 2
   m_Name: Creature (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4132,6 +4176,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.8, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &317137595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317137593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &321074375
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,7 +4199,7 @@ GameObject:
   - component: {fileID: 321074376}
   - component: {fileID: 321074378}
   - component: {fileID: 321074377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4431,7 +4487,7 @@ GameObject:
   - component: {fileID: 345585086}
   - component: {fileID: 345585088}
   - component: {fileID: 345585087}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4508,7 +4564,7 @@ GameObject:
   - component: {fileID: 350549605}
   - component: {fileID: 350549604}
   - component: {fileID: 350549603}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4596,7 +4652,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351899837}
-  m_Layer: 0
+  - component: {fileID: 351899838}
+  m_Layer: 2
   m_Name: Creature (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4625,6 +4682,18 @@ RectTransform:
   m_AnchoredPosition: {x: 2.4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &351899838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351899836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &362926809
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,7 +4705,7 @@ GameObject:
   - component: {fileID: 362926810}
   - component: {fileID: 362926812}
   - component: {fileID: 362926811}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5059,7 +5128,7 @@ GameObject:
   - component: {fileID: 375511631}
   - component: {fileID: 375511633}
   - component: {fileID: 375511632}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5396,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389146771}
-  m_Layer: 0
+  - component: {fileID: 389146772}
+  m_Layer: 2
   m_Name: Creature (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5356,6 +5426,18 @@ RectTransform:
   m_AnchoredPosition: {x: -4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &389146772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389146770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &391370453
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,7 +5585,7 @@ GameObject:
   - component: {fileID: 397570014}
   - component: {fileID: 397570013}
   - component: {fileID: 397570012}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5671,7 +5753,6 @@ GameObject:
   - component: {fileID: 402306259}
   - component: {fileID: 402306262}
   - component: {fileID: 402306261}
-  - component: {fileID: 402306260}
   m_Layer: 0
   m_Name: CreatureWorldCanvas
   m_TagString: Untagged
@@ -5701,23 +5782,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 14, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &402306260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402306258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &402306261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6737,7 +6801,7 @@ GameObject:
   - component: {fileID: 443796802}
   - component: {fileID: 443796804}
   - component: {fileID: 443796803}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7081,7 +7145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 471415254}
-  m_Layer: 0
+  - component: {fileID: 471415255}
+  m_Layer: 2
   m_Name: Creature (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7110,6 +7175,18 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &471415255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471415253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477822962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7121,7 +7198,7 @@ GameObject:
   - component: {fileID: 477822963}
   - component: {fileID: 477822965}
   - component: {fileID: 477822964}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7486,7 +7563,7 @@ GameObject:
   - component: {fileID: 498056634}
   - component: {fileID: 498056636}
   - component: {fileID: 498056635}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7683,6 +7760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 68697338}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &500890024
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8030,7 +8109,7 @@ GameObject:
   - component: {fileID: 533671269}
   - component: {fileID: 533671271}
   - component: {fileID: 533671270}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8182,7 +8261,7 @@ GameObject:
   - component: {fileID: 562208378}
   - component: {fileID: 562208380}
   - component: {fileID: 562208379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8612,7 +8691,7 @@ GameObject:
   - component: {fileID: 594632240}
   - component: {fileID: 594632242}
   - component: {fileID: 594632241}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8689,7 +8768,7 @@ GameObject:
   - component: {fileID: 604634553}
   - component: {fileID: 604634552}
   - component: {fileID: 604634551}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8780,7 +8859,7 @@ GameObject:
   - component: {fileID: 609710210}
   - component: {fileID: 609710209}
   - component: {fileID: 609710208}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8870,7 +8949,7 @@ GameObject:
   - component: {fileID: 625891396}
   - component: {fileID: 625891398}
   - component: {fileID: 625891397}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9005,7 +9084,7 @@ GameObject:
   - component: {fileID: 631198052}
   - component: {fileID: 631198054}
   - component: {fileID: 631198053}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9081,7 +9160,7 @@ GameObject:
   - component: {fileID: 637218440}
   - component: {fileID: 637218442}
   - component: {fileID: 637218441}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9427,7 +9506,7 @@ GameObject:
   - component: {fileID: 661729793}
   - component: {fileID: 661729795}
   - component: {fileID: 661729794}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9701,7 +9780,7 @@ GameObject:
   - component: {fileID: 682437463}
   - component: {fileID: 682437462}
   - component: {fileID: 682437461}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9943,7 +10022,7 @@ GameObject:
   - component: {fileID: 687083360}
   - component: {fileID: 687083362}
   - component: {fileID: 687083361}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10682,7 +10761,7 @@ GameObject:
   - component: {fileID: 745239939}
   - component: {fileID: 745239941}
   - component: {fileID: 745239940}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10761,7 +10840,7 @@ GameObject:
   - component: {fileID: 763183745}
   - component: {fileID: 763183747}
   - component: {fileID: 763183746}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11053,7 +11132,7 @@ GameObject:
   - component: {fileID: 796407009}
   - component: {fileID: 796407011}
   - component: {fileID: 796407010}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11191,6 +11270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 317137593}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &815516747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11466,7 +11547,7 @@ GameObject:
   - component: {fileID: 874241878}
   - component: {fileID: 874241880}
   - component: {fileID: 874241879}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11601,7 +11682,7 @@ GameObject:
   - component: {fileID: 880445297}
   - component: {fileID: 880445299}
   - component: {fileID: 880445298}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11891,7 +11972,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900352764}
-  m_Layer: 0
+  - component: {fileID: 900352765}
+  m_Layer: 2
   m_Name: Creature (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11920,6 +12002,18 @@ RectTransform:
   m_AnchoredPosition: {x: 5.6, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &900352765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900352763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908943796
 GameObject:
   m_ObjectHideFlags: 0
@@ -11931,7 +12025,7 @@ GameObject:
   - component: {fileID: 908943797}
   - component: {fileID: 908943799}
   - component: {fileID: 908943798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12146,7 +12240,7 @@ GameObject:
   - component: {fileID: 910800297}
   - component: {fileID: 910800296}
   - component: {fileID: 910800295}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12448,7 +12542,7 @@ GameObject:
   - component: {fileID: 962685407}
   - component: {fileID: 962685409}
   - component: {fileID: 962685408}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13064,7 +13158,7 @@ GameObject:
   - component: {fileID: 986556088}
   - component: {fileID: 986556090}
   - component: {fileID: 986556089}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13199,7 +13293,7 @@ GameObject:
   - component: {fileID: 998671934}
   - component: {fileID: 998671936}
   - component: {fileID: 998671935}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13830,7 +13924,7 @@ GameObject:
   - component: {fileID: 1040564876}
   - component: {fileID: 1040564878}
   - component: {fileID: 1040564877}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14190,7 +14284,7 @@ GameObject:
   - component: {fileID: 1049908354}
   - component: {fileID: 1049908356}
   - component: {fileID: 1049908355}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14489,6 +14583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 900352763}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1100082214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14552,7 +14648,7 @@ GameObject:
   - component: {fileID: 1109168614}
   - component: {fileID: 1109168616}
   - component: {fileID: 1109168615}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14687,7 +14783,7 @@ GameObject:
   - component: {fileID: 1111903914}
   - component: {fileID: 1111903916}
   - component: {fileID: 1111903915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14842,7 +14938,7 @@ GameObject:
   - component: {fileID: 1121623004}
   - component: {fileID: 1121623006}
   - component: {fileID: 1121623005}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14916,7 +15012,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128027111}
-  m_Layer: 0
+  - component: {fileID: 1128027112}
+  m_Layer: 2
   m_Name: Creature (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14945,6 +15042,18 @@ RectTransform:
   m_AnchoredPosition: {x: -2.4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1128027112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128027110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129402740
 GameObject:
   m_ObjectHideFlags: 0
@@ -15018,6 +15127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 261711048}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1129402744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15292,7 +15403,7 @@ GameObject:
   - component: {fileID: 1144946233}
   - component: {fileID: 1144946235}
   - component: {fileID: 1144946234}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15448,7 +15559,7 @@ GameObject:
   - component: {fileID: 1167259902}
   - component: {fileID: 1167259904}
   - component: {fileID: 1167259903}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15524,7 +15635,7 @@ GameObject:
   - component: {fileID: 1175532817}
   - component: {fileID: 1175532819}
   - component: {fileID: 1175532818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15660,7 +15771,7 @@ GameObject:
   - component: {fileID: 1187467016}
   - component: {fileID: 1187467015}
   - component: {fileID: 1187467014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16031,6 +16142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1642192355}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1203877096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16156,6 +16269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1921375173}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1215022468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16368,7 +16483,7 @@ GameObject:
   - component: {fileID: 1235400313}
   - component: {fileID: 1235400315}
   - component: {fileID: 1235400314}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16623,7 +16738,7 @@ GameObject:
   - component: {fileID: 1260770840}
   - component: {fileID: 1260770842}
   - component: {fileID: 1260770841}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16697,7 +16812,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278962153}
-  m_Layer: 0
+  - component: {fileID: 1278962154}
+  m_Layer: 2
   m_Name: Creature (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16726,6 +16842,18 @@ RectTransform:
   m_AnchoredPosition: {x: 5.6, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1278962154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278962152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283140376
 GameObject:
   m_ObjectHideFlags: 0
@@ -16872,7 +17000,7 @@ GameObject:
   - component: {fileID: 1294485460}
   - component: {fileID: 1294485462}
   - component: {fileID: 1294485461}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17282,6 +17410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1344318846}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1304373319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17484,6 +17614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 45929320}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1311169451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17894,7 +18026,7 @@ GameObject:
   - component: {fileID: 1322608191}
   - component: {fileID: 1322608193}
   - component: {fileID: 1322608192}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17968,7 +18100,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323102935}
-  m_Layer: 0
+  - component: {fileID: 1323102936}
+  m_Layer: 2
   m_Name: Creature (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17997,6 +18130,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.8, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1323102936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323102934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323540808
 GameObject:
   m_ObjectHideFlags: 0
@@ -18278,7 +18423,7 @@ GameObject:
   - component: {fileID: 1337764058}
   - component: {fileID: 1337764060}
   - component: {fileID: 1337764059}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18411,7 +18556,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344318847}
-  m_Layer: 0
+  - component: {fileID: 1344318848}
+  m_Layer: 2
   m_Name: Creature (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18440,6 +18586,18 @@ RectTransform:
   m_AnchoredPosition: {x: -5.6, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1344318848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344318846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1356068468
 GameObject:
   m_ObjectHideFlags: 0
@@ -18586,7 +18744,7 @@ GameObject:
   - component: {fileID: 1362560232}
   - component: {fileID: 1362560234}
   - component: {fileID: 1362560233}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18721,7 +18879,7 @@ GameObject:
   - component: {fileID: 1368025735}
   - component: {fileID: 1368025737}
   - component: {fileID: 1368025736}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19280,7 +19438,7 @@ GameObject:
   - component: {fileID: 1385071083}
   - component: {fileID: 1385071085}
   - component: {fileID: 1385071084}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19359,7 +19517,7 @@ GameObject:
   - component: {fileID: 1391386387}
   - component: {fileID: 1391386389}
   - component: {fileID: 1391386388}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19495,7 +19653,7 @@ GameObject:
   - component: {fileID: 1395686639}
   - component: {fileID: 1395686638}
   - component: {fileID: 1395686637}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19647,6 +19805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 389146770}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1395919652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19710,7 +19870,7 @@ GameObject:
   - component: {fileID: 1398269922}
   - component: {fileID: 1398269924}
   - component: {fileID: 1398269923}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20082,7 +20242,7 @@ GameObject:
   - component: {fileID: 1427168892}
   - component: {fileID: 1427168894}
   - component: {fileID: 1427168893}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20158,7 +20318,7 @@ GameObject:
   - component: {fileID: 1435175482}
   - component: {fileID: 1435175484}
   - component: {fileID: 1435175483}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20504,7 +20664,7 @@ GameObject:
   - component: {fileID: 1437961570}
   - component: {fileID: 1437961572}
   - component: {fileID: 1437961571}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20640,7 +20800,7 @@ GameObject:
   - component: {fileID: 1454868562}
   - component: {fileID: 1454868561}
   - component: {fileID: 1454868560}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21003,6 +21163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1783078987}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1467357299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21066,7 +21228,7 @@ GameObject:
   - component: {fileID: 1470034891}
   - component: {fileID: 1470034893}
   - component: {fileID: 1470034892}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21145,7 +21307,7 @@ GameObject:
   - component: {fileID: 1471946309}
   - component: {fileID: 1471946311}
   - component: {fileID: 1471946310}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21297,7 +21459,7 @@ GameObject:
   - component: {fileID: 1473741909}
   - component: {fileID: 1473741911}
   - component: {fileID: 1473741910}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21516,7 +21678,7 @@ GameObject:
   - component: {fileID: 1486204187}
   - component: {fileID: 1486204189}
   - component: {fileID: 1486204188}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21806,7 +21968,7 @@ GameObject:
   - component: {fileID: 1491074288}
   - component: {fileID: 1491074290}
   - component: {fileID: 1491074289}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22193,7 +22355,7 @@ GameObject:
   - component: {fileID: 1544775960}
   - component: {fileID: 1544775962}
   - component: {fileID: 1544775961}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22539,7 +22701,7 @@ GameObject:
   - component: {fileID: 1557784835}
   - component: {fileID: 1557784837}
   - component: {fileID: 1557784836}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22692,7 +22854,7 @@ GameObject:
   - component: {fileID: 1572375899}
   - component: {fileID: 1572375901}
   - component: {fileID: 1572375900}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23131,7 +23293,7 @@ GameObject:
   - component: {fileID: 1582380499}
   - component: {fileID: 1582380501}
   - component: {fileID: 1582380500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23266,7 +23428,7 @@ GameObject:
   - component: {fileID: 1583002875}
   - component: {fileID: 1583002877}
   - component: {fileID: 1583002876}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23956,7 +24118,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627574269
 GameObject:
@@ -24237,7 +24399,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642192356}
-  m_Layer: 0
+  - component: {fileID: 1642192357}
+  m_Layer: 2
   m_Name: Creature (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24266,6 +24429,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.8, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1642192357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642192355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644444815
 GameObject:
   m_ObjectHideFlags: 0
@@ -24806,7 +24981,7 @@ GameObject:
   - component: {fileID: 1688875677}
   - component: {fileID: 1688875679}
   - component: {fileID: 1688875678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24944,6 +25119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 471415253}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1700396367
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25228,6 +25405,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717569295}
   m_CullTransparentMesh: 1
+--- !u!1 &1725062580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725062583}
+  - component: {fileID: 1725062582}
+  m_Layer: 0
+  m_Name: Player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1725062582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725062580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d6da38cfbc02f4db0afe1b9ecf3276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedCreature: {fileID: 0}
+  manaAmountArray: 0000000000000000000000000000000000000000
+  playerHealth: 30
+  cardSelectDisplay: {fileID: 67295243}
+  playerCards:
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  playerHand:
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+--- !u!4 &1725062583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725062580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733814329
 GameObject:
   m_ObjectHideFlags: 0
@@ -25698,8 +25957,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1923986013}
-        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+      - m_Target: {fileID: 1923986015}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
         m_MethodName: OnEndPlayerTurn
         m_Mode: 1
         m_Arguments:
@@ -26469,7 +26728,7 @@ GameObject:
   - component: {fileID: 1779910979}
   - component: {fileID: 1779910978}
   - component: {fileID: 1779910977}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26578,44 +26837,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d6da38cfbc02f4db0afe1b9ecf3276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedCreature: {fileID: 0}
   manaAmountArray: 0000000000000000000000000000000000000000
   playerHealth: 30
   cardSelectDisplay: {fileID: 67295243}
   playerCards:
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
   playerHand:
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 39e54c6b2636500458841ea65cb53e5f, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
 --- !u!4 &1781239520
 Transform:
   m_ObjectHideFlags: 0
@@ -26685,7 +26945,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1783078988}
-  m_Layer: 0
+  - component: {fileID: 1783078989}
+  m_Layer: 2
   m_Name: Creature (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26714,6 +26975,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.8, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1783078989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783078987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1785632529
 GameObject:
   m_ObjectHideFlags: 0
@@ -26725,7 +26998,7 @@ GameObject:
   - component: {fileID: 1785632530}
   - component: {fileID: 1785632532}
   - component: {fileID: 1785632531}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26877,7 +27150,7 @@ GameObject:
   - component: {fileID: 1789260362}
   - component: {fileID: 1789260364}
   - component: {fileID: 1789260363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27436,7 +27709,7 @@ GameObject:
   - component: {fileID: 1813762823}
   - component: {fileID: 1813762825}
   - component: {fileID: 1813762824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27668,7 +27941,7 @@ GameObject:
   - component: {fileID: 1816118555}
   - component: {fileID: 1816118557}
   - component: {fileID: 1816118556}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27747,7 +28020,7 @@ GameObject:
   - component: {fileID: 1834842888}
   - component: {fileID: 1834842890}
   - component: {fileID: 1834842889}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27880,7 +28153,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860758815}
-  m_Layer: 0
+  - component: {fileID: 1860758816}
+  m_Layer: 2
   m_Name: Creature (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27909,6 +28183,18 @@ RectTransform:
   m_AnchoredPosition: {x: -5.6, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1860758816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860758814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871358658
 GameObject:
   m_ObjectHideFlags: 0
@@ -27920,7 +28206,7 @@ GameObject:
   - component: {fileID: 1871358659}
   - component: {fileID: 1871358661}
   - component: {fileID: 1871358660}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27996,7 +28282,7 @@ GameObject:
   - component: {fileID: 1886180282}
   - component: {fileID: 1886180284}
   - component: {fileID: 1886180283}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28131,7 +28417,7 @@ GameObject:
   - component: {fileID: 1887337332}
   - component: {fileID: 1887337334}
   - component: {fileID: 1887337333}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28571,7 +28857,7 @@ GameObject:
   - component: {fileID: 1912317932}
   - component: {fileID: 1912317934}
   - component: {fileID: 1912317933}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28682,7 +28968,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921375174}
-  m_Layer: 0
+  - component: {fileID: 1921375175}
+  m_Layer: 2
   m_Name: Creature (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28711,6 +28998,18 @@ RectTransform:
   m_AnchoredPosition: {x: -4, y: 1.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1921375175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921375173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922441643
 GameObject:
   m_ObjectHideFlags: 0
@@ -28722,7 +29021,7 @@ GameObject:
   - component: {fileID: 1922441644}
   - component: {fileID: 1922441646}
   - component: {fileID: 1922441645}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28855,27 +29154,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923986014}
-  - component: {fileID: 1923986013}
+  - component: {fileID: 1923986015}
+  - component: {fileID: 1923986016}
   m_Layer: 0
-  m_Name: GameManager //Server
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1923986013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923986012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d04df39cf07d53c4490abf8ffdb24158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activePlayers: []
 --- !u!4 &1923986014
 Transform:
   m_ObjectHideFlags: 0
@@ -28891,6 +29178,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923986015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923986012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde9d49c91be50f41b69447aa8182684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activePlayers: []
+  creatureControllerList: []
+--- !u!114 &1923986016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923986012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb914f53a430224e9536e3a4194f702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929929071
 GameObject:
   m_ObjectHideFlags: 0
@@ -28964,6 +29277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1278962152}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &1929929075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29027,7 +29342,7 @@ GameObject:
   - component: {fileID: 1938575135}
   - component: {fileID: 1938575137}
   - component: {fileID: 1938575136}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29644,7 +29959,7 @@ GameObject:
   - component: {fileID: 1995991578}
   - component: {fileID: 1995991577}
   - component: {fileID: 1995991576}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ImageMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29909,6 +30224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1860758814}
+  addTestCreature: {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  testManaCard: {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
 --- !u!212 &2016104983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30107,7 +30424,7 @@ GameObject:
   - component: {fileID: 2024781547}
   - component: {fileID: 2024781549}
   - component: {fileID: 2024781548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30517,6 +30834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1128027110}
+  addTestCreature: {fileID: 0}
+  testManaCard: {fileID: 0}
 --- !u!212 &2035454216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30580,7 +30899,7 @@ GameObject:
   - component: {fileID: 2055098024}
   - component: {fileID: 2055098026}
   - component: {fileID: 2055098025}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BattlefieldBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30808,7 +31127,7 @@ GameObject:
   - component: {fileID: 2083299632}
   - component: {fileID: 2083299634}
   - component: {fileID: 2083299633}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreatureContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31154,7 +31473,7 @@ GameObject:
   - component: {fileID: 2116839108}
   - component: {fileID: 2116839110}
   - component: {fileID: 2116839109}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public static CardController cardSelected;
 
     [SerializeField]
+    private CreatureController selectedCreature;
+
+    [SerializeField]
     private int[] manaAmountArray;
 
     [SerializeField]
@@ -27,6 +30,10 @@ public class PlayerController : MonoBehaviour
     private int _fatigueAmount = 1;
 
     private CardDisplayManager _cardDisplayManager;
+
+    private GameplayManager _gameplayManager;
+
+    private SpellManager _spellManager;
 
     public List<Card> PlayerHand
     {
@@ -46,6 +53,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _cardDisplayManager = this.GetComponent<CardDisplayManager>();
+        _gameplayManager = GameObject.Find("GameManager").GetComponent<GameplayManager>();
+        _spellManager = GameObject.Find("GameManager").GetComponent<SpellManager>();
     }
 
     private void Start()
@@ -56,27 +65,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (cardSelected != null)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                cardSelectDisplay.SetActive(true);
-                cardSelected.gameObject.SetActive(false);
-            }
-
-            if (cardSelectDisplay.activeSelf)
-            {
-                cardSelectDisplay.transform.position = Input.mousePosition;
-
-                if (Input.GetMouseButtonUp(0))
-                {
-                    cardSelectDisplay.SetActive(false);
-                    cardSelected.gameObject.SetActive(true);
-
-                    StartCoroutine(PlayCard(cardSelected.AssignedCard));
-                }
-            }
-        }
+        HandCardSelect();
+        SelectCreature();
     }
 
     public void SelectCard(CardController selectedCard)
@@ -129,6 +119,75 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SelectCreature()
+    {
+        if(selectedSlot != null)
+        {
+            if(selectedSlot.CreatureCard != null)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    CreatureController creature = selectedSlot.AssignedCreatureController;
+
+                    if(selectedCreature == null) //Player has not selected creature
+                    {
+                        if (creature.AssignedPlayer == this) //If the creature belongs to the player
+                        {
+                            selectedCreature = creature;
+                            Debug.Log("CREATURE SELECT!");
+                        }
+                        else
+                        {
+                            Debug.Log("CREATURE DOES NOT BELONG TO PLAYER");
+                        }
+                    }
+                    else //Player has selected creature
+                    {
+                        if (creature.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
+                        {
+                            selectedCreature.FightCreature(creature);
+                            selectedCreature = null;
+                            Debug.Log("CREATURE FIGHT!");
+                        }
+                        else
+                        {
+                            Debug.Log("CREATURE BELONGS TO PLAYER");
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("SELECTED SLOT IS NULL");
+        }
+    }
+
+    private void HandCardSelect()
+    {
+        if (cardSelected != null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                cardSelectDisplay.SetActive(true);
+                cardSelected.gameObject.SetActive(false);
+            }
+
+            if (cardSelectDisplay.activeSelf)
+            {
+                cardSelectDisplay.transform.position = Input.mousePosition;
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    cardSelectDisplay.SetActive(false);
+                    cardSelected.gameObject.SetActive(true);
+
+                    StartCoroutine(PlayCard(cardSelected.AssignedCard));
+                }
+            }
+        }
+    }
+
     private void AddManaToCounter(Card.ManaType manaType, int amount)
     {
         manaAmountArray[(int)manaType] += amount;
@@ -157,10 +216,17 @@ public class PlayerController : MonoBehaviour
                         {
                             if (HasMana(card.ManaCost, (int)card.ObjectManaType))
                             {
-                                selectedSlot.AddCreature(card);
+                                selectedSlot.AddCreature(card, this);
                                 OnCardPlayed();
                             }
                         }
+                    }
+                    break;
+                case Card.CardType.Spell:
+                    if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                    {
+                        _spellManager.CastSpell(card, selectedSlot);
+                        OnCardPlayed();
                     }
                     break;
             }

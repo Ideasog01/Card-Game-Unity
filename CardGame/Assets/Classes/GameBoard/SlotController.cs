@@ -9,6 +9,14 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField]
     private GameObject creatureUI;
 
+    [SerializeField]
+    private Card addTestCreature;
+
+    [SerializeField]
+    private Card testManaCard;
+
+    private CreatureController _creatureController;
+
     private Image _creatureImage;
 
     private TextMeshProUGUI _creatureAttackText;
@@ -35,6 +43,7 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public Card CreatureCard
     {
         get { return _creatureCard; }
+        set { _creatureCard = value; }
     }
 
     public Card StructureCard
@@ -47,13 +56,28 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         get { return _enchantmentCard; }
     }
 
+    public CreatureController AssignedCreatureController
+    {
+        get { return _creatureController; }
+    }
+
     #endregion
 
     private void Awake()
     {
         _slotRenderer = this.GetComponent<SpriteRenderer>();
+        _creatureController = creatureUI.GetComponent<CreatureController>();
         AssignCreatureUI();
         creatureUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        if(addTestCreature != null)
+        {
+            AddMana(testManaCard);
+            AddCreature(addTestCreature, GameObject.Find("Player2").GetComponent<PlayerController>());
+        }
     }
 
     public void AddMana(Card card)
@@ -63,10 +87,10 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Debug.Log("Mana Added");
     }
 
-    public void AddCreature(Card creatureCard)
+    public void AddCreature(Card creatureCard, PlayerController player)
     {
         _creatureCard = creatureCard;
-
+        _creatureController.AssignCreatureProperties(creatureCard, player, this);
         creatureUI.SetActive(true);
         _creatureImage.sprite = _creatureCard.CardArt;
         _creatureAttackText.text = _creatureCard.CreatureAttack.ToString();
@@ -76,7 +100,6 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         PlayerController.selectedSlot = this;
-        Debug.Log("ENTER... THE SLOT");
     }
 
     public void OnPointerExit(PointerEventData eventData)

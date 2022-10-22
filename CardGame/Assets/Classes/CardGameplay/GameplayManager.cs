@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardManager : MonoBehaviour
+public class GameplayManager : MonoBehaviour
 {
     public static int playerIndex;
     public static PlayerController currentPlayer;
     public List<PlayerController> activePlayers = new List<PlayerController>();
+    public List<CreatureController> creatureControllerList = new List<CreatureController>();
 
     private void Start()
     {
-        foreach(PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
+        foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
         {
             activePlayers.Add(player);
         }
@@ -33,7 +34,7 @@ public class CardManager : MonoBehaviour
     {
         playerIndex++;
 
-        if(playerIndex >= activePlayers.Count)
+        if (playerIndex >= activePlayers.Count)
         {
             playerIndex = 0;
         }

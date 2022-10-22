@@ -52,7 +52,10 @@ public class Card : ScriptableObject
     [SerializeField]
     private CardEffect[] creatureEffects;
 
-    //Enchantment
+    [Header("Spell")]
+
+    [SerializeField]
+    private string spellFunction;
 
     #region CardDetails
 
@@ -138,6 +141,14 @@ public class Card : ScriptableObject
 
     #endregion
 
+    #region Spell CardType
+
+    public string SpellFunction
+    {
+        get { return spellFunction; }
+    }
+
+    #endregion
 
 }
 
