@@ -11,7 +11,9 @@ public class SpellManager : MonoBehaviour
         switch(function)
         {
             case "ArcaneMissiles":
+
                 ArcaneMissiles(target.AssignedCreatureController);
+
                 break;
         }
     }

@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public static CardController cardSelected;
 
+    public GameObject cardSelectDisplay;
+
     [SerializeField]
     private CreatureController selectedCreature;
 
@@ -17,9 +19,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private int playerHealth;
-
-    [SerializeField]
-    private GameObject cardSelectDisplay;
 
     [SerializeField]
     private List<Card> playerCards = new List<Card>();
@@ -223,10 +222,13 @@ public class PlayerController : MonoBehaviour
                     }
                     break;
                 case Card.CardType.Spell:
-                    if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                    if(selectedSlot.CreatureCard != null)
                     {
-                        _spellManager.CastSpell(card, selectedSlot);
-                        OnCardPlayed();
+                        if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                        {
+                            _spellManager.CastSpell(card, selectedSlot);
+                            OnCardPlayed();
+                        }
                     }
                     break;
             }
