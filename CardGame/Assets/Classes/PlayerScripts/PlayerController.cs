@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int playerHealth;
 
-    private GameObject _cardSelectDisplay;
+    [SerializeField]
+    private GameObject cardSelectDisplay;
 
     [SerializeField]
     private List<Card> playerCards = new List<Card>();
@@ -51,13 +52,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _cardDisplayManager = GameObject.Find("GameManager").GetComponent<CardDisplayManager>();
+        _cardDisplayManager = this.GetComponent<CardDisplayManager>();
         _gameplayManager = GameObject.Find("GameManager").GetComponent<GameplayManager>();
         _spellManager = GameObject.Find("GameManager").GetComponent<SpellManager>();
-
-        _cardDisplayManager.PlayerJoined(this);
-        _cardSelectDisplay = GameObject.Find("SelectedPlayerCard");
-        _cardSelectDisplay.SetActive(false);
     }
 
     private void Start()
@@ -74,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     public void SelectCard(CardController selectedCard)
     {
-        if (!_cardSelectDisplay.activeSelf)
+        if (!cardSelectDisplay.activeSelf)
         {
             cardSelected = selectedCard;
         }
@@ -172,17 +169,17 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _cardSelectDisplay.SetActive(true);
+                cardSelectDisplay.SetActive(true);
                 cardSelected.gameObject.SetActive(false);
             }
 
-            if (_cardSelectDisplay.activeSelf)
+            if (cardSelectDisplay.activeSelf)
             {
-                _cardSelectDisplay.transform.position = Input.mousePosition;
+                cardSelectDisplay.transform.position = Input.mousePosition;
 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    _cardSelectDisplay.SetActive(false);
+                    cardSelectDisplay.SetActive(false);
                     cardSelected.gameObject.SetActive(true);
 
                     StartCoroutine(PlayCard(cardSelected.AssignedCard));

@@ -3,6 +3,9 @@ using UnityEngine.EventSystems;
 
 public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField]
+    private PlayerController playerController;
+
     private CardDisplayManager _cardDisplayManager;
 
     private Animator _cardAnimator;
@@ -18,7 +21,7 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private void Awake()
     {
         _cardAnimator = this.GetComponent<Animator>();
-        _cardDisplayManager = GameObject.Find("GameManager").GetComponent<CardDisplayManager>();
+        _cardDisplayManager = playerController.GetComponent<CardDisplayManager>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -26,7 +29,7 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if(_assignedCard != null)
         {
             _cardAnimator.SetBool("isHovered", true);
-            _cardDisplayManager.LocalPlayer.SelectCard(this);
+            playerController.SelectCard(this);
             _cardDisplayManager.DisplayCardSelectData(_assignedCard);
         }
         else
@@ -38,6 +41,6 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
         _cardAnimator.SetBool("isHovered", false);
-        _cardDisplayManager.LocalPlayer.SelectCard(null);
+        playerController.SelectCard(null);
     }
 }

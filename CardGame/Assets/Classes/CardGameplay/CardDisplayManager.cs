@@ -7,7 +7,6 @@ using System.Drawing;
 
 public class CardDisplayManager : MonoBehaviour
 {
-
     [SerializeField]
     private List<GameObject> playerCards = new List<GameObject>();
 
@@ -23,21 +22,12 @@ public class CardDisplayManager : MonoBehaviour
     [SerializeField]
     private UnityEngine.Color disabledManaColor;
 
+    [SerializeField]
+    private PlayerController playerController;
+
     private List<CardDisplay> cardDisplayList = new List<CardDisplay>();
 
     private CardDisplay _cardSelectionDisplay;
-
-    private PlayerController _playerController;
-
-    public PlayerController LocalPlayer
-    {
-        get { return _playerController; }
-    }
-
-    public void PlayerJoined(PlayerController player)
-    {
-        _playerController = player;
-    }
 
     private void Awake()
     {
@@ -61,9 +51,9 @@ public class CardDisplayManager : MonoBehaviour
             image.color = disabledManaColor;
         }
 
-        for(int m = 0; m < _playerController.ManaAmountArray.Length; m++)
+        for(int m = 0; m < playerController.ManaAmountArray.Length; m++)
         {
-            for (int i = 0; i < _playerController.ManaAmountArray[m]; i++)
+            for (int i = 0; i < playerController.ManaAmountArray[m]; i++)
             {
                 manaIcons[overallCount].color = manaColors[m];
                 overallCount++;

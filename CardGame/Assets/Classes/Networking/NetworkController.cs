@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class NetworkController : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private GameplayNetworking gameplayNetworking;
-
     private void Start()
     {
         Connect();
@@ -31,12 +28,11 @@ public class NetworkController : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Room Connection Failed");
-        PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = 2 });
+        PhotonNetwork.CreateRoom(null, new RoomOptions{MaxPlayers = 2 });
     }
 
     public override void OnJoinedRoom()
     {
-        gameplayNetworking.InstantiatePlayer();
         Debug.Log("Joined the Room!");
     }
 }

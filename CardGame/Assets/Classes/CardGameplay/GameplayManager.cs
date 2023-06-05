@@ -11,41 +11,41 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        //foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
-        //{
-        //    activePlayers.Add(player);
-        //}
+        foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
+        {
+            activePlayers.Add(player);
+        }
 
-        //OnGameBegin();
+        OnGameBegin();
     }
 
     public void OnGameBegin()
     {
-        //foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
-        //{
-        //    activePlayers.Add(player);
-        //    player.ShuffleHand();
-        //}
+        foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
+        {
+            activePlayers.Add(player);
+            player.ShuffleHand();
+        }
 
-        //OnNewPlayerTurn();
+        OnNewPlayerTurn();
     }
 
     public void OnNewPlayerTurn()
     {
-        //playerIndex++;
+        playerIndex++;
 
-        //if (playerIndex >= activePlayers.Count)
-        //{
-        //    playerIndex = 0;
-        //}
+        if (playerIndex >= activePlayers.Count)
+        {
+            playerIndex = 0;
+        }
 
-        //currentPlayer = activePlayers[playerIndex];
-        //currentPlayer.DrawCard();
+        currentPlayer = activePlayers[playerIndex];
+        currentPlayer.DrawCard();
     }
 
     public void OnEndPlayerTurn()
     {
 
-        //OnNewPlayerTurn();
+        OnNewPlayerTurn();
     }
 }
