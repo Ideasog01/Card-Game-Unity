@@ -7,11 +7,10 @@ using System.Drawing;
 
 public class CardDisplayManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> playerCards = new List<GameObject>();
+    public GameObject cardSelectionObj;
 
     [SerializeField]
-    private GameObject cardSelectionObj;
+    private List<GameObject> playerCards = new List<GameObject>();
 
     [SerializeField]
     private Image[] manaIcons;

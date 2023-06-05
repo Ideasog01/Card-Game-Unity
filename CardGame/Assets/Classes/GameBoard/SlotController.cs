@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SlotController : MonoBehaviour
 {
     [SerializeField]
     private GameObject creatureUI;
@@ -32,6 +32,8 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Card _structureCard;
 
     private Card _enchantmentCard;
+
+    private BoxCollider2D _boxCollider;
 
     #region Properties
 
@@ -61,6 +63,11 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         get { return _creatureController; }
     }
 
+    public BoxCollider2D SlotBox
+    {
+        get { return _boxCollider; }
+    }
+
     #endregion
 
     private void Awake()
@@ -69,6 +76,8 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _creatureController = creatureUI.GetComponent<CreatureController>();
         AssignCreatureUI();
         creatureUI.SetActive(false);
+
+        _boxCollider = this.GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -95,16 +104,6 @@ public class SlotController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _creatureImage.sprite = _creatureCard.CardArt;
         _creatureAttackText.text = _creatureCard.CreatureAttack.ToString();
         _creatureHealthText.text = _creatureCard.CreatureHealth.ToString();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        PlayerController.selectedSlot = this;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        PlayerController.selectedSlot = null;
     }
 
     private void AssignCreatureUI()

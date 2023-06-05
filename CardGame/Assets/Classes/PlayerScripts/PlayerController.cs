@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private int[] manaAmountArray;
 
     [SerializeField]
+    private SlotController[] slotArray;
+
+    [SerializeField]
     private int playerHealth;
 
     [SerializeField]
@@ -66,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         HandCardSelect();
         SelectCreature();
+        CheckSelectSlot();
     }
 
     public void SelectCard(CardController selectedCard)
@@ -194,7 +198,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator PlayCard(Card card)
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.05f);
 
         if (selectedSlot != null)
         {
@@ -252,5 +256,23 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void CheckSelectSlot()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        foreach (SlotController slot in slotArray)
+        {
+            if (slot.SlotBox.bounds.Contains(mousePosition))
+            {
+                selectedSlot = slot;
+                Debug.Log("Slot Assigned");
+            }
+            else if(slot == selectedSlot)
+            {
+                selectedSlot = null;
+            }
+        }
     }
 }

@@ -28,9 +28,12 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if(_assignedCard != null)
         {
-            _cardAnimator.SetBool("isHovered", true);
-            playerController.SelectCard(this);
-            _cardDisplayManager.DisplayCardSelectData(_assignedCard);
+            if(!_cardDisplayManager.cardSelectionObj.activeSelf)
+            {
+                _cardAnimator.SetBool("isHovered", true);
+                playerController.SelectCard(this);
+                _cardDisplayManager.DisplayCardSelectData(_assignedCard);
+            }
         }
         else
         {

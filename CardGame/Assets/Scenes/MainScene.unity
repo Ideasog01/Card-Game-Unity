@@ -11862,7 +11862,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_Spacing: -60
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -27504,6 +27504,23 @@ MonoBehaviour:
   cardSelectDisplay: {fileID: 67295243}
   selectedCreature: {fileID: 0}
   manaAmountArray: 0000000000000000000000000000000000000000
+  slotArray:
+  - {fileID: 2016104982}
+  - {fileID: 1395919651}
+  - {fileID: 2035454215}
+  - {fileID: 815516746}
+  - {fileID: 40776218}
+  - {fileID: 239084977}
+  - {fileID: 1129402743}
+  - {fileID: 1100082213}
+  - {fileID: 1304373318}
+  - {fileID: 1215022467}
+  - {fileID: 1311169450}
+  - {fileID: 1203877095}
+  - {fileID: 1467357298}
+  - {fileID: 500890023}
+  - {fileID: 1700396366}
+  - {fileID: 1929929074}
   playerHealth: 30
   playerCards:
   - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
@@ -27567,6 +27584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44964c1bb772ea488ddc449dc5a5a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardSelectionObj: {fileID: 67295243}
   playerCards:
   - {fileID: 1660324780}
   - {fileID: 741227084}
@@ -27578,7 +27596,6 @@ MonoBehaviour:
   - {fileID: 90011271}
   - {fileID: 1228010267}
   - {fileID: 1041965582}
-  cardSelectionObj: {fileID: 67295243}
   manaIcons:
   - {fileID: 574239133}
   - {fileID: 1461359596}
