@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : EntityController
 {
     public static SlotController selectedSlot;
 
@@ -14,53 +14,21 @@ public class PlayerController : MonoBehaviour
     private CreatureController selectedCreature;
 
     [SerializeField]
-    private int[] manaAmountArray;
-
-    [SerializeField]
     private SlotController[] slotArray;
-
-    [SerializeField]
-    private int playerHealth;
-
-    [SerializeField]
-    private List<Card> playerCards = new List<Card>();
-
-    [SerializeField]
-    private List<Card> playerHand = new List<Card>();
-
-    private int _fatigueAmount = 1;
 
     private CardDisplayManager _cardDisplayManager;
 
-    private GameplayManager _gameplayManager;
-
     private SpellManager _spellManager;
-
-    public List<Card> PlayerHand
-    {
-        get { return playerHand; }
-    }
-
-    public List<Card> PlayerCards
-    {
-        get { return playerCards; }
-    }
-
-    public int[] ManaAmountArray
-    {
-        get { return manaAmountArray; }
-    }
 
     private void Awake()
     {
         _cardDisplayManager = this.GetComponent<CardDisplayManager>();
-        _gameplayManager = GameObject.Find("GameManager").GetComponent<GameplayManager>();
         _spellManager = GameObject.Find("GameManager").GetComponent<SpellManager>();
     }
 
     private void Start()
     {
-        _cardDisplayManager.DisplayCardData(playerHand);
+        _cardDisplayManager.DisplayCardData(PlayerHand);
         _cardDisplayManager.DisplayMana();
     }
 
@@ -109,48 +77,6 @@ public class PlayerController : MonoBehaviour
         if (!cardSelectDisplay.activeSelf)
         {
             cardSelected = selectedCard;
-        }
-    }
-
-    public void DrawCard()
-    {
-        if(playerCards.Count == 0)
-        {
-            //Player Take Damage
-            playerHealth -= _fatigueAmount;
-            _fatigueAmount++;
-            return;
-        }
-
-        Card newCard = playerCards[playerCards.Count - 1];
-
-        if(playerHand.Count < 10)
-        {
-            playerHand.Add(newCard);         
-        }
-        else
-        {
-            //Play Card Destroyed Animation
-        }
-
-        playerCards.RemoveAt(playerCards.Count - 1);
-        _cardDisplayManager.DisplayCardData(playerHand);
-    }
-
-    public void RemoveCard(Card card)
-    {
-        playerHand.Remove(card);
-        _cardDisplayManager.DisplayCardData(playerHand);
-    }
-
-    public void ShuffleHand()
-    {
-        for (int i = 0; i < playerCards.Count; i++)
-        {
-            int rnd = Random.Range(0, playerCards.Count);
-            Card tempCard = playerCards[rnd];
-            playerCards[rnd] = playerCards[i];
-            playerCards[i] = tempCard;
         }
     }
 
@@ -211,11 +137,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void AddManaToCounter(Card.ManaType manaType, int amount)
-    {
-        manaAmountArray[(int)manaType] += amount;
-    }
-
     private IEnumerator PlayCard(Card card)
     {
         yield return new WaitForSeconds(0.05f);
@@ -228,7 +149,7 @@ public class PlayerController : MonoBehaviour
                     if(selectedSlot.ManaCard == null)
                     {
                         selectedSlot.AddMana(card);
-                        AddManaToCounter(card.ObjectManaType, card.ManaGain);
+                        GameUtilities.AddMana(this, (int)card.ObjectManaType, card.ManaGain);
                         OnCardPlayed();
                     }
                     break;
@@ -237,7 +158,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (selectedSlot.CreatureCard == null)
                         {
-                            if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                             {
                                 selectedSlot.AddCreature(card, this);
                                 OnCardPlayed();
@@ -250,7 +171,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (selectedSlot.AssignedCreatureController.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
                         {
-                            if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                             {
                                 _spellManager.CastSpell(card, selectedSlot);
                                 OnCardPlayed();
@@ -270,21 +191,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCardPlayed()
     {
-        RemoveCard(cardSelected.AssignedCard);
+        GameUtilities.RemoveCard(this, cardSelected.AssignedCard);
+
+        _cardDisplayManager.DisplayCardData(PlayerHand);
         _cardDisplayManager.DisplayMana();
+
         cardSelected = null;
         Debug.Log("CARD PLAYED");
-    }
-
-    private bool HasMana(int amount, int manaIndex)
-    {
-        if(manaAmountArray[manaIndex] >= amount)
-        {
-            manaAmountArray[manaIndex] -= amount;
-            return true;
-        }
-
-        return false;
     }
 
     private void CheckSelectSlot()

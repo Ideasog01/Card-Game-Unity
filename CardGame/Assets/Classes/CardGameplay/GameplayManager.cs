@@ -12,9 +12,12 @@ public class GameplayManager : MonoBehaviour
     public List<PlayerController> activePlayers = new List<PlayerController>();
     public List<CreatureController> creatureControllerList = new List<CreatureController>();
 
+    private CardDisplayManager _cardDisplayManager;
+
     private void Awake()
     {
         gameDisplay = this.GetComponent<GameDisplay>();
+        _cardDisplayManager = GameObject.Find("PlayerController").GetComponent<CardDisplayManager>();
     }
 
     private void Start()
@@ -32,7 +35,7 @@ public class GameplayManager : MonoBehaviour
         foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
         {
             activePlayers.Add(player);
-            player.ShuffleHand();
+            GameUtilities.ShuffleHand(player);
         }
 
         OnNewPlayerTurn();
@@ -48,12 +51,13 @@ public class GameplayManager : MonoBehaviour
         }
 
         currentPlayer = activePlayers[playerIndex];
-        currentPlayer.DrawCard();
+        GameUtilities.DrawCard(currentPlayer);
+        _cardDisplayManager.DisplayCardData(currentPlayer.PlayerHand);
+        _cardDisplayManager.DisplayMana();
     }
 
     public void OnEndPlayerTurn()
     {
-
         OnNewPlayerTurn();
     }
 }
