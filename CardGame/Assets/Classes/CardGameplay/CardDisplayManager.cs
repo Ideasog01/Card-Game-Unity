@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Drawing;
 
 public class CardDisplayManager : MonoBehaviour
 {
@@ -41,6 +39,12 @@ public class CardDisplayManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        DisplayCardData();
+        DisplayMana();
+    }
+
     public void DisplayMana()
     {
         int overallCount = 0;
@@ -72,27 +76,26 @@ public class CardDisplayManager : MonoBehaviour
         cardDisplay.HealthText.text = card.CreatureHealth.ToString();
     }
 
-    public void DisplayCardData(List<Card> cardList)
+    public void DisplayCardData()
     {
         for(int i = 0; i < cardDisplayList.Count; i++)
         {
-            if(i < cardList.Count)
+            if(i < GameplayManager.humanPlayer.PlayerHand.Count)
             {
                 cardDisplayList[i].CardObj.SetActive(true);
-                cardDisplayList[i].CardObj.GetComponent<CardController>().AssignedCard = cardList[i];
+                cardDisplayList[i].CardObj.GetComponent<CardController>().AssignedCard = GameplayManager.humanPlayer.PlayerHand[i];
             }
             else
             {
                 cardDisplayList[i].CardObj.SetActive(false);
-                //Debug.Log("CARD DISABLED");
             }
         }
 
         for(int x = 0; x < cardDisplayList.Count; x++)
         {
-            if(x < cardList.Count)
+            if(x < GameplayManager.humanPlayer.PlayerHand.Count)
             {
-                Card card = cardList[x];
+                Card card = GameplayManager.humanPlayer.PlayerHand[x];
                 CardDisplay cardDisplay = cardDisplayList[x];
                 cardDisplay.CardNameText.text = card.CardName;
                 cardDisplay.CardDescriptionText.text = card.CardDescription;
@@ -100,7 +103,8 @@ public class CardDisplayManager : MonoBehaviour
                 cardDisplay.AttackText.text = card.CreatureAttack.ToString();
                 cardDisplay.HealthText.text = card.CreatureHealth.ToString();
                 cardDisplay.CardObj.GetComponent<CardController>().AssignedCard = card;
-                //Change Mana Display
+                
+                //TO DO: Change Mana Display
             }
         }
     }

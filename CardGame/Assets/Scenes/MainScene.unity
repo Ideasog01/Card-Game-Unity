@@ -341,7 +341,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &40776218
@@ -357,8 +357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1323102934}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!61 &40776219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3017,7 +3015,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &239084976
@@ -3059,8 +3057,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 351899836}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &239084978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6017,7 +6013,7 @@ RectTransform:
   - {fileID: 1278962153}
   - {fileID: 2015161260}
   m_Father: {fileID: 1913602146}
-  m_RootOrder: 2
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7942,7 +7938,7 @@ GameObject:
   - component: {fileID: 500890023}
   - component: {fileID: 500890022}
   m_Layer: 3
-  m_Name: Slot (5)
+  m_Name: Slot (13)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7960,8 +7956,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 5
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &500890022
 BoxCollider2D:
@@ -8002,8 +7998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 68697338}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &500890024
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9212,7 +9206,7 @@ Transform:
   - {fileID: 1647307721}
   - {fileID: 73006398}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &625891395
 GameObject:
@@ -11461,7 +11455,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &815516745
@@ -11503,8 +11497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 317137593}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &815516747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15068,7 +15060,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1100082212
@@ -15110,8 +15102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 900352763}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1100082214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15612,7 +15602,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1129402742
@@ -15654,8 +15644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 261711048}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1129402744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16609,7 +16597,7 @@ GameObject:
   - component: {fileID: 1203877095}
   - component: {fileID: 1203877094}
   m_Layer: 3
-  m_Name: Slot (3)
+  m_Name: Slot (11)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16627,8 +16615,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 3
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1203877094
 BoxCollider2D:
@@ -16669,8 +16657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1642192355}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1203877096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16736,7 +16722,7 @@ GameObject:
   - component: {fileID: 1215022467}
   - component: {fileID: 1215022466}
   m_Layer: 3
-  m_Name: Slot (1)
+  m_Name: Slot (9)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16754,8 +16740,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 1
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1215022466
 BoxCollider2D:
@@ -16796,8 +16782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1921375173}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1215022468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17834,7 +17818,7 @@ GameObject:
   - component: {fileID: 1304373318}
   - component: {fileID: 1304373317}
   m_Layer: 3
-  m_Name: Slot (0)
+  m_Name: Slot (8)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17852,8 +17836,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 0
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1304373317
 BoxCollider2D:
@@ -17894,8 +17878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1344318846}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1304373319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18038,7 +18020,7 @@ GameObject:
   - component: {fileID: 1311169450}
   - component: {fileID: 1311169449}
   m_Layer: 3
-  m_Name: Slot (2)
+  m_Name: Slot (10)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18056,8 +18038,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 2
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1311169449
 BoxCollider2D:
@@ -18098,8 +18080,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 45929320}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1311169451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19873,45 +19853,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1781239519}
---- !u!1 &1383572312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1383572313}
-  m_Layer: 0
-  m_Name: TopSlots
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1383572313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383572312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2016104980}
-  - {fileID: 1395919649}
-  - {fileID: 2035454213}
-  - {fileID: 815516744}
-  - {fileID: 40776217}
-  - {fileID: 239084975}
-  - {fileID: 1129402741}
-  - {fileID: 1100082211}
-  m_Father: {fileID: 1913602146}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385071082
 GameObject:
   m_ObjectHideFlags: 0
@@ -20248,7 +20189,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1395919650
@@ -20290,8 +20231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 389146770}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1395919652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21588,7 +21527,7 @@ GameObject:
   - component: {fileID: 1467357298}
   - component: {fileID: 1467357297}
   m_Layer: 3
-  m_Name: Slot (4)
+  m_Name: Slot (12)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21606,8 +21545,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 4
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1467357297
 BoxCollider2D:
@@ -21648,8 +21587,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1783078987}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1467357299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22315,7 +22252,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1488015736
 MonoBehaviour:
@@ -24604,7 +24541,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627574269
 GameObject:
@@ -25631,7 +25568,7 @@ GameObject:
   - component: {fileID: 1700396366}
   - component: {fileID: 1700396365}
   m_Layer: 3
-  m_Name: Slot (6)
+  m_Name: Slot (14)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25649,8 +25586,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 6
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1700396365
 BoxCollider2D:
@@ -25691,8 +25628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 471415253}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1700396367
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26425,45 +26360,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738220865}
   m_CullTransparentMesh: 1
---- !u!1 &1740966135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1740966136}
-  m_Layer: 0
-  m_Name: BottomSlots
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1740966136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740966135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1304373316}
-  - {fileID: 1215022465}
-  - {fileID: 1311169448}
-  - {fileID: 1203877093}
-  - {fileID: 1467357296}
-  - {fileID: 500890021}
-  - {fileID: 1700396364}
-  - {fileID: 1929929072}
-  m_Father: {fileID: 1913602146}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741442929
 GameObject:
   m_ObjectHideFlags: 0
@@ -27407,8 +27303,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781239520}
-  - component: {fileID: 1781239519}
   - component: {fileID: 1781239522}
+  - component: {fileID: 1781239519}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -27428,26 +27324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d6da38cfbc02f4db0afe1b9ecf3276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardSelectDisplay: {fileID: 67295243}
-  selectedCreature: {fileID: 0}
   manaAmountArray: 0000000000000000000000000000000000000000
-  slotArray:
-  - {fileID: 2016104982}
-  - {fileID: 1395919651}
-  - {fileID: 2035454215}
-  - {fileID: 815516746}
-  - {fileID: 40776218}
-  - {fileID: 239084977}
-  - {fileID: 1129402743}
-  - {fileID: 1100082213}
-  - {fileID: 1304373318}
-  - {fileID: 1215022467}
-  - {fileID: 1311169450}
-  - {fileID: 1203877095}
-  - {fileID: 1467357298}
-  - {fileID: 500890023}
-  - {fileID: 1700396366}
-  - {fileID: 1929929074}
   playerHealth: 30
   playerCards:
   - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
@@ -27484,6 +27361,52 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
   - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1923986018}
+        m_TargetAssemblyTypeName: CardDisplayManager, Assembly-CSharp
+        m_MethodName: DisplayCardData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1923986018}
+        m_TargetAssemblyTypeName: CardDisplayManager, Assembly-CSharp
+        m_MethodName: DisplayMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  cardSelectDisplay: {fileID: 67295243}
+  selectedCreature: {fileID: 0}
+  slotArray:
+  - {fileID: 2016104982}
+  - {fileID: 1395919651}
+  - {fileID: 2035454215}
+  - {fileID: 815516746}
+  - {fileID: 40776218}
+  - {fileID: 239084977}
+  - {fileID: 1129402743}
+  - {fileID: 1100082213}
+  - {fileID: 1304373318}
+  - {fileID: 1215022467}
+  - {fileID: 1311169450}
+  - {fileID: 1203877095}
+  - {fileID: 1467357298}
+  - {fileID: 500890023}
+  - {fileID: 1700396366}
+  - {fileID: 1929929074}
 --- !u!4 &1781239520
 Transform:
   m_ObjectHideFlags: 0
@@ -27497,7 +27420,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1781239522
 MonoBehaviour:
@@ -28804,6 +28727,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1870315912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870315914}
+  - component: {fileID: 1870315913}
+  m_Layer: 0
+  m_Name: EnemyController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870315913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870315912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45761d34495be2b4a96daf5768a9388f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaAmountArray: 0000000000000000000000000000000000000000
+  playerHealth: 30
+  playerCards:
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  playerHand:
+  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
+  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
+  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  slotArray:
+  - {fileID: 2016104982}
+  - {fileID: 1395919651}
+  - {fileID: 2035454215}
+  - {fileID: 815516746}
+  - {fileID: 40776218}
+  - {fileID: 239084977}
+  - {fileID: 1129402743}
+  - {fileID: 1100082213}
+  - {fileID: 1304373318}
+  - {fileID: 1215022467}
+  - {fileID: 1311169450}
+  - {fileID: 1203877095}
+  - {fileID: 1467357298}
+  - {fileID: 500890023}
+  - {fileID: 1700396366}
+  - {fileID: 1929929074}
+--- !u!4 &1870315914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870315912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871358658
 GameObject:
   m_ObjectHideFlags: 0
@@ -29562,11 +29586,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1383572313}
-  - {fileID: 1740966136}
+  - {fileID: 2016104980}
+  - {fileID: 1395919649}
+  - {fileID: 2035454213}
+  - {fileID: 815516744}
+  - {fileID: 40776217}
+  - {fileID: 239084975}
+  - {fileID: 1129402741}
+  - {fileID: 1100082211}
+  - {fileID: 1304373316}
+  - {fileID: 1215022465}
+  - {fileID: 1311169448}
+  - {fileID: 1203877093}
+  - {fileID: 1467357296}
+  - {fileID: 500890021}
+  - {fileID: 1700396364}
+  - {fileID: 1929929072}
   - {fileID: 402306259}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921375173
 GameObject:
@@ -29766,6 +29804,7 @@ GameObject:
   - component: {fileID: 1923986015}
   - component: {fileID: 1923986016}
   - component: {fileID: 1923986017}
+  - component: {fileID: 1923986018}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -29786,7 +29825,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923986015
 MonoBehaviour:
@@ -29800,7 +29839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde9d49c91be50f41b69447aa8182684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePlayers: []
   creatureControllerList: []
 --- !u!114 &1923986016
 MonoBehaviour:
@@ -29845,6 +29883,51 @@ MonoBehaviour:
   - {fileID: 1929929074}
   greyOverlay: {fileID: 2015161259}
   slotDefaultParent: {fileID: 402306259}
+--- !u!114 &1923986018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923986012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44964c1bb772ea488ddc449dc5a5a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSelectionObj: {fileID: 67295243}
+  playerCards:
+  - {fileID: 1660324780}
+  - {fileID: 741227084}
+  - {fileID: 1815840869}
+  - {fileID: 1383032672}
+  - {fileID: 1021892404}
+  - {fileID: 2055690836}
+  - {fileID: 525608919}
+  - {fileID: 90011271}
+  - {fileID: 1228010267}
+  - {fileID: 1041965582}
+  manaIcons:
+  - {fileID: 574239133}
+  - {fileID: 1461359596}
+  - {fileID: 460736580}
+  - {fileID: 687257745}
+  - {fileID: 1538519781}
+  - {fileID: 1488306110}
+  - {fileID: 1573482321}
+  - {fileID: 1786825713}
+  - {fileID: 1574630830}
+  - {fileID: 686290773}
+  - {fileID: 1812411612}
+  - {fileID: 1898498226}
+  manaColors:
+  - {r: 0, g: 0.53780746, b: 1, a: 1}
+  - {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+  - {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+  - {r: 0.22070035, g: 0.735849, b: 0.21867211, a: 1}
+  - {r: 0.735849, g: 0.12842648, b: 0.12842648, a: 1}
+  disabledManaColor: {r: 0.45098042, g: 0.45098042, b: 0.45098042, a: 1}
+  playerController: {fileID: 1781239519}
 --- !u!1 &1929929071
 GameObject:
   m_ObjectHideFlags: 0
@@ -29858,7 +29941,7 @@ GameObject:
   - component: {fileID: 1929929074}
   - component: {fileID: 1929929073}
   m_Layer: 3
-  m_Name: Slot (7)
+  m_Name: Slot (15)
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29876,8 +29959,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740966136}
-  m_RootOrder: 7
+  m_Father: {fileID: 1913602146}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1929929073
 BoxCollider2D:
@@ -29918,8 +30001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1278962152}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &1929929075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30776,7 +30857,7 @@ RectTransform:
   - {fileID: 1741442930}
   - {fileID: 863919098}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30890,7 +30971,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2016104981
@@ -30932,8 +31013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1860758814}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &2016104983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31500,7 +31579,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383572313}
+  m_Father: {fileID: 1913602146}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2035454214
@@ -31542,8 +31621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureUI: {fileID: 1128027110}
-  addTestCreature: {fileID: 0}
-  testManaCard: {fileID: 0}
 --- !u!212 &2035454216
 SpriteRenderer:
   m_ObjectHideFlags: 0

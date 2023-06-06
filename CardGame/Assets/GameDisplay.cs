@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameDisplay : MonoBehaviour
@@ -17,17 +18,20 @@ public class GameDisplay : MonoBehaviour
     {
         greyOverlay.SetActive(true);
 
-        foreach(SlotController slotElement in slotArray)
+        foreach (SlotController slotElement in slotArray)
         {
-            if(slotElement != slot && slotElement.AssignedCreatureController != null && slotElement.AssignedCreatureController.CreatureCard != null)
+            if (slotElement != slot && slotElement.AssignedCreatureController != null && slotElement.AssignedCreatureController.CreatureCard != null)
             {
-                if(slotElement.AssignedCreatureController.AssignedPlayer != slot.AssignedCreatureController.AssignedPlayer)
+                if (slotElement.AssignedPlayer != slot.AssignedPlayer) 
                 {
-                    slotElement.AssignedCreatureController.transform.SetParent(greyOverlay.transform);
+                    if (GameUtilities.IsCreatureRange(slotElement.AssignedCreatureController, slot.AssignedCreatureController)) //Highlight Creature (In-Range)
+                    {
+                        slotElement.AssignedCreatureController.transform.SetParent(greyOverlay.transform);
+                        return;
+                    }
                 }
-            }
-            else
-            {
+
+                //Do not highlight creature (Out of Range)
                 slotElement.transform.SetParent(slotDefaultParent);
             }
         }
@@ -35,9 +39,9 @@ public class GameDisplay : MonoBehaviour
 
     public void HideDisplayTargets()
     {
-        foreach (SlotController slotElement in slotArray)
+        for(int i = 0; i < greyOverlay.transform.childCount; i++)
         {
-            slotElement.transform.SetParent(slotDefaultParent);
+            greyOverlay.transform.GetChild(i).SetParent(slotDefaultParent);
         }
 
         greyOverlay.SetActive(false);

@@ -16,12 +16,12 @@ MonoBehaviour:
   _cardDescription: A wisp.
   _cardType: 1
   _cardArt: {fileID: 21300000, guid: eeebbac7d0ddafe4c8180382f2323fca, type: 3}
-  _cardBattlefieldArt: {fileID: 21300000, guid: a1a48368a30771549bd59eb827d69288, type: 3}
   _cardTags: []
   _manaCost: 2
   _manaType: 0
   _manaGain: 0
   _creatureAttack: 1
   _creatureHealth: 1
-  _creatureReach: 0
+  _creatureReach: 2
   creatureEffects: 
+  spellFunction: 

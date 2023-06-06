@@ -5,38 +5,36 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public static int playerIndex;
-    public static PlayerController currentPlayer;
 
     public static GameDisplay gameDisplay;
+    public static SpellManager spellManager;
+    public static CardDisplayManager cardDisplayManager;
 
-    public List<PlayerController> activePlayers = new List<PlayerController>();
+    public static PlayerController humanPlayer;
+    public static EnemyController enemyPlayer;
+
     public List<CreatureController> creatureControllerList = new List<CreatureController>();
-
-    private CardDisplayManager _cardDisplayManager;
 
     private void Awake()
     {
         gameDisplay = this.GetComponent<GameDisplay>();
-        _cardDisplayManager = GameObject.Find("PlayerController").GetComponent<CardDisplayManager>();
+        spellManager = this.GetComponent<SpellManager>();
+
+        humanPlayer = FindObjectOfType<PlayerController>();
+        enemyPlayer = FindObjectOfType<EnemyController>();
+
+        cardDisplayManager = GameObject.Find("PlayerController").GetComponent<CardDisplayManager>();
     }
 
     private void Start()
     {
-        foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
-        {
-            activePlayers.Add(player);
-        }
-
         OnGameBegin();
     }
 
     public void OnGameBegin()
     {
-        foreach (PlayerController player in GameObject.FindObjectsOfType<PlayerController>())
-        {
-            activePlayers.Add(player);
-            GameUtilities.ShuffleHand(player);
-        }
+        GameUtilities.ShuffleHand(humanPlayer);
+        GameUtilities.ShuffleHand(enemyPlayer);
 
         OnNewPlayerTurn();
     }
@@ -45,18 +43,26 @@ public class GameplayManager : MonoBehaviour
     {
         playerIndex++;
 
-        if (playerIndex >= activePlayers.Count)
+        if (playerIndex >= 2)
         {
             playerIndex = 0;
         }
 
-        currentPlayer = activePlayers[playerIndex];
-        GameUtilities.DrawCard(currentPlayer);
-        _cardDisplayManager.DisplayCardData(currentPlayer.PlayerHand);
-        _cardDisplayManager.DisplayMana();
+        if(playerIndex == 0)
+        {
+            GameUtilities.DrawCard(humanPlayer);
+            cardDisplayManager.DisplayCardData();
+            cardDisplayManager.DisplayMana();
+        }
+        else if(playerIndex == 1)
+        {
+            GameUtilities.DrawCard(enemyPlayer);
+            enemyPlayer.PlayRandomCard();
+            OnNewPlayerTurn();
+        }
     }
 
-    public void OnEndPlayerTurn()
+    public void OnEndPlayerTurn() //Via Inspector
     {
         OnNewPlayerTurn();
     }

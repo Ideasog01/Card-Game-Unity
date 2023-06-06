@@ -9,12 +9,6 @@ public class SlotController : MonoBehaviour
     [SerializeField]
     private GameObject creatureUI;
 
-    [SerializeField]
-    private Card addTestCreature;
-
-    [SerializeField]
-    private Card testManaCard;
-
     private CreatureController _creatureController;
 
     private Image _creatureImage;
@@ -27,25 +21,19 @@ public class SlotController : MonoBehaviour
 
     private Card _manaCard;
 
-    private Card _creatureCard;
-
     private Card _structureCard;
 
     private Card _enchantmentCard;
 
     private BoxCollider2D _boxCollider;
 
+    private EntityController _assignedPlayer;
+
     #region Properties
 
     public Card ManaCard
     {
         get { return _manaCard; }
-    }
-
-    public Card CreatureCard
-    {
-        get { return _creatureCard; }
-        set { _creatureCard = value; }
     }
 
     public Card StructureCard
@@ -68,6 +56,11 @@ public class SlotController : MonoBehaviour
         get { return _boxCollider; }
     }
 
+    public EntityController AssignedPlayer
+    {
+        get { return _assignedPlayer; }
+    }
+
     #endregion
 
     private void Awake()
@@ -80,30 +73,22 @@ public class SlotController : MonoBehaviour
         _boxCollider = this.GetComponent<BoxCollider2D>();
     }
 
-    private void Start()
-    {
-        if(addTestCreature != null)
-        {
-            AddMana(testManaCard);
-            AddCreature(addTestCreature, GameObject.Find("Player2").GetComponent<PlayerController>());
-        }
-    }
-
-    public void AddMana(Card card)
+    public void AddMana(Card card, EntityController player)
     {
         _manaCard = card;
         _slotRenderer.sprite = card.CardArt;
         Debug.Log("Mana Added");
+        _assignedPlayer = player;
     }
 
-    public void AddCreature(Card creatureCard, PlayerController player)
+    public void AddCreature(Card creatureCard, EntityController player)
     {
-        _creatureCard = creatureCard;
+        _creatureController.CreatureCard = creatureCard;
         _creatureController.AssignCreatureProperties(creatureCard, player, this);
         creatureUI.SetActive(true);
-        _creatureImage.sprite = _creatureCard.CardArt;
-        _creatureAttackText.text = _creatureCard.CreatureAttack.ToString();
-        _creatureHealthText.text = _creatureCard.CreatureHealth.ToString();
+        _creatureImage.sprite = _creatureController.CreatureCard.CardArt;
+        _creatureAttackText.text = _creatureController.CreatureCard.CreatureAttack.ToString();
+        _creatureHealthText.text = _creatureController.CreatureCard.CreatureHealth.ToString();
     }
 
     private void AssignCreatureUI()

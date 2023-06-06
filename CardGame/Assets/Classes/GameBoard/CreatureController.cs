@@ -8,24 +8,22 @@ public class CreatureController : MonoBehaviour
     private Card _creatureCard;
     private SlotController _slot;
 
-    private PlayerController _assignedPlayer;
-
-    public PlayerController AssignedPlayer
-    {
-        get { return _assignedPlayer; }
-    }
-
     public Card CreatureCard
     {
         get { return _creatureCard; }
+        set { _creatureCard = value; }
     }
 
-    public void AssignCreatureProperties(Card creatureCard, PlayerController player, SlotController slot)
+    public SlotController AssignedSlot
+    {
+        get { return _slot; }
+    }
+
+    public void AssignCreatureProperties(Card creatureCard, EntityController player, SlotController slot)
     {
         _creatureCard = creatureCard;
         _creatureHealth = creatureCard.CreatureHealth;
         _creatureAttack = creatureCard.CreatureAttack;
-        _assignedPlayer = player;
         _slot = slot;
     }
 
@@ -46,10 +44,9 @@ public class CreatureController : MonoBehaviour
         if(_creatureHealth <= 0)
         {
             _creatureCard = null;
-            _assignedPlayer = null;
             _creatureHealth = 0;
             _creatureAttack = 0;
-            _slot.CreatureCard = null;
+            _slot.AssignedCreatureController.CreatureCard = null;
             this.gameObject.SetActive(false);
         }
     }

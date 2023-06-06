@@ -5,6 +5,7 @@ using static Card;
 
 public static class GameUtilities
 {
+
     public static void DrawCard(EntityController entity)
     {
         if (entity.PlayerCards.Count == 0)
@@ -51,7 +52,17 @@ public static class GameUtilities
 
     public static void AddMana(EntityController entity, int manaType, int amount)
     {
-        entity.ManaAmountArray[manaType] += amount;
+        int manaTotal = 0;
+
+        foreach (int manaCount in entity.ManaAmountArray)
+        {
+            manaTotal += manaCount;
+        }
+
+        if (manaTotal < 12) //12 is the max mana
+        {
+            entity.ManaAmountArray[manaType] += amount;
+        }
     }
 
     public static bool HasMana(EntityController entity, int amount, int manaIndex)
@@ -62,8 +73,32 @@ public static class GameUtilities
 
         if (manaAmount >= amount)
         {
-            manaAmount -= amount;
+            entity.ManaAmountArray[manaIndex] -= amount;
             return true;
+        }
+
+        return false;
+    }
+
+    public static bool IsCreatureRange(CreatureController potentialTarget, CreatureController attacker)
+    {
+        Card.Range range = attacker.CreatureCard.CreatureReach;
+
+        if (range == Range.InfiniteReach)
+        {
+            return true;
+        }
+
+        float distance = Vector2.Distance(attacker.transform.position, potentialTarget.transform.position);
+
+        if(range == Range.NormalReach)
+        {
+            return distance < 1.6f;
+        }
+
+        if(range == Range.FarReach)
+        {
+            return distance < 3.2f;
         }
 
         return false;
