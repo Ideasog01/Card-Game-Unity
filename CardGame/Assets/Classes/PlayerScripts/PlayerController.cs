@@ -1,4 +1,3 @@
-using Photon.Pun.Demo.Cockpit.Forms;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,9 +66,42 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        HandCardSelect();
-        SelectCreature();
         CheckSelectSlot();
+
+        if (selectedCreature == null)
+        {
+            HandCardSelect();
+            SelectCreature();
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            if(selectedSlot != null)
+            {
+                CreatureController creatureController = selectedSlot.AssignedCreatureController;
+
+                if (creatureController != null)
+                {
+                    Card creatureCard = creatureController.CreatureCard;
+
+                    if(creatureCard != null)
+                    {
+                        if (creatureController.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
+                        {
+                            selectedCreature.FightCreature(creatureController);
+                            selectedCreature = null;
+                            Debug.Log("CREATURE FIGHT!");
+                        }
+                        else
+                        {
+                            Debug.Log("CREATURE BELONGS TO PLAYER");
+                        }
+                    }
+
+                    GameplayManager.gameDisplay.HideDisplayTargets();
+                    selectedCreature = null;
+                }
+            }
+        }
     }
 
     public void SelectCard(CardController selectedCard)
@@ -137,24 +169,12 @@ public class PlayerController : MonoBehaviour
                         if (creature.AssignedPlayer == this) //If the creature belongs to the player
                         {
                             selectedCreature = creature;
+                            GameplayManager.gameDisplay.DisplayTargets(selectedSlot);
                             Debug.Log("CREATURE SELECT!");
                         }
                         else
                         {
                             Debug.Log("CREATURE DOES NOT BELONG TO PLAYER");
-                        }
-                    }
-                    else //Player has selected creature
-                    {
-                        if (creature.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
-                        {
-                            selectedCreature.FightCreature(creature);
-                            selectedCreature = null;
-                            Debug.Log("CREATURE FIGHT!");
-                        }
-                        else
-                        {
-                            Debug.Log("CREATURE BELONGS TO PLAYER");
                         }
                     }
                 }
@@ -228,10 +248,19 @@ public class PlayerController : MonoBehaviour
                 case Card.CardType.Spell:
                     if(selectedSlot.CreatureCard != null)
                     {
-                        if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                        if (selectedSlot.AssignedCreatureController.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
                         {
-                            _spellManager.CastSpell(card, selectedSlot);
-                            OnCardPlayed();
+                            if (HasMana(card.ManaCost, (int)card.ObjectManaType))
+                            {
+                                _spellManager.CastSpell(card, selectedSlot);
+                                OnCardPlayed();
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Target for spell belongs to the owning player");
+                            cardSelected = null;
+                            cardSelectDisplay.SetActive(false);
                         }
                     }
                     break;

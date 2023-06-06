@@ -6,8 +6,16 @@ public class GameplayManager : MonoBehaviour
 {
     public static int playerIndex;
     public static PlayerController currentPlayer;
+
+    public static GameDisplay gameDisplay;
+
     public List<PlayerController> activePlayers = new List<PlayerController>();
     public List<CreatureController> creatureControllerList = new List<CreatureController>();
+
+    private void Awake()
+    {
+        gameDisplay = this.GetComponent<GameDisplay>();
+    }
 
     private void Start()
     {
