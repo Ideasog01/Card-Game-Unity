@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellManager : MonoBehaviour
 {
-    public void CastSpell(Card spellCard, SlotController target)
+    public virtual void CastSpell(Card spellCard, SlotController target)
     {
         string function = spellCard.SpellFunction;
 
@@ -12,14 +12,24 @@ public class SpellManager : MonoBehaviour
         {
             case "ArcaneMissiles":
 
-                ArcaneMissiles(target.AssignedCreatureController);
+                target.AssignedCreatureController.DamageCreature(2);
 
                 break;
         }
     }
 
-    private void ArcaneMissiles(CreatureController target)
+    public virtual void CastSpell(Card spellCard, EntityController target)
     {
-        target.DamageCreature(2);
+        string function = spellCard.SpellFunction;
+
+        switch (function)
+        {
+            case "ArcaneMissiles":
+
+                target.TakeDamage(2);
+                Debug.Log("Arcane Missiles Cast!");
+
+                break;
+        }
     }
 }

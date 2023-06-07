@@ -2330,6 +2330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179443322}
   - component: {fileID: 179443323}
+  - component: {fileID: 179443324}
   m_Layer: 0
   m_Name: PlayerPortrait
   m_TagString: Untagged
@@ -2404,6 +2405,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!61 &179443324
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179443321}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.41, y: 6.76}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.41, y: 6.76}
+  m_EdgeRadius: 0
 --- !u!1 &180704610
 GameObject:
   m_ObjectHideFlags: 0
@@ -11844,6 +11871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866241026}
   - component: {fileID: 866241027}
+  - component: {fileID: 866241028}
   m_Layer: 0
   m_Name: PlayerPortrait
   m_TagString: Untagged
@@ -11918,6 +11946,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!61 &866241028
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866241025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.41, y: 6.76}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.41, y: 6.76}
+  m_EdgeRadius: 0
 --- !u!1 &874241877
 GameObject:
   m_ObjectHideFlags: 0
@@ -27303,7 +27357,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781239520}
-  - component: {fileID: 1781239522}
   - component: {fileID: 1781239519}
   m_Layer: 0
   m_Name: PlayerController
@@ -27388,6 +27441,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPlayerTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1923986017}
+        m_TargetAssemblyTypeName: GameDisplay, Assembly-CSharp
+        m_MethodName: DisplayPlayerHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   cardSelectDisplay: {fileID: 67295243}
   selectedCreature: {fileID: 0}
   slotArray:
@@ -27407,6 +27478,8 @@ MonoBehaviour:
   - {fileID: 500890023}
   - {fileID: 1700396366}
   - {fileID: 1929929074}
+  humanPlayerBox: {fileID: 866241028}
+  enemyPlayerBox: {fileID: 179443324}
 --- !u!4 &1781239520
 Transform:
   m_ObjectHideFlags: 0
@@ -27422,51 +27495,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1781239522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781239518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44964c1bb772ea488ddc449dc5a5a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardSelectionObj: {fileID: 67295243}
-  playerCards:
-  - {fileID: 1660324780}
-  - {fileID: 741227084}
-  - {fileID: 1815840869}
-  - {fileID: 1383032672}
-  - {fileID: 1021892404}
-  - {fileID: 2055690836}
-  - {fileID: 525608919}
-  - {fileID: 90011271}
-  - {fileID: 1228010267}
-  - {fileID: 1041965582}
-  manaIcons:
-  - {fileID: 574239133}
-  - {fileID: 1461359596}
-  - {fileID: 460736580}
-  - {fileID: 687257745}
-  - {fileID: 1538519781}
-  - {fileID: 1488306110}
-  - {fileID: 1573482321}
-  - {fileID: 1786825713}
-  - {fileID: 1574630830}
-  - {fileID: 686290773}
-  - {fileID: 1812411612}
-  - {fileID: 1898498226}
-  manaColors:
-  - {r: 0, g: 0.53780746, b: 1, a: 1}
-  - {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
-  - {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
-  - {r: 0.22070035, g: 0.735849, b: 0.21867211, a: 1}
-  - {r: 0.735849, g: 0.12842648, b: 0.12842648, a: 1}
-  disabledManaColor: {r: 0.45098042, g: 0.45098042, b: 0.45098042, a: 1}
-  playerController: {fileID: 1781239519}
 --- !u!1 &1783078987
 GameObject:
   m_ObjectHideFlags: 0
@@ -28796,6 +28824,24 @@ MonoBehaviour:
   onCardPlayedEvent:
     m_PersistentCalls:
       m_Calls: []
+  onPlayerTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1923986017}
+        m_TargetAssemblyTypeName: GameDisplay, Assembly-CSharp
+        m_MethodName: DisplayEnemyHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotArray:
   - {fileID: 2016104982}
   - {fileID: 1395919651}
@@ -29883,6 +29929,8 @@ MonoBehaviour:
   - {fileID: 1929929074}
   greyOverlay: {fileID: 2015161259}
   slotDefaultParent: {fileID: 402306259}
+  playerHealthText: {fileID: 2080617339}
+  enemyHealthText: {fileID: 969534544}
 --- !u!114 &1923986018
 MonoBehaviour:
   m_ObjectHideFlags: 0

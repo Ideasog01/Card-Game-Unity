@@ -18,10 +18,10 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         set { _assignedCard = value; }
     }
 
-    private void Awake()
+    private void Start()
     {
         _cardAnimator = this.GetComponent<Animator>();
-        _cardDisplayManager = playerController.GetComponent<CardDisplayManager>();
+        _cardDisplayManager = GameObject.Find("GameManager").GetComponent<CardDisplayManager>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

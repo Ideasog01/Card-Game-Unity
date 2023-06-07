@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameDisplay : MonoBehaviour
 {
+    [Header("General References")]
+
     [SerializeField]
     private SlotController[] slotArray;
 
@@ -13,6 +16,16 @@ public class GameDisplay : MonoBehaviour
 
     [SerializeField]
     private Transform slotDefaultParent;
+
+    [Header("Player Display")]
+
+    [SerializeField]
+    private TextMeshProUGUI playerHealthText;
+
+    [Header("Enemy Display")]
+
+    [SerializeField]
+    private TextMeshProUGUI enemyHealthText;
 
     public void DisplayTargets(SlotController slot)
     {
@@ -45,5 +58,15 @@ public class GameDisplay : MonoBehaviour
         }
 
         greyOverlay.SetActive(false);
+    }
+
+    public void DisplayEnemyHealth()
+    {
+        enemyHealthText.text = GameplayManager.enemyPlayer.PlayerHealth.ToString();
+    }
+
+    public void DisplayPlayerHealth()
+    {
+        playerHealthText.text = GameplayManager.humanPlayer.PlayerHealth.ToString();
     }
 }

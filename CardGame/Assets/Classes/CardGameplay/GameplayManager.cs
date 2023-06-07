@@ -19,11 +19,10 @@ public class GameplayManager : MonoBehaviour
     {
         gameDisplay = this.GetComponent<GameDisplay>();
         spellManager = this.GetComponent<SpellManager>();
+        cardDisplayManager = this.GetComponent<CardDisplayManager>();
 
         humanPlayer = FindObjectOfType<PlayerController>();
         enemyPlayer = FindObjectOfType<EnemyController>();
-
-        cardDisplayManager = GameObject.Find("PlayerController").GetComponent<CardDisplayManager>();
     }
 
     private void Start()
@@ -53,11 +52,14 @@ public class GameplayManager : MonoBehaviour
             GameUtilities.DrawCard(humanPlayer);
             cardDisplayManager.DisplayCardData();
             cardDisplayManager.DisplayMana();
+            GameUtilities.ResetMana(humanPlayer);
+            cardDisplayManager.DisplayMana();
         }
         else if(playerIndex == 1)
         {
             GameUtilities.DrawCard(enemyPlayer);
             enemyPlayer.PlayRandomCard();
+            GameUtilities.ResetMana(enemyPlayer);
             OnNewPlayerTurn();
         }
     }

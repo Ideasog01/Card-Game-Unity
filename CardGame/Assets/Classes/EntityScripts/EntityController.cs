@@ -17,10 +17,20 @@ public class EntityController : MonoBehaviour
     [SerializeField]
     private List<Card> playerHand = new List<Card>();
 
+    [Header("Entity Events")]
+
     [SerializeField]
     private UnityEvent onCardPlayedEvent;
 
+    [SerializeField]
+    private UnityEvent onPlayerTakeDamageEvent;
+
+    [SerializeField]
+    private UnityEvent onPlayerDeathEvent;
+
     private int _fatigueAmount = 1;
+
+    private bool _isPlayerDead;
 
     public int[] ManaAmountArray
     {
@@ -50,7 +60,7 @@ public class EntityController : MonoBehaviour
         set { _fatigueAmount = value; }
     }
 
-    public IEnumerator PlayCard(Card card, SlotController slot)
+    public virtual IEnumerator PlayCard(Card card, SlotController slot)
     {
         yield return new WaitForSeconds(0.05f);
 
@@ -98,6 +108,53 @@ public class EntityController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public virtual IEnumerator PlayCard(Card card, EntityController entity)
+    {
+        yield return new WaitForSeconds(0.05f);
+
+        if (entity != null)
+        {
+            switch (card.Object_cardType)
+            {
+                case Card.CardType.Mana:
+
+                    break;
+                case Card.CardType.Creature:
+
+                    break;
+                case Card.CardType.Spell:
+                    if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                    {
+                        GameplayManager.spellManager.CastSpell(card, entity);
+                        OnCardPlayed(card);
+                    }
+                    break;
+            }
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if(!_isPlayerDead)
+        {
+            playerHealth -= amount;
+            onPlayerTakeDamageEvent.Invoke();
+
+            Debug.Log("Player Took Damage!");
+
+            if (playerHealth <= 0)
+            {
+                PlayerDeath();
+            }
+        }
+    }
+
+    private void PlayerDeath()
+    {
+        onPlayerDeathEvent.Invoke();
+        _isPlayerDead = true;
     }
 
     private void OnCardPlayed(Card card)

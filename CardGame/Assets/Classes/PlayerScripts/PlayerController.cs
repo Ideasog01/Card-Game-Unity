@@ -8,6 +8,8 @@ public class PlayerController : EntityController
 
     public static CardController cardSelected;
 
+    public static EntityController selectedPlayer;
+
     public GameObject cardSelectDisplay;
 
     [SerializeField]
@@ -15,6 +17,14 @@ public class PlayerController : EntityController
 
     [SerializeField]
     private SlotController[] slotArray;
+
+    [Header("Players")]
+
+    [SerializeField]
+    private BoxCollider2D humanPlayerBox;
+
+    [SerializeField]
+    private BoxCollider2D enemyPlayerBox;
 
     private void Update()
     {
@@ -122,9 +132,17 @@ public class PlayerController : EntityController
                     cardSelectDisplay.SetActive(false);
                     cardSelected.gameObject.SetActive(true);
 
-                    if(GameplayManager.playerIndex == 0)
+                    if(GameplayManager.playerIndex == 0) //Is this the player's turn
                     {
-                        StartCoroutine(PlayCard(cardSelected.AssignedCard, selectedSlot));
+                        if(selectedSlot != null)
+                        {
+                            StartCoroutine(PlayCard(cardSelected.AssignedCard, selectedSlot));
+                        }
+                        else if(selectedPlayer != null)
+                        {
+                            StartCoroutine(PlayCard(cardSelected.AssignedCard, selectedPlayer));
+                            Debug.Log("Player Targeted!");
+                        }
                     }
                     
                     cardSelected = null;
@@ -147,6 +165,20 @@ public class PlayerController : EntityController
             else if(slot == selectedSlot)
             {
                 selectedSlot = null;
+            }
+        }
+
+
+        //Check to see if the player is hovering their mouse over either themselves or the enemy player
+        if(selectedSlot == null)
+        {
+            if(humanPlayerBox.bounds.Contains(mousePosition))
+            {
+                selectedPlayer = this;
+            }
+            else if(enemyPlayerBox.bounds.Contains(mousePosition))
+            {
+                selectedPlayer = GameplayManager.enemyPlayer;
             }
         }
     }

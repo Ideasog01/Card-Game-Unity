@@ -65,6 +65,14 @@ public static class GameUtilities
         }
     }
 
+    public static void ResetMana(EntityController entity)
+    {
+        for(int i = 0; i < entity.ManaAmountArray.Length; i++)
+        {
+            entity.ManaAmountArray[i] = 0;
+        }
+    }
+
     public static bool HasMana(EntityController entity, int amount, int manaIndex)
     {
         int manaAmount = entity.ManaAmountArray[manaIndex]; //The mana the player has
