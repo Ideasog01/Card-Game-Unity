@@ -7,18 +7,19 @@ public class GameplayManager : MonoBehaviour
     public static int playerIndex;
 
     public static GameDisplay gameDisplay;
-    public static SpellManager spellManager;
+    public static CardEffectManager cardEffectManager;
     public static CardDisplayManager cardDisplayManager;
 
     public static PlayerController humanPlayer;
     public static EnemyController enemyPlayer;
 
-    public List<CreatureController> creatureControllerList = new List<CreatureController>();
+    public static List<CreatureController> creatureControllerList = new List<CreatureController>();
+    public static List<StructureController> structureControllerList = new List<StructureController>();
 
     private void Awake()
     {
         gameDisplay = this.GetComponent<GameDisplay>();
-        spellManager = this.GetComponent<SpellManager>();
+        cardEffectManager = this.GetComponent<CardEffectManager>();
         cardDisplayManager = this.GetComponent<CardDisplayManager>();
 
         humanPlayer = FindObjectOfType<PlayerController>();
@@ -47,7 +48,7 @@ public class GameplayManager : MonoBehaviour
             playerIndex = 0;
         }
 
-        if(playerIndex == 0)
+        if (playerIndex == 0)
         {
             GameUtilities.DrawCard(humanPlayer);
             cardDisplayManager.DisplayCardData();
@@ -60,12 +61,52 @@ public class GameplayManager : MonoBehaviour
             GameUtilities.DrawCard(enemyPlayer);
             enemyPlayer.PlayRandomCard();
             GameUtilities.ResetMana(enemyPlayer);
-            OnNewPlayerTurn();
+        }
+
+        //On Start & End Turn Card Effects
+
+        foreach (CreatureController creature in creatureControllerList)
+        {
+            if (creature.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || creature.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            {
+                cardEffectManager.CardEffect(creature.AssignedSlot.AssignedPlayer, creature.CreatureCard);
+            }
+        }
+
+        foreach (StructureController structure in structureControllerList)
+        {
+            if (structure.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || structure.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            {
+                cardEffectManager.CardEffect(structure.AssignedSlot.AssignedPlayer, structure.StructureCard);
+            }
+        }
+
+        if(playerIndex == 1)
+        {
+            OnEndPlayerTurn();
         }
     }
 
-    public void OnEndPlayerTurn() //Via Inspector
+    public void OnEndPlayerTurn()
     {
+        //On End Turn Card Effects
+
+        foreach (CreatureController creature in creatureControllerList)
+        {
+            if (creature.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || creature.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            {
+                cardEffectManager.CardEffect(creature.AssignedSlot.AssignedPlayer, creature.CreatureCard);
+            }
+        }
+
+        foreach (StructureController structure in structureControllerList)
+        {
+            if (structure.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || structure.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            {
+                cardEffectManager.CardEffect(structure.AssignedSlot.AssignedPlayer, structure.StructureCard);
+            }
+        }
+
         OnNewPlayerTurn();
     }
 }

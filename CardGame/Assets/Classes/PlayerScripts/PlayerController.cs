@@ -132,7 +132,7 @@ public class PlayerController : EntityController
                     cardSelectDisplay.SetActive(false);
                     cardSelected.gameObject.SetActive(true);
 
-                    if(GameplayManager.playerIndex == 0) //Is this the player's turn
+                    if(GameplayManager.playerIndex == 0) //Is this the player's turn?
                     {
                         if(selectedSlot != null)
                         {

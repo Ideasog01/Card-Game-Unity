@@ -8,21 +8,24 @@ public class GameDisplay : MonoBehaviour
 {
     [Header("General References")]
 
+    public Sprite[] creatureReachIcons;
+
     [SerializeField]
     private SlotController[] slotArray;
 
     [SerializeField]
     private GameObject greyOverlay;
 
-    [SerializeField]
-    private Transform slotDefaultParent;
-
     [Header("Player Display")]
+
+    public Color humanColour;
 
     [SerializeField]
     private TextMeshProUGUI playerHealthText;
 
     [Header("Enemy Display")]
+
+    public Color enemyColour;
 
     [SerializeField]
     private TextMeshProUGUI enemyHealthText;
@@ -45,7 +48,7 @@ public class GameDisplay : MonoBehaviour
                 }
 
                 //Do not highlight creature (Out of Range)
-                slotElement.transform.SetParent(slotDefaultParent);
+                slotElement.transform.SetParent(slotElement.DefaultParent);
             }
         }
     }
@@ -54,7 +57,7 @@ public class GameDisplay : MonoBehaviour
     {
         for(int i = 0; i < greyOverlay.transform.childCount; i++)
         {
-            greyOverlay.transform.GetChild(i).SetParent(slotDefaultParent);
+            greyOverlay.transform.GetChild(i).SetParent(greyOverlay.transform.GetChild(i).GetComponent<SlotController>().DefaultParent);
         }
 
         greyOverlay.SetActive(false);

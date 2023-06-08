@@ -74,6 +74,19 @@ public class CardDisplayManager : MonoBehaviour
         cardDisplay.CardArt.sprite = card.CardArt;
         cardDisplay.AttackText.text = card.CreatureAttack.ToString();
         cardDisplay.HealthText.text = card.CreatureHealth.ToString();
+        cardDisplay.ManaCostText1.text = card.ManaCost.ToString();
+        cardDisplay.ManaCostText2.text = card.ManaCost.ToString();
+
+        //Display card tags
+
+        string tagString = "";
+
+        foreach (string tag in card.CardTags)
+        {
+            tagString += tag + ", ";
+        }
+
+        cardDisplay.CardTagText.text = tagString;
     }
 
     public void DisplayCardData()
@@ -102,6 +115,20 @@ public class CardDisplayManager : MonoBehaviour
                 cardDisplay.CardArt.sprite = card.CardArt;
                 cardDisplay.AttackText.text = card.CreatureAttack.ToString();
                 cardDisplay.HealthText.text = card.CreatureHealth.ToString();
+                cardDisplay.ManaCostText1.text = card.ManaCost.ToString();
+                cardDisplay.ManaCostText2.text = card.ManaCost.ToString();
+
+                //Display card tags
+
+                string tagString = "";
+
+                foreach(string tag in card.CardTags)
+                {
+                    tagString += tag + ", ";
+                }
+
+                cardDisplay.CardTagText.text = tagString;
+
                 cardDisplay.CardObj.GetComponent<CardController>().AssignedCard = card;
                 
                 //TO DO: Change Mana Display

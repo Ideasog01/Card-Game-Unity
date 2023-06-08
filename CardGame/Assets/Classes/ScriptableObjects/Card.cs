@@ -55,7 +55,7 @@ public class Card : ScriptableObject
     [Header("Spell")]
 
     [SerializeField]
-    private string spellFunction;
+    private string cardEffectFunction;
 
     #region CardDetails
 
@@ -143,9 +143,9 @@ public class Card : ScriptableObject
 
     #region Spell CardType
 
-    public string SpellFunction
+    public string CardEffectFunction
     {
-        get { return spellFunction; }
+        get { return cardEffectFunction; }
     }
 
     #endregion

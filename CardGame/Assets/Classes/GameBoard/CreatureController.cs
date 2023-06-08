@@ -19,7 +19,7 @@ public class CreatureController : MonoBehaviour
         get { return _slot; }
     }
 
-    public void AssignCreatureProperties(Card creatureCard, EntityController player, SlotController slot)
+    public void AssignCreatureProperties(Card creatureCard, SlotController slot)
     {
         _creatureCard = creatureCard;
         _creatureHealth = creatureCard.CreatureHealth;
@@ -47,7 +47,7 @@ public class CreatureController : MonoBehaviour
             _creatureHealth = 0;
             _creatureAttack = 0;
             _slot.AssignedCreatureController.CreatureCard = null;
-            this.gameObject.SetActive(false);
+            _slot.DisplayCreatureUI(false);
         }
     }
 }

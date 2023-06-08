@@ -24,4 +24,4 @@ MonoBehaviour:
   _creatureHealth: 0
   _creatureReach: 0
   creatureEffects: 
-  spellFunction: ArcaneMissiles
+  cardEffectFunction: Arcane Missiles

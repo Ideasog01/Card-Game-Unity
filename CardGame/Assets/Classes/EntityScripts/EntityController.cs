@@ -9,7 +9,7 @@ public class EntityController : MonoBehaviour
     private int[] manaAmountArray;
 
     [SerializeField]
-    private int playerHealth;
+    private int entityHealth;
 
     [SerializeField]
     private List<Card> playerCards = new List<Card>();
@@ -23,10 +23,10 @@ public class EntityController : MonoBehaviour
     private UnityEvent onCardPlayedEvent;
 
     [SerializeField]
-    private UnityEvent onPlayerTakeDamageEvent;
+    private UnityEvent onEntityTakeDamageEvent;
 
     [SerializeField]
-    private UnityEvent onPlayerDeathEvent;
+    private UnityEvent onEntityDeathEvent;
 
     private int _fatigueAmount = 1;
 
@@ -48,10 +48,10 @@ public class EntityController : MonoBehaviour
         get { return playerHand; }
     }
 
-    public int PlayerHealth
+    public int EntityHealth
     {
-        get { return playerHealth; }
-        set { playerHealth = value; }
+        get { return entityHealth; }
+        set { entityHealth = value; }
     }
 
     public int FatigueAmount
@@ -77,15 +77,12 @@ public class EntityController : MonoBehaviour
                     }
                     break;
                 case Card.CardType.Creature:
-                    if (slot.ManaCard != null && slot.AssignedPlayer == this)
+                    if (slot.ManaCard != null && slot.AssignedPlayer == this && slot.AssignedCreatureController.CreatureCard == null)
                     {
-                        if (slot.AssignedCreatureController.CreatureCard == null)
+                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
-                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                            {
-                                slot.AddCreature(card, this);
-                                OnCardPlayed(card);
-                            }
+                            slot.AddCreature(card);
+                            OnCardPlayed(card);
                         }
                     }
                     break;
@@ -96,13 +93,23 @@ public class EntityController : MonoBehaviour
                         {
                             if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                             {
-                                GameplayManager.spellManager.CastSpell(card, slot);
+                                GameplayManager.cardEffectManager.CardEffect(card, slot);
                                 OnCardPlayed(card);
                             }
                         }
                         else
                         {
                             Debug.Log("Target for spell belongs to the owning player");
+                        }
+                    }
+                    break;
+                case Card.CardType.Structure:
+                    if(slot.ManaCard != null && slot.AssignedPlayer == this && slot.AssignedStructureController.StructureCard == null)
+                    {
+                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                        {
+                            slot.AddStructure(card);
+                            OnCardPlayed(card);
                         }
                     }
                     break;
@@ -121,13 +128,10 @@ public class EntityController : MonoBehaviour
                 case Card.CardType.Mana:
 
                     break;
-                case Card.CardType.Creature:
-
-                    break;
                 case Card.CardType.Spell:
                     if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                     {
-                        GameplayManager.spellManager.CastSpell(card, entity);
+                        GameplayManager.cardEffectManager.CardEffect(card, entity);
                         OnCardPlayed(card);
                     }
                     break;
@@ -139,21 +143,31 @@ public class EntityController : MonoBehaviour
     {
         if(!_isPlayerDead)
         {
-            playerHealth -= amount;
-            onPlayerTakeDamageEvent.Invoke();
+            entityHealth -= amount;
+            onEntityTakeDamageEvent.Invoke();
 
             Debug.Log("Player Took Damage!");
 
-            if (playerHealth <= 0)
+            if (entityHealth <= 0)
             {
                 PlayerDeath();
             }
         }
     }
 
+    public virtual void UseWeapon(EntityController target, Card weapon)
+    {
+
+    }
+
+    public virtual void UseWeapon(CreatureController creature, Card weapon)
+    {
+
+    }
+
     private void PlayerDeath()
     {
-        onPlayerDeathEvent.Invoke();
+        onEntityDeathEvent.Invoke();
         _isPlayerDead = true;
     }
 
