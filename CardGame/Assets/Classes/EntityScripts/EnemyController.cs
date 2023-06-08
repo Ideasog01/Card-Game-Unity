@@ -27,7 +27,7 @@ public class EnemyController : EntityController
 
         foreach (SlotController slotElement in slotArray)
         {
-            if (slotElement.AssignedCreatureController.CreatureCard == null)
+            if (slotElement.CreatureCard == null)
             {
                 slot = slotElement;
             }

@@ -77,7 +77,7 @@ public class EntityController : MonoBehaviour
                     }
                     break;
                 case Card.CardType.Creature:
-                    if (slot.ManaCard != null && slot.AssignedPlayer == this && slot.AssignedCreatureController.CreatureCard == null)
+                    if (slot.ManaCard != null && slot.AssignedPlayer == this && slot.CreatureCard == null)
                     {
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
@@ -87,9 +87,9 @@ public class EntityController : MonoBehaviour
                     }
                     break;
                 case Card.CardType.Spell:
-                    if (slot.AssignedCreatureController.CreatureCard != null)
+                    if (slot.CreatureCard != null)
                     {
-                        if (slot.AssignedCreatureController.AssignedSlot.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
+                        if (slot.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
                         {
                             if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                             {
@@ -104,7 +104,7 @@ public class EntityController : MonoBehaviour
                     }
                     break;
                 case Card.CardType.Structure:
-                    if(slot.ManaCard != null && slot.AssignedPlayer == this && slot.AssignedStructureController.StructureCard == null)
+                    if(slot.ManaCard != null && slot.AssignedPlayer == this && slot.StructureCard == null)
                     {
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {

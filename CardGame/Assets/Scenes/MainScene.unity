@@ -546,6 +546,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 94374338}
 --- !u!61 &40776219
 BoxCollider2D:
@@ -2745,6 +2758,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 2005836482}
 --- !u!212 &239084978
 SpriteRenderer:
@@ -6569,6 +6595,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 281628742}
 --- !u!212 &500890024
 SpriteRenderer:
@@ -9286,6 +9325,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 911088528}
 --- !u!212 &815516747
 SpriteRenderer:
@@ -12385,6 +12437,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 283404087}
 --- !u!212 &1100082214
 SpriteRenderer:
@@ -12658,6 +12723,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1046174335}
 --- !u!212 &1129402744
 SpriteRenderer:
@@ -13362,6 +13440,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 806451535}
 --- !u!212 &1203877096
 SpriteRenderer:
@@ -13488,6 +13579,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1603162190}
 --- !u!212 &1215022468
 SpriteRenderer:
@@ -14331,6 +14435,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 2040219224}
 --- !u!212 &1304373319
 SpriteRenderer:
@@ -14534,6 +14651,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 94337997}
 --- !u!212 &1311169451
 SpriteRenderer:
@@ -16063,6 +16193,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1345849264}
 --- !u!212 &1395919652
 SpriteRenderer:
@@ -16966,6 +17109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 771823191}
 --- !u!212 &1467357299
 SpriteRenderer:
@@ -20074,6 +20230,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 34006973}
 --- !u!212 &1700396367
 SpriteRenderer:
@@ -21765,7 +21934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaAmountArray: 0000000000000000000000000000000000000000
-  playerHealth: 30
+  entityHealth: 0
   playerCards:
   - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
   - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
@@ -21828,22 +21997,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPlayerTakeDamageEvent:
+  onEntityTakeDamageEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1923986017}
-        m_TargetAssemblyTypeName: GameDisplay, Assembly-CSharp
-        m_MethodName: DisplayPlayerHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPlayerDeathEvent:
+      m_Calls: []
+  onEntityDeathEvent:
     m_PersistentCalls:
       m_Calls: []
   cardSelectDisplay: {fileID: 67295243}
@@ -22579,7 +22736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaAmountArray: 0000000000000000000000000000000000000000
-  playerHealth: 30
+  entityHealth: 0
   playerCards:
   - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
@@ -22618,22 +22775,10 @@ MonoBehaviour:
   onCardPlayedEvent:
     m_PersistentCalls:
       m_Calls: []
-  onPlayerTakeDamageEvent:
+  onEntityTakeDamageEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1923986017}
-        m_TargetAssemblyTypeName: GameDisplay, Assembly-CSharp
-        m_MethodName: DisplayEnemyHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPlayerDeathEvent:
+      m_Calls: []
+  onEntityDeathEvent:
     m_PersistentCalls:
       m_Calls: []
   slotArray:
@@ -23152,6 +23297,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde9d49c91be50f41b69447aa8182684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotArray:
+  - {fileID: 2016104982}
+  - {fileID: 1395919651}
+  - {fileID: 2035454215}
+  - {fileID: 815516746}
+  - {fileID: 40776218}
+  - {fileID: 239084977}
+  - {fileID: 1129402743}
+  - {fileID: 1100082213}
+  - {fileID: 1304373318}
+  - {fileID: 1215022467}
+  - {fileID: 1311169450}
+  - {fileID: 1203877095}
+  - {fileID: 1467357298}
+  - {fileID: 500890023}
+  - {fileID: 1700396366}
+  - {fileID: 1929929074}
 --- !u!114 &1923986016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23320,6 +23482,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1647285294}
 --- !u!212 &1929929075
 SpriteRenderer:
@@ -24294,6 +24469,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1860758814}
 --- !u!212 &2016104983
 SpriteRenderer:
@@ -24768,6 +24956,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaAmountArray: 
+  entityHealth: 0
+  playerCards: []
+  playerHand: []
+  onCardPlayedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEntityDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slotUI: {fileID: 1377970058}
 --- !u!212 &2035454216
 SpriteRenderer:

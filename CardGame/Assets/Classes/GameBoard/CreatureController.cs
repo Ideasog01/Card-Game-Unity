@@ -19,35 +19,13 @@ public class CreatureController : MonoBehaviour
         get { return _slot; }
     }
 
-    public void AssignCreatureProperties(Card creatureCard, SlotController slot)
-    {
-        _creatureCard = creatureCard;
-        _creatureHealth = creatureCard.CreatureHealth;
-        _creatureAttack = creatureCard.CreatureAttack;
-        _slot = slot;
-    }
-
-    public void FightCreature(CreatureController other)
-    {
-        Debug.Log("FIGHT!\n" + _creatureCard.CardName + " attacks " + other.CreatureCard.CardName);
-
-        int otherDamage = other.CreatureCard.CreatureAttack;
-
-        other.DamageCreature(_creatureAttack);
-        DamageCreature(otherDamage);
-    }
-
     public void DamageCreature(int amount)
     {
         _creatureHealth -= amount;
 
         if(_creatureHealth <= 0)
         {
-            _creatureCard = null;
-            _creatureHealth = 0;
-            _creatureAttack = 0;
-            _slot.AssignedCreatureController.CreatureCard = null;
-            _slot.DisplayCreatureUI(false);
+            
         }
     }
 }

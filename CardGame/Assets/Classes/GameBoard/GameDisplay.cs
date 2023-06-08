@@ -36,13 +36,13 @@ public class GameDisplay : MonoBehaviour
 
         foreach (SlotController slotElement in slotArray)
         {
-            if (slotElement != slot && slotElement.AssignedCreatureController != null && slotElement.AssignedCreatureController.CreatureCard != null)
+            if (slotElement != slot && slotElement != null && slotElement.CreatureCard != null)
             {
                 if (slotElement.AssignedPlayer != slot.AssignedPlayer) 
                 {
-                    if (GameUtilities.IsCreatureRange(slotElement.AssignedCreatureController, slot.AssignedCreatureController)) //Highlight Creature (In-Range)
+                    if (GameUtilities.IsCreatureRange(slotElement, slot)) //Highlight Creature (In-Range)
                     {
-                        slotElement.AssignedCreatureController.transform.SetParent(greyOverlay.transform);
+                        slotElement.transform.SetParent(greyOverlay.transform);
                         return;
                     }
                 }
@@ -65,11 +65,11 @@ public class GameDisplay : MonoBehaviour
 
     public void DisplayEnemyHealth()
     {
-        enemyHealthText.text = GameplayManager.enemyPlayer.PlayerHealth.ToString();
+        enemyHealthText.text = GameplayManager.enemyPlayer.EntityHealth.ToString();
     }
 
     public void DisplayPlayerHealth()
     {
-        playerHealthText.text = GameplayManager.humanPlayer.PlayerHealth.ToString();
+        playerHealthText.text = GameplayManager.humanPlayer.EntityHealth.ToString();
     }
 }

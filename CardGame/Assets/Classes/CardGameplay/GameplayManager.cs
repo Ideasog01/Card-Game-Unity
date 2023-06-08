@@ -13,8 +13,7 @@ public class GameplayManager : MonoBehaviour
     public static PlayerController humanPlayer;
     public static EnemyController enemyPlayer;
 
-    public static List<CreatureController> creatureControllerList = new List<CreatureController>();
-    public static List<StructureController> structureControllerList = new List<StructureController>();
+    public SlotController[] slotArray;
 
     private void Awake()
     {
@@ -63,21 +62,24 @@ public class GameplayManager : MonoBehaviour
             GameUtilities.ResetMana(enemyPlayer);
         }
 
-        //On Start & End Turn Card Effects
+        //On Start Turn Card Effects
 
-        foreach (CreatureController creature in creatureControllerList)
+        foreach (SlotController slot in slotArray)
         {
-            if (creature.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || creature.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            if (slot.CreatureCard != null)
             {
-                cardEffectManager.CardEffect(creature.AssignedSlot.AssignedPlayer, creature.CreatureCard);
+                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+                {
+                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.CreatureCard);
+                }
             }
-        }
 
-        foreach (StructureController structure in structureControllerList)
-        {
-            if (structure.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || structure.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            if (slot.StructureCard != null)
             {
-                cardEffectManager.CardEffect(structure.AssignedSlot.AssignedPlayer, structure.StructureCard);
+                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+                {
+                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.StructureCard);
+                }
             }
         }
 
@@ -91,19 +93,22 @@ public class GameplayManager : MonoBehaviour
     {
         //On End Turn Card Effects
 
-        foreach (CreatureController creature in creatureControllerList)
+        foreach (SlotController slot in slotArray)
         {
-            if (creature.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || creature.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            if (slot.CreatureCard != null)
             {
-                cardEffectManager.CardEffect(creature.AssignedSlot.AssignedPlayer, creature.CreatureCard);
+                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+                {
+                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.CreatureCard);
+                }
             }
-        }
 
-        foreach (StructureController structure in structureControllerList)
-        {
-            if (structure.AssignedSlot.AssignedPlayer == humanPlayer && playerIndex == 0 || structure.AssignedSlot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+            if (slot.StructureCard != null)
             {
-                cardEffectManager.CardEffect(structure.AssignedSlot.AssignedPlayer, structure.StructureCard);
+                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
+                {
+                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.StructureCard);
+                }
             }
         }
 

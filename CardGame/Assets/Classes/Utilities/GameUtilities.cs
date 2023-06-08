@@ -11,7 +11,7 @@ public static class GameUtilities
         if (entity.PlayerCards.Count == 0)
         {
             //Player Take Damage
-            entity.PlayerHealth -= entity.FatigueAmount;
+            entity.EntityHealth -= entity.FatigueAmount;
             entity.FatigueAmount++;
             return;
         }
@@ -88,7 +88,7 @@ public static class GameUtilities
         return false;
     }
 
-    public static bool IsCreatureRange(CreatureController potentialTarget, CreatureController attacker)
+    public static bool IsCreatureRange(SlotController potentialTarget, SlotController attacker)
     {
         Card.Range range = attacker.CreatureCard.CreatureReach;
 

@@ -13,7 +13,7 @@ public class PlayerController : EntityController
     public GameObject cardSelectDisplay;
 
     [SerializeField]
-    private CreatureController selectedCreature;
+    private SlotController selectedCreature;
 
     [SerializeField]
     private SlotController[] slotArray;
@@ -39,36 +39,31 @@ public class PlayerController : EntityController
         {
             if(selectedSlot != null)
             {
-                CreatureController creatureController = selectedSlot.AssignedCreatureController;
+                Card creatureCard = selectedSlot.CreatureCard;
 
-                if (creatureController != null)
+                if (creatureCard != null)
                 {
-                    Card creatureCard = creatureController.CreatureCard;
-
-                    if(creatureCard != null)
+                    if (selectedSlot.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
                     {
-                        if (creatureController.AssignedSlot.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
+                        if (GameUtilities.IsCreatureRange(selectedSlot, selectedCreature))
                         {
-                            if(GameUtilities.IsCreatureRange(creatureController, selectedCreature))
-                            {
-                                selectedCreature.FightCreature(creatureController);
-                                selectedCreature = null;
-                                Debug.Log("CREATURE FIGHT!");
-                            }
-                            else
-                            {
-                                Debug.Log("Creature is not in range!");
-                            }
+                            selectedCreature.FightCreature(selectedSlot);
+                            selectedCreature = null;
+                            Debug.Log("CREATURE FIGHT!");
                         }
                         else
                         {
-                            Debug.Log("CREATURE BELONGS TO PLAYER");
+                            Debug.Log("Creature is not in range!");
                         }
                     }
-
-                    GameplayManager.gameDisplay.HideDisplayTargets();
-                    selectedCreature = null;
+                    else
+                    {
+                        Debug.Log("CREATURE BELONGS TO PLAYER");
+                    }
                 }
+
+                GameplayManager.gameDisplay.HideDisplayTargets();
+                selectedCreature = null;
             }
         }
     }
@@ -85,17 +80,15 @@ public class PlayerController : EntityController
     {
         if(selectedSlot != null)
         {
-            if(selectedSlot.AssignedCreatureController.CreatureCard != null)
+            if(selectedSlot.CreatureCard != null)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    CreatureController creature = selectedSlot.AssignedCreatureController;
-
                     if(selectedCreature == null) //Player has not selected creature
                     {
-                        if (creature.AssignedSlot.AssignedPlayer == this) //If the creature belongs to the player
+                        if (selectedSlot.AssignedPlayer == this) //If the creature belongs to the player
                         {
-                            selectedCreature = creature;
+                            selectedCreature = selectedSlot;
                             GameplayManager.gameDisplay.DisplayTargets(selectedSlot);
                             Debug.Log("CREATURE SELECT!");
                         }

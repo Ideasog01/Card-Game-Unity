@@ -4,14 +4,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class SlotController : MonoBehaviour
+public class SlotController : EntityController
 {
     [SerializeField]
     private GameObject slotUI;
 
     //Creature
-
-    private CreatureController _creatureController;
 
     private Image _creatureImage;
 
@@ -21,6 +19,10 @@ public class SlotController : MonoBehaviour
 
     private Image _creatureRangeImage;
 
+    private int _creatureAttack;
+
+    private Card _creatureCard;
+
     //General
 
     private SpriteRenderer _manaArt;
@@ -28,8 +30,6 @@ public class SlotController : MonoBehaviour
     private SpriteRenderer _slotBorder;
 
     private Card _manaCard;
-
-    private Card _structureCard;
 
     private Card _enchantmentCard;
 
@@ -41,15 +41,20 @@ public class SlotController : MonoBehaviour
 
     //Structure
 
-    private StructureController _structureController;
-
     private Image _structureImage;
+
+    private Card _structureCard;
 
     #region Properties
 
     public Card ManaCard
     {
         get { return _manaCard; }
+    }
+
+    public Card CreatureCard
+    {
+        get { return _creatureCard; }
     }
 
     public Card StructureCard
@@ -60,16 +65,6 @@ public class SlotController : MonoBehaviour
     public Card EnchantmentCard
     {
         get { return _enchantmentCard; }
-    }
-
-    public CreatureController AssignedCreatureController
-    {
-        get { return _creatureController; }
-    }
-
-    public StructureController AssignedStructureController
-    {
-        get { return _structureController; }
     }
 
     public BoxCollider2D SlotBox
@@ -98,11 +93,9 @@ public class SlotController : MonoBehaviour
         _manaArt = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _manaArt.gameObject.SetActive(false);
 
-        _creatureController = slotUI.GetComponent<CreatureController>();
         AssignCreatureUI();
         DisplayCreatureUI(false);
 
-        _structureController = slotUI.GetComponent<StructureController>();
         AssignStructureUI();
         DisplayStructureUI(false);
 
@@ -129,18 +122,24 @@ public class SlotController : MonoBehaviour
         _assignedPlayer = player;
     }
 
+    public void AssignCreatureProperties(Card creatureCard)
+    {
+        _creatureCard = creatureCard;
+        EntityHealth = creatureCard.CreatureHealth;
+        _creatureAttack = creatureCard.CreatureAttack;
+    }
+
     public void AddCreature(Card creatureCard)
     {
         DisplayCreatureUI(true);
 
-        _creatureController.CreatureCard = creatureCard;
-        _creatureController.AssignCreatureProperties(creatureCard, this);
-        _creatureImage.sprite = _creatureController.CreatureCard.CardArt;
-        _creatureAttackText.text = _creatureController.CreatureCard.CreatureAttack.ToString();
-        _creatureHealthText.text = _creatureController.CreatureCard.CreatureHealth.ToString();
+        AssignCreatureProperties(creatureCard);
+        _creatureImage.sprite = _creatureCard.CardArt;
+        _creatureAttackText.text = _creatureAttack.ToString();
+        _creatureHealthText.text = EntityHealth.ToString();
         _creatureRangeImage.sprite = GameplayManager.gameDisplay.creatureReachIcons[(int)creatureCard.CreatureReach];
 
-        GameplayManager.creatureControllerList.Add(_creatureController);
+        //GameplayManager.creatureControllerList.Add(_creatureController);
     }
 
     private void AssignCreatureUI()
@@ -151,15 +150,37 @@ public class SlotController : MonoBehaviour
         _creatureRangeImage = slotUI.transform.GetChild(0).GetChild(2).GetComponent<Image>();
     }
 
+    public void FightCreature(SlotController other)
+    {
+        Debug.Log("FIGHT!\n" + _creatureCard.CardName + " attacks " + other.CreatureCard.CardName);
+
+        int otherDamage = other.CreatureCard.CreatureAttack;
+
+        other.TakeDamage(_creatureAttack);
+        TakeDamage(otherDamage);
+    }
+
+    public void OnCreatureDeath()
+    {
+        _creatureCard = null;
+        EntityHealth = 0;
+        _creatureAttack = 0;
+        _creatureCard = null;
+        DisplayCreatureUI(false);
+    }
+
     public void AddStructure(Card structureCard)
     {
         DisplayStructureUI(true);
 
-        _structureController.StructureCard = structureCard;
-        _structureController.AssignStructureProperties(structureCard, this);
-        _structureImage.sprite = _structureController.StructureCard.CardArt;
+        _structureCard = structureCard;
+        AssignStructureProperties(structureCard);
+        _structureImage.sprite = structureCard.CardArt;
+    }
 
-        GameplayManager.structureControllerList.Add(_structureController);
+    public void AssignStructureProperties(Card structureCard)
+    {
+        _structureCard = structureCard;
     }
 
     private void AssignStructureUI()

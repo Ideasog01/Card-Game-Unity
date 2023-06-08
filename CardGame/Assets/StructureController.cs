@@ -17,10 +17,4 @@ public class StructureController : MonoBehaviour
     {
         get { return _slot; }
     }
-
-    public void AssignStructureProperties(Card structureCard, SlotController slot)
-    {
-        _structureCard = structureCard;
-        _slot = slot;
-    }
 }

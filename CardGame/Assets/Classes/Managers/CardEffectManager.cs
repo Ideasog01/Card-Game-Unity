@@ -12,7 +12,7 @@ public class CardEffectManager : MonoBehaviour
         {
             case "ArcaneMissiles":
 
-                target.AssignedCreatureController.DamageCreature(2);
+                target.TakeDamage(2);
 
                 break;
         }
