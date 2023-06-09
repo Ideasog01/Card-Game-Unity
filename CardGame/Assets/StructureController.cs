@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StructureController : MonoBehaviour
+public class StructureController : Target
 {
     [SerializeField]
     private GameObject structureUI;
 
     [SerializeField]
     private SlotController slot;
+
+    [SerializeField]
+    private BoxCollider2D boxCollider;
 
     private Card _structureCard;
 
@@ -29,6 +32,11 @@ public class StructureController : MonoBehaviour
     public SlotController AssignedSlot
     {
         get { return slot; }
+    }
+
+    public BoxCollider2D BoxCollider
+    {
+        get { return boxCollider; }
     }
 
     public Transform StructureUI

@@ -42,8 +42,10 @@ public class PlayerEntityController : EntityController
         DisplayDefaultParent = playerPortait.transform.parent;
     }
 
-    public IEnumerator PlayCard(Card card, TargetController target)
+    public IEnumerator PlayCard(Card card, Target t)
     {
+        TargetController target = t.TargetControllerRef;
+
         yield return new WaitForSeconds(0.05f);
 
         if (target != null)
@@ -52,17 +54,17 @@ public class PlayerEntityController : EntityController
             {
                 case Card.CardType.Mana:
 
-                    if(target.SlotControllerRef != null && target.SlotControllerRef.ManaCard == null)
+                    if (target.SlotControllerRef != null && target.SlotControllerRef.ManaCard == null)
                     {
                         target.SlotControllerRef.AddMana(card, this);
                         GameUtilities.AddMana(this, (int)card.ObjectManaType, card.ManaGain);
                         OnCardPlayed(card);
                     }
-                    
+
                     break;
                 case Card.CardType.Creature:
 
-                    if(target.CreatureControlllerRef != null && target.SlotControllerRef != null && target.CreatureControlllerRef.CreatureCard == null && target.SlotControllerRef.AssignedPlayer == this)
+                    if (target.CreatureControlllerRef != null && target.SlotControllerRef != null && target.CreatureControlllerRef.CreatureCard == null && target.SlotControllerRef.AssignedPlayer == this)
                     {
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
@@ -70,16 +72,16 @@ public class PlayerEntityController : EntityController
                             OnCardPlayed(card);
                         }
                     }
-                   
+
                     break;
                 case Card.CardType.Spell:
 
                     Debug.Log("Spells are not implemented yet. :)");
-                    
+
                     break;
                 case Card.CardType.Structure:
 
-                    if(target.StructureControllerRef != null && target.StructureControllerRef.StructureCard == null && target.SlotControllerRef.AssignedPlayer == this)
+                    if (target.StructureControllerRef != null && target.StructureControllerRef.StructureCard == null && target.SlotControllerRef.AssignedPlayer == this)
                     {
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
@@ -87,7 +89,7 @@ public class PlayerEntityController : EntityController
                             OnCardPlayed(card);
                         }
                     }
-                    
+
                     break;
 
                 case Card.CardType.Equipment:

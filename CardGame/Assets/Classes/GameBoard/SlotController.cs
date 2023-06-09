@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class SlotController : MonoBehaviour
+public class SlotController : Target
 {
     //General
 
@@ -16,6 +16,9 @@ public class SlotController : MonoBehaviour
 
     [SerializeField]
     private Image slotBorder;
+
+    [SerializeField]
+    private BoxCollider2D boxCollider;
 
     private Card _manaCard;
 
@@ -43,6 +46,11 @@ public class SlotController : MonoBehaviour
     public Image SlotBorder
     {
         get { return slotBorder; }
+    }
+
+    public BoxCollider2D BoxCollider
+    {
+        get { return boxCollider; }
     }
 
     public Transform DefaultParent

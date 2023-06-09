@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : PlayerEntityController
 {
-    public static TargetController hoverTarget;
+    public static Target hoverTarget;
 
-    public static TargetController clickedTarget;
+    public static Target clickedTarget;
 
     public static CardController selectedCard;
 
@@ -14,6 +14,37 @@ public class PlayerController : PlayerEntityController
 
     [SerializeField]
     private TargetController[] targetArray;
+
+    private List<PlayerEntityController> playerList = new List<PlayerEntityController>();
+    private List<SlotController> slotList = new List<SlotController>();
+    private List<CreatureController> creatureList = new List<CreatureController>();
+    private List<StructureController> structureList = new List<StructureController>();
+
+    private void Awake()
+    {
+        foreach (TargetController target in targetArray)
+        {
+            if (target.PlayerControllerRef != null)
+            {
+                playerList.Add(target.PlayerControllerRef);
+            }
+
+            if (target.SlotControllerRef != null)
+            {
+                slotList.Add(target.SlotControllerRef);
+            }
+
+            if (target.CreatureControlllerRef != null)
+            {
+                creatureList.Add(target.CreatureControlllerRef);
+            }
+
+            if(target.StructureControllerRef != null)
+            {
+                structureList.Add(target.StructureControllerRef);
+            }
+        }
+    }
 
     private void Update()
     {
@@ -28,21 +59,74 @@ public class PlayerController : PlayerEntityController
         }
     }
 
+    public void ClickCard()
+    {
+        if(selectedCard != null)
+        {
+            cardSelectDisplay.SetActive(true);
+            selectedCard.gameObject.SetActive(false);
+        }
+    }
+
+    public void ReleaseCard()
+    {
+        if(selectedCard != null && cardSelectDisplay.activeSelf)
+        {
+            //Play Card
+
+            PlayCard(selectedCard.AssignedCard, hoverTarget);
+
+            //Hide Display
+            cardSelectDisplay.SetActive(false);
+            selectedCard.gameObject.SetActive(true);
+            selectedCard = null;
+        }
+    }
+
     private void EnterDetection() //Run every tick to establish which target is currently hovered over.
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        foreach (TargetController target in targetArray)
+        if (cardSelectDisplay.activeSelf)
         {
-            if (target.BoxCollider.bounds.Contains(mousePosition))
+            cardSelectDisplay.transform.position = Input.mousePosition;
+        }
+
+        foreach (PlayerEntityController player in playerList)
+        {
+            if (player.BoxCollider.bounds.Contains(mousePosition))
             {
-                hoverTarget = target;
-                Debug.Log("Slot Assigned");
+                hoverTarget = player;
             }
-            else if(target == hoverTarget)
+        }
+
+        foreach(SlotController slot in slotList)
+        {
+            if(slot.BoxCollider.bounds.Contains(mousePosition))
             {
-                hoverTarget = null;
+                hoverTarget = slot;
             }
+        }
+
+        foreach(CreatureController creature in creatureList)
+        {
+            if (creature.BoxCollider.bounds.Contains(mousePosition))
+            {
+                hoverTarget = creature;
+            }
+        }
+
+        foreach (StructureController structure in structureList)
+        {
+            if (structure.BoxCollider.bounds.Contains(mousePosition))
+            {
+                hoverTarget = structure;
+            }
+        }
+
+        if(hoverTarget != null)
+        {
+            Debug.Log("Hover Target: " + hoverTarget.gameObject.name);
         }
     }
 }

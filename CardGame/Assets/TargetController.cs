@@ -17,11 +17,9 @@ public class TargetController : MonoBehaviour
     [SerializeField]
     private StructureController structureController;
 
-    private BoxCollider2D _boxCollider;
-
-    public BoxCollider2D BoxCollider
+    public PlayerEntityController PlayerControllerRef
     {
-        get { return _boxCollider; }
+        get { return playerController; }
     }
 
     public SlotController SlotControllerRef
@@ -37,11 +35,6 @@ public class TargetController : MonoBehaviour
     public StructureController StructureControllerRef
     {
         get { return structureController; }
-    }
-
-    private void Awake()
-    {
-        _boxCollider = this.GetComponent<BoxCollider2D>();
     }
 
     public void HighlightTarget(Transform overlay, bool highlight, List<Card.TargetType> targetTypes)

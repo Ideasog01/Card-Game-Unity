@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 3063479907611083761}
   - component: {fileID: 3063479907611083763}
   - component: {fileID: 3063479907611083760}
+  - component: {fileID: 1506254337134596544}
   m_Layer: 2
   m_Name: Structure
   m_TagString: Untagged
@@ -287,6 +288,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!61 &1506254337134596544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063479907611083774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 1.2}
+  m_EdgeRadius: 0
 --- !u!1 &3063479907675276488
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +325,7 @@ GameObject:
   - component: {fileID: 3063479907675276491}
   - component: {fileID: 3063479907675276493}
   - component: {fileID: 3063479907675276490}
+  - component: {fileID: 5305262592541347839}
   m_Layer: 2
   m_Name: Creature
   m_TagString: Untagged
@@ -366,6 +394,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!61 &5305262592541347839
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063479907675276488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 1.2}
+  m_EdgeRadius: 0
 --- !u!1 &3063479908155741358
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +570,7 @@ GameObject:
   - component: {fileID: 2074742018216544416}
   - component: {fileID: 2705692881573822802}
   - component: {fileID: 3746359308980656797}
+  - component: {fileID: 4333082703086890491}
   m_Layer: 2
   m_Name: Slot
   m_TagString: Untagged
@@ -615,6 +670,7 @@ MonoBehaviour:
   manaArt: {fileID: 8425812540654807769}
   defaultParent: {fileID: 3063479908487707990}
   slotBorder: {fileID: 7192916583937853862}
+  boxCollider: {fileID: 4333082703086890491}
 --- !u!114 &2705692881573822802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +691,7 @@ MonoBehaviour:
   onEntityDeathEvent:
     m_PersistentCalls:
       m_Calls: []
+  boxCollider: {fileID: 5305262592541347839}
   _displayDefaultParent: {fileID: 3063479908487707990}
   creatureUI: {fileID: 3063479907675276488}
   slot: {fileID: 2074742018216544416}
@@ -656,7 +713,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureUI: {fileID: 3063479907611083774}
   slot: {fileID: 2074742018216544416}
+  boxCollider: {fileID: 1506254337134596544}
   structureImage: {fileID: 3063479907611083760}
+--- !u!61 &4333082703086890491
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063479908487707991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 2.8}
+  m_EdgeRadius: 0
 --- !u!1 &8897339433539848219
 GameObject:
   m_ObjectHideFlags: 0

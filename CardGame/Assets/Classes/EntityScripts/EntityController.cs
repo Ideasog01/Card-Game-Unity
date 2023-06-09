@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EntityController : MonoBehaviour
+public class EntityController : Target
 {
     [SerializeField]
     private int[] manaAmountArray;
@@ -16,6 +16,9 @@ public class EntityController : MonoBehaviour
 
     [SerializeField]
     private UnityEvent onEntityDeathEvent;
+
+    [SerializeField]
+    private BoxCollider2D boxCollider;
 
     [Header("Display")]
 
@@ -41,6 +44,11 @@ public class EntityController : MonoBehaviour
     {
         get { return _fatigueAmount; }
         set { _fatigueAmount = value; }
+    }
+
+    public BoxCollider2D BoxCollider
+    {
+        get { return boxCollider; }
     }
 
     public Transform DisplayDefaultParent
