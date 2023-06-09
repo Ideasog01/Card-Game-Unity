@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerController : PlayerEntityController
 {
-    public static Target hoverTarget;
+    public Target hoverTarget;
 
-    public static Target clickedTarget;
+    public Target clickedTarget;
 
-    public static CardController selectedCard;
+    public CardController selectedCard;
 
     public GameObject cardSelectDisplay;
 
-    [SerializeField]
-    private TargetController[] targetArray;
+    public TargetController[] targetArray;
 
     private List<PlayerEntityController> playerList = new List<PlayerEntityController>();
     private List<SlotController> slotList = new List<SlotController>();
@@ -49,6 +48,11 @@ public class PlayerController : PlayerEntityController
     private void Update()
     {
         EnterDetection();
+
+        if(cardSelectDisplay.activeSelf)
+        {
+            cardSelectDisplay.transform.position = Input.mousePosition;
+        }
     }
 
     public void SelectCard(CardController cardController)
@@ -70,49 +74,114 @@ public class PlayerController : PlayerEntityController
 
     public void ReleaseCard()
     {
-        if(selectedCard != null && cardSelectDisplay.activeSelf)
+        if(hoverTarget != null && cardSelectDisplay.activeSelf && selectedCard != null)
         {
             //Play Card
 
+            selectedCard.gameObject.SetActive(true);
+
             PlayCard(selectedCard.AssignedCard, hoverTarget);
 
-            //Hide Display
             cardSelectDisplay.SetActive(false);
-            selectedCard.gameObject.SetActive(true);
             selectedCard = null;
+
+            Debug.Log("Card Released");
+        }
+    }
+
+    public void ClickDetection()
+    {
+        if(clickedTarget != null)
+        {
+            Target newTarget =  FindTarget();
+
+            if(newTarget != null && clickedTarget != newTarget)
+            {
+                switch (clickedTarget.TargetType)
+                {
+                    case Card.TargetType.Creature:
+
+                        if(newTarget.TargetType == Card.TargetType.Creature )
+                        {
+                            clickedTarget.TargetControllerRef.CreatureControlllerRef.FightCreature(newTarget.TargetControllerRef.CreatureControlllerRef);
+                        }
+                        else if(newTarget.TargetType == Card.TargetType.Player)
+                        {
+                            newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard.CreatureAttack);
+                        }
+
+                        break;
+                }
+            }
+
+
+            GameplayManager.gameDisplay.HideDisplayTargets();
+
+            clickedTarget = null;
+        }
+        else
+        {
+            clickedTarget = FindTarget();
+
+            if (clickedTarget != null)
+            {
+                Card card = null;
+
+                if (clickedTarget.TargetType == Card.TargetType.Creature)
+                {
+                    card = clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard;
+                }
+                else if (clickedTarget.TargetType == Card.TargetType.Structure)
+                {
+                    card = clickedTarget.TargetControllerRef.StructureControllerRef.StructureCard;
+                }
+
+                if (card != null)
+                {
+                    if (card.TargetTypeArray.Count > 0)
+                    {
+                        GameplayManager.gameDisplay.DisplayTargets(card, clickedTarget);
+                    }
+                    else
+                    {
+                        clickedTarget = null;
+                    }
+                }
+                else
+                {
+                    clickedTarget = null;
+                }
+            }
         }
     }
 
     private void EnterDetection() //Run every tick to establish which target is currently hovered over.
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        hoverTarget = FindTarget();
 
-        if (cardSelectDisplay.activeSelf)
+        if(hoverTarget != null)
         {
-            cardSelectDisplay.transform.position = Input.mousePosition;
+            Debug.Log("Hover Target: " + hoverTarget);
         }
+    }
+
+    private Target FindTarget()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         foreach (PlayerEntityController player in playerList)
         {
             if (player.BoxCollider.bounds.Contains(mousePosition))
             {
-                hoverTarget = player;
+                return player;
             }
         }
 
-        foreach(SlotController slot in slotList)
-        {
-            if(slot.BoxCollider.bounds.Contains(mousePosition))
-            {
-                hoverTarget = slot;
-            }
-        }
-
-        foreach(CreatureController creature in creatureList)
+        foreach (CreatureController creature in creatureList)
         {
             if (creature.BoxCollider.bounds.Contains(mousePosition))
             {
-                hoverTarget = creature;
+                return creature;
             }
         }
 
@@ -120,13 +189,18 @@ public class PlayerController : PlayerEntityController
         {
             if (structure.BoxCollider.bounds.Contains(mousePosition))
             {
-                hoverTarget = structure;
+                return structure;
             }
         }
 
-        if(hoverTarget != null)
+        foreach (SlotController slot in slotList)
         {
-            Debug.Log("Hover Target: " + hoverTarget.gameObject.name);
+            if (slot.BoxCollider.bounds.Contains(mousePosition))
+            {
+                return slot;
+            }
         }
+
+        return null;
     }
 }

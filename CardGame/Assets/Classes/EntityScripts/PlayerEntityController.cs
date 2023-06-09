@@ -37,16 +37,9 @@ public class PlayerEntityController : EntityController
         get { return playerPortait; }
     }
 
-    private void Awake()
-    {
-        DisplayDefaultParent = playerPortait.transform.parent;
-    }
-
-    public IEnumerator PlayCard(Card card, Target t)
+    public void PlayCard(Card card, Target t)
     {
         TargetController target = t.TargetControllerRef;
-
-        yield return new WaitForSeconds(0.05f);
 
         if (target != null)
         {

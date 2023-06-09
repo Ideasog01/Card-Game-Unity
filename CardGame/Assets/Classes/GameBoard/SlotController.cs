@@ -81,7 +81,6 @@ public class SlotController : Target
             slotBorder.color = GameplayManager.gameDisplay.enemyColour;
         }
 
-        Debug.Log("Mana Added");
         _assignedPlayer = player;
     }
 }

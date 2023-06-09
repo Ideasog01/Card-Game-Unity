@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GameDisplay : MonoBehaviour
@@ -9,9 +10,6 @@ public class GameDisplay : MonoBehaviour
     [Header("General References")]
 
     public Sprite[] creatureReachIcons;
-
-    [SerializeField]
-    private TargetController[] targetArray;
 
     [SerializeField]
     private GameObject greyOverlay;
@@ -30,21 +28,28 @@ public class GameDisplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI enemyHealthText;
 
-    public void DisplayTargets(Card card)
+    public void DisplayTargets(Card card, Target attacker)
     {
         greyOverlay.SetActive(true);
 
-        foreach (TargetController target in targetArray)
+        int targetCount = 0;
+
+        foreach (TargetController target in GameplayManager.humanPlayer.targetArray)
         {
-            target.HighlightTarget(greyOverlay.transform, true, card.TargetTypeArray);
+            targetCount += target.HighlightTarget(greyOverlay.transform, card.TargetTypeArray, attacker);
+        }
+
+        if(targetCount == 0)
+        {
+            greyOverlay.SetActive(false);
         }
     }
 
     public void HideDisplayTargets()
     {
-        for(int i = 0; i < greyOverlay.transform.childCount; i++)
+        foreach (TargetController target in GameplayManager.humanPlayer.targetArray)
         {
-            greyOverlay.transform.GetChild(i).SetParent(greyOverlay.transform.GetChild(i).GetComponent<SlotController>().DefaultParent);
+            target.HideTarget();
         }
 
         greyOverlay.SetActive(false);

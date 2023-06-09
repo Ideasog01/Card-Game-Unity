@@ -20,6 +20,7 @@ MonoBehaviour:
   - Mythical
   - Spirit
   - Supernatural
+  _targetTypeArray: 0000000001000000
   _manaCost: 2
   _manaType: 0
   _manaGain: 0
@@ -27,4 +28,5 @@ MonoBehaviour:
   _creatureHealth: 1
   _creatureReach: 2
   creatureEffects: 
-  spellFunction: 
+  cardEffectFunction: 
+  weaponAttack: 0

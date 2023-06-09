@@ -17,6 +17,7 @@ MonoBehaviour:
   _cardType: 0
   _cardArt: {fileID: 21300000, guid: f1768ee39cca566459192f928a1bfe0f, type: 3}
   _cardTags: []
+  _targetTypeArray: 04000000
   _manaCost: 0
   _manaType: 0
   _manaGain: 2
@@ -24,3 +25,5 @@ MonoBehaviour:
   _creatureHealth: 0
   _creatureReach: 0
   creatureEffects: 
+  cardEffectFunction: 
+  weaponAttack: 0

@@ -15,6 +15,8 @@ public class InputManager : MonoBehaviour
     {
         gameplayInput.Gameplay.Primary.started += ctx => GameplayManager.humanPlayer.ClickCard();
         gameplayInput.Gameplay.Primary.canceled += ctx => GameplayManager.humanPlayer.ReleaseCard();
+
+        gameplayInput.Gameplay.Primary.performed += ctx => GameplayManager.humanPlayer.ClickDetection();
     }
 
     private void OnEnable()

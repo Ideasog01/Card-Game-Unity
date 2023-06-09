@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static Card;
+using static UnityEngine.GraphicsBuffer;
 
 public class TargetController : MonoBehaviour
 {
@@ -37,13 +41,16 @@ public class TargetController : MonoBehaviour
         get { return structureController; }
     }
 
-    public void HighlightTarget(Transform overlay, bool highlight, List<Card.TargetType> targetTypes)
+    public int HighlightTarget(Transform overlay, List<Card.TargetType> targetTypes, Target attacker)
     {
+        int targets = 0;
+
         if(playerController != null)
         {
-            if(highlight && targetTypes.Contains(Card.TargetType.Player))
+            if (targetTypes.Contains(Card.TargetType.Player))
             {
                 playerController.PlayerPortrait.SetParent(overlay);
+                targets++;
             }
             else
             {
@@ -51,11 +58,12 @@ public class TargetController : MonoBehaviour
             }
         }
 
-        if(creatureController != null && creatureController.CreatureCard != null)
+        if(creatureController != null && creatureController.CreatureCard != null && creatureController != attacker)
         {
-            if(highlight && targetTypes.Contains(Card.TargetType.Creature))
+            if(targetTypes.Contains(Card.TargetType.Creature) && GameUtilities.IsCreatureRange(creatureController, attacker.TargetControllerRef.CreatureControlllerRef))
             {
                 creatureController.CreatureUI.SetParent(overlay);
+                targets++;
             }
             else
             {
@@ -63,11 +71,12 @@ public class TargetController : MonoBehaviour
             }
         }
 
-        if(structureController != null && structureController.StructureCard != null)
+        if(structureController != null && structureController.StructureCard != null && structureController != attacker)
         {
-            if(highlight && targetTypes.Contains(Card.TargetType.Structure))
+            if(targetTypes.Contains(Card.TargetType.Structure))
             {
                 structureController.StructureUI.SetParent(overlay);
+                targets++;
             }
             else
             {
@@ -77,14 +86,40 @@ public class TargetController : MonoBehaviour
         
         if(slotController != null && slotController.ManaCard == null)
         {
-            if(highlight && targetTypes.Contains(Card.TargetType.Slot))
+            if(targetTypes.Contains(Card.TargetType.Slot))
             {
                 slotController.SlotBorder.transform.SetParent(overlay);
+                targets++;
             }
             else
             {
                 slotController.SlotBorder.transform.SetParent(slotController.DefaultParent);
             }
+        }
+
+        return targets;
+    }
+
+    public void HideTarget()
+    {
+        if (playerController != null)
+        {
+            playerController.PlayerPortrait.SetParent(playerController.DisplayDefaultParent);
+        }
+
+        if (creatureController != null && creatureController.CreatureCard != null)
+        {
+            creatureController.CreatureUI.SetParent(creatureController.DisplayDefaultParent);
+        }
+
+        if(structureController != null && structureController.StructureCard != null)
+        {
+            structureController.StructureUI.SetParent(structureController.DisplayDefaultParent);
+        }
+
+        if(slotController != null && slotController.ManaCard == null)
+        {
+            slotController.SlotBorder.transform.SetParent(slotController.DefaultParent);
         }
     }
 }

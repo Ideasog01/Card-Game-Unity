@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e122da658ea394d888993e0af4c728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetType: 4
   manaArt: {fileID: 8425812540654807769}
   defaultParent: {fileID: 3063479908487707990}
   slotBorder: {fileID: 7192916583937853862}
@@ -683,6 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f81e73a865b24099195bbd43a0697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetType: 0
   manaAmountArray: 
   entityHealth: 0
   onEntityTakeDamageEvent:
@@ -711,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8423288772aa841b07d160c77425d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetType: 3
   structureUI: {fileID: 3063479907611083774}
   slot: {fileID: 2074742018216544416}
   boxCollider: {fileID: 1506254337134596544}
