@@ -62,27 +62,6 @@ public class GameplayManager : MonoBehaviour
             GameUtilities.ResetMana(enemyPlayer);
         }
 
-        //On Start Turn Card Effects
-
-        foreach (SlotController slot in slotArray)
-        {
-            if (slot.CreatureCard != null)
-            {
-                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
-                {
-                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.CreatureCard);
-                }
-            }
-
-            if (slot.StructureCard != null)
-            {
-                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
-                {
-                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.StructureCard);
-                }
-            }
-        }
-
         if(playerIndex == 1)
         {
             OnEndPlayerTurn();
@@ -92,25 +71,6 @@ public class GameplayManager : MonoBehaviour
     public void OnEndPlayerTurn()
     {
         //On End Turn Card Effects
-
-        foreach (SlotController slot in slotArray)
-        {
-            if (slot.CreatureCard != null)
-            {
-                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
-                {
-                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.CreatureCard);
-                }
-            }
-
-            if (slot.StructureCard != null)
-            {
-                if (slot.AssignedPlayer == humanPlayer && playerIndex == 0 || slot.AssignedPlayer == enemyPlayer && playerIndex == 1)
-                {
-                    cardEffectManager.CardEffect(slot.AssignedPlayer, slot.StructureCard);
-                }
-            }
-        }
 
         OnNewPlayerTurn();
     }

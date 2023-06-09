@@ -11,7 +11,7 @@ public class GameDisplay : MonoBehaviour
     public Sprite[] creatureReachIcons;
 
     [SerializeField]
-    private SlotController[] slotArray;
+    private TargetController[] targetArray;
 
     [SerializeField]
     private GameObject greyOverlay;
@@ -30,26 +30,13 @@ public class GameDisplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI enemyHealthText;
 
-    public void DisplayTargets(SlotController slot)
+    public void DisplayTargets(Card card)
     {
         greyOverlay.SetActive(true);
 
-        foreach (SlotController slotElement in slotArray)
+        foreach (TargetController target in targetArray)
         {
-            if (slotElement != slot && slotElement != null && slotElement.CreatureCard != null)
-            {
-                if (slotElement.AssignedPlayer != slot.AssignedPlayer) 
-                {
-                    if (GameUtilities.IsCreatureRange(slotElement, slot)) //Highlight Creature (In-Range)
-                    {
-                        slotElement.transform.SetParent(greyOverlay.transform);
-                        return;
-                    }
-                }
-
-                //Do not highlight creature (Out of Range)
-                slotElement.transform.SetParent(slotElement.DefaultParent);
-            }
+            target.HighlightTarget(greyOverlay.transform, true, card.TargetTypeArray);
         }
     }
 

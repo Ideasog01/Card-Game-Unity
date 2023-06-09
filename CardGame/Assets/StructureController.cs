@@ -1,11 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StructureController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject structureUI;
+
+    [SerializeField]
+    private SlotController slot;
+
     private Card _structureCard;
-    private SlotController _slot;
+
+    //Structure
+
+    [Header("Display")]
+
+    [SerializeField]
+    private Image structureImage;
+
+    private Transform _displayDefaultParent;
 
     public Card StructureCard
     {
@@ -15,6 +28,42 @@ public class StructureController : MonoBehaviour
 
     public SlotController AssignedSlot
     {
-        get { return _slot; }
+        get { return slot; }
+    }
+
+    public Transform StructureUI
+    {
+        get { return structureUI.transform; }
+    }
+
+    public Transform DisplayDefaultParent
+    {
+        get { return _displayDefaultParent; }
+    }
+
+    private void Awake()
+    {
+        _displayDefaultParent = structureUI.transform.parent;
+
+        DisplayStructureUI(false);
+    }
+
+    public void AddStructure(Card structureCard)
+    {
+        DisplayStructureUI(true);
+
+        _structureCard = structureCard;
+        AssignStructureProperties(structureCard);
+        structureImage.sprite = structureCard.CardArt;
+    }
+
+    public void AssignStructureProperties(Card structureCard)
+    {
+        _structureCard = structureCard;
+    }
+
+    public void DisplayStructureUI(bool active)
+    {
+        structureImage.gameObject.SetActive(active);
     }
 }

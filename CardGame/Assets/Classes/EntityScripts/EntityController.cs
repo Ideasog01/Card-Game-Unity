@@ -12,21 +12,15 @@ public class EntityController : MonoBehaviour
     private int entityHealth;
 
     [SerializeField]
-    private List<Card> playerCards = new List<Card>();
-
-    [SerializeField]
-    private List<Card> playerHand = new List<Card>();
-
-    [Header("Entity Events")]
-
-    [SerializeField]
-    private UnityEvent onCardPlayedEvent;
-
-    [SerializeField]
     private UnityEvent onEntityTakeDamageEvent;
 
     [SerializeField]
     private UnityEvent onEntityDeathEvent;
+
+    [Header("Display")]
+
+    [SerializeField]
+    private Transform _displayDefaultParent;
 
     private int _fatigueAmount = 1;
 
@@ -35,17 +29,6 @@ public class EntityController : MonoBehaviour
     public int[] ManaAmountArray
     {
         get { return manaAmountArray; }
-    }
-
-    public List<Card> PlayerCards
-    {
-        get { return playerCards; }
-        set { playerCards = value; }
-    }
-
-    public List<Card> PlayerHand
-    {
-        get { return playerHand; }
     }
 
     public int EntityHealth
@@ -60,83 +43,10 @@ public class EntityController : MonoBehaviour
         set { _fatigueAmount = value; }
     }
 
-    public virtual IEnumerator PlayCard(Card card, SlotController slot)
+    public Transform DisplayDefaultParent
     {
-        yield return new WaitForSeconds(0.05f);
-
-        if (slot != null)
-        {
-            switch (card.Object_cardType)
-            {
-                case Card.CardType.Mana:
-                    if (slot.ManaCard == null)
-                    {
-                        slot.AddMana(card, this);
-                        GameUtilities.AddMana(this, (int)card.ObjectManaType, card.ManaGain);
-                        OnCardPlayed(card);
-                    }
-                    break;
-                case Card.CardType.Creature:
-                    if (slot.ManaCard != null && slot.AssignedPlayer == this && slot.CreatureCard == null)
-                    {
-                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                        {
-                            slot.AddCreature(card);
-                            OnCardPlayed(card);
-                        }
-                    }
-                    break;
-                case Card.CardType.Spell:
-                    if (slot.CreatureCard != null)
-                    {
-                        if (slot.AssignedPlayer != this) //If the creature belongs to ANOTHER player, attack this creature
-                        {
-                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                            {
-                                GameplayManager.cardEffectManager.CardEffect(card, slot);
-                                OnCardPlayed(card);
-                            }
-                        }
-                        else
-                        {
-                            Debug.Log("Target for spell belongs to the owning player");
-                        }
-                    }
-                    break;
-                case Card.CardType.Structure:
-                    if(slot.ManaCard != null && slot.AssignedPlayer == this && slot.StructureCard == null)
-                    {
-                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                        {
-                            slot.AddStructure(card);
-                            OnCardPlayed(card);
-                        }
-                    }
-                    break;
-            }
-        }
-    }
-
-    public virtual IEnumerator PlayCard(Card card, EntityController entity)
-    {
-        yield return new WaitForSeconds(0.05f);
-
-        if (entity != null)
-        {
-            switch (card.Object_cardType)
-            {
-                case Card.CardType.Mana:
-
-                    break;
-                case Card.CardType.Spell:
-                    if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                    {
-                        GameplayManager.cardEffectManager.CardEffect(card, entity);
-                        OnCardPlayed(card);
-                    }
-                    break;
-            }
-        }
+        get { return _displayDefaultParent; }
+        set { _displayDefaultParent = value; }
     }
 
     public void TakeDamage(int amount)
@@ -155,26 +65,9 @@ public class EntityController : MonoBehaviour
         }
     }
 
-    public virtual void UseWeapon(EntityController target, Card weapon)
-    {
-
-    }
-
-    public virtual void UseWeapon(CreatureController creature, Card weapon)
-    {
-
-    }
-
     private void PlayerDeath()
     {
         onEntityDeathEvent.Invoke();
         _isPlayerDead = true;
-    }
-
-    private void OnCardPlayed(Card card)
-    {
-        GameUtilities.RemoveCard(this, card);
-        onCardPlayedEvent.Invoke();
-        Debug.Log("CARD PLAYED");
     }
 }

@@ -6,7 +6,7 @@ using static Card;
 public static class GameUtilities
 {
 
-    public static void DrawCard(EntityController entity)
+    public static void DrawCard(PlayerEntityController entity)
     {
         if (entity.PlayerCards.Count == 0)
         {
@@ -30,12 +30,12 @@ public static class GameUtilities
         entity.PlayerCards.RemoveAt(entity.PlayerCards.Count - 1);
     }
 
-    public static void RemoveCard(EntityController entity, Card card)
+    public static void RemoveCard(PlayerEntityController entity, Card card)
     {
         entity.PlayerHand.Remove(card);
     }
 
-    public static void ShuffleHand(EntityController entity)
+    public static void ShuffleHand(PlayerEntityController entity)
     {
         List<Card> playerCards = entity.PlayerCards;
 
@@ -88,7 +88,7 @@ public static class GameUtilities
         return false;
     }
 
-    public static bool IsCreatureRange(SlotController potentialTarget, SlotController attacker)
+    public static bool IsCreatureRange(CreatureController potentialTarget, CreatureController attacker)
     {
         Card.Range range = attacker.CreatureCard.CreatureReach;
 

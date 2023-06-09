@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
 public class Card : ScriptableObject
@@ -9,6 +10,8 @@ public class Card : ScriptableObject
     public enum Range { NormalReach, FarReach, InfiniteReach };
 
     public enum CardEffect { Deathrattle, Battlecry, Frenzy, Avenge };
+
+    public enum TargetType { Creature, Player, Weapon, Structure, Slot }
 
     [Header("Card Details")]
 
@@ -26,6 +29,9 @@ public class Card : ScriptableObject
 
     [SerializeField]
     private string[] _cardTags;
+
+    [SerializeField]
+    private List<TargetType> _targetTypeArray = new List<TargetType>();
 
     [Header("Mana")]
 
@@ -56,6 +62,11 @@ public class Card : ScriptableObject
 
     [SerializeField]
     private string cardEffectFunction;
+
+    [Header("Equipment")]
+
+    [SerializeField]
+    private int weaponAttack;
 
     #region CardDetails
 
@@ -146,6 +157,24 @@ public class Card : ScriptableObject
     public string CardEffectFunction
     {
         get { return cardEffectFunction; }
+    }
+
+    #endregion
+
+    #region Weapon CardType
+
+    public int WeaponAttack
+    {
+        get { return weaponAttack; }
+    }
+
+    #endregion
+
+    #region TargetTypes
+
+    public List<TargetType> TargetTypeArray
+    {
+        get { return _targetTypeArray; }
     }
 
     #endregion

@@ -62,8 +62,6 @@ public class CardDisplayManager : MonoBehaviour
                 overallCount++;
             }
         }
-
-        Debug.Log("Mana Displayed");
     }
 
     public void DisplayCardSelectData(Card card)
