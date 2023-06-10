@@ -28,15 +28,26 @@ public class GameDisplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI enemyHealthText;
 
-    public void DisplayTargets(Card card, Target attacker)
+    public void DisplayTargets(Card card, Target attacker, bool isCardBeingPlayed)
     {
         greyOverlay.SetActive(true);
 
         int targetCount = 0;
 
-        foreach (TargetController target in GameplayManager.humanPlayer.targetArray)
+
+        if (isCardBeingPlayed)
         {
-            targetCount += target.HighlightTarget(greyOverlay.transform, card.TargetTypeArray, attacker);
+            foreach (TargetController target in GameplayManager.targetControllerList)
+            {
+                targetCount += target.HighlightCardTarget(greyOverlay.transform, card, attacker);
+            }
+        }
+        else
+        {
+            foreach (TargetController target in GameplayManager.targetControllerList)
+            {
+                targetCount += target.HighlightTarget(greyOverlay.transform, card, attacker);
+            }
         }
 
         if(targetCount == 0)
@@ -47,11 +58,12 @@ public class GameDisplay : MonoBehaviour
 
     public void HideDisplayTargets()
     {
-        foreach (TargetController target in GameplayManager.humanPlayer.targetArray)
+        foreach (TargetController target in GameplayManager.targetControllerList)
         {
             target.HideTarget();
         }
 
+        GameplayManager.potentialTargets.Clear();
         greyOverlay.SetActive(false);
     }
 

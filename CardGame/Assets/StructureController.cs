@@ -63,6 +63,8 @@ public class StructureController : Target
         _structureCard = structureCard;
         AssignStructureProperties(structureCard);
         structureImage.sprite = structureCard.CardArt;
+
+        AssignedPlayer = slot.AssignedPlayer;
     }
 
     public void AssignStructureProperties(Card structureCard)

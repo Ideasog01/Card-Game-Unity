@@ -17,6 +17,9 @@ MonoBehaviour:
   _cardType: 2
   _cardArt: {fileID: 21300000, guid: ac3b5aa8274e1d649a3ee0faba0c0927, type: 3}
   _cardTags: []
+  _targetTypeArray: 0000000001000000
+  _cardReleaseTargets: 0000000001000000
+  _canTargetFriendly: 0
   _manaCost: 2
   _manaType: 0
   _manaGain: 0
@@ -25,3 +28,4 @@ MonoBehaviour:
   _creatureReach: 0
   creatureEffects: 
   cardEffectFunction: Arcane Missiles
+  weaponAttack: 0

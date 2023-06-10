@@ -24,8 +24,6 @@ public class SlotController : Target
 
     private Card _enchantmentCard;
 
-    private EntityController _assignedPlayer;
-
     #region Properties
 
     public Card ManaCard
@@ -36,11 +34,6 @@ public class SlotController : Target
     public Card EnchantmentCard
     {
         get { return _enchantmentCard; }
-    }
-
-    public EntityController AssignedPlayer
-    {
-        get { return _assignedPlayer; }
     }
 
     public Image SlotBorder
@@ -81,6 +74,6 @@ public class SlotController : Target
             slotBorder.color = GameplayManager.gameDisplay.enemyColour;
         }
 
-        _assignedPlayer = player;
+        AssignedPlayer = player;
     }
 }

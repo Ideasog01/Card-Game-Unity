@@ -21,6 +21,8 @@ MonoBehaviour:
   - Spirit
   - Supernatural
   _targetTypeArray: 0000000001000000
+  _cardReleaseTargets: 04000000
+  _canTargetFriendly: 0
   _manaCost: 2
   _manaType: 0
   _manaGain: 0

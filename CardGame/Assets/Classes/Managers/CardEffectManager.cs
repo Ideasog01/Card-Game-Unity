@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardEffectManager : MonoBehaviour
 {
-    public void CardEffect(Card card, EntityController target)
+    public void OnStartTurnEffect(Card card)
     {
-        string function = card.CardEffectFunction;
-
-        switch (function)
+        if(card.name == "House")
         {
-            case "ArcaneMissiles":
+            GameUtilities.AddMana(GameplayManager.activePlayer, 2, 1);
+        }
+    }
 
-                target.TakeDamage(2);
-                Debug.Log("Arcane Missiles Cast!");
+    public void OnEndTurnEffect(Card card)
+    {
 
-                break;
+    }
 
-            case "House":
-
-                target.ManaAmountArray[2] += 1;
-                GameplayManager.cardDisplayManager.DisplayMana();
-                Debug.Log("House Effect");
-
-                break;
+    public void OnCardReleaseEffect(Card card, Target target)
+    {
+        if(card.name == "Arcane Missiles")
+        {
+            target.GetComponent<EntityController>().TakeDamage(2);
         }
     }
 }

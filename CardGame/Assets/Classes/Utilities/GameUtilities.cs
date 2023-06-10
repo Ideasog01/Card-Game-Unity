@@ -63,6 +63,8 @@ public static class GameUtilities
         {
             entity.ManaAmountArray[manaType] += amount;
         }
+
+        GameplayManager.cardDisplayManager.DisplayMana();
     }
 
     public static void ResetMana(EntityController entity)

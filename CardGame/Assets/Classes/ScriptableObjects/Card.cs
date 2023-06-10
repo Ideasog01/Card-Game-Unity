@@ -33,6 +33,12 @@ public class Card : ScriptableObject
     [SerializeField]
     private List<TargetType> _targetTypeArray = new List<TargetType>();
 
+    [SerializeField]
+    private List<TargetType> _cardReleaseTargets = new List<TargetType>();
+
+    [SerializeField]
+    bool _canTargetFriendly;
+
     [Header("Mana")]
 
     [SerializeField]
@@ -175,6 +181,16 @@ public class Card : ScriptableObject
     public List<TargetType> TargetTypeArray
     {
         get { return _targetTypeArray; }
+    }
+
+    public List<TargetType> CardReleaseTargetArray
+    {
+        get { return _cardReleaseTargets; }
+    }
+
+    public bool CanAttackFriendly
+    {
+        get { return _canTargetFriendly; }
     }
 
     #endregion

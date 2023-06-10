@@ -18834,6 +18834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetType: 1
+  _assignedPlayer: {fileID: 1781239519}
   manaAmountArray: 0000000000000000000000000000000000000000
   entityHealth: 30
   onEntityTakeDamageEvent:
@@ -19677,6 +19678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetType: 1
+  _assignedPlayer: {fileID: 1870315913}
   manaAmountArray: 0000000000000000000000000000000000000000
   entityHealth: 30
   onEntityTakeDamageEvent:

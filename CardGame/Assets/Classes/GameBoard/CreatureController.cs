@@ -68,6 +68,8 @@ public class CreatureController : EntityController
         creatureHealthText.text = EntityHealth.ToString();
         creatureRangeImage.sprite = GameplayManager.gameDisplay.creatureReachIcons[(int)creatureCard.CreatureReach];
 
+        AssignedPlayer = slot.AssignedPlayer;
+
         //GameplayManager.creatureControllerList.Add(_creatureController);
     }
 

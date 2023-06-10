@@ -69,7 +69,11 @@ public class PlayerEntityController : EntityController
                     break;
                 case Card.CardType.Spell:
 
-                    Debug.Log("Spells are not implemented yet. :)");
+                    if(GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                    {
+                        GameplayManager.cardEffectManager.OnCardReleaseEffect(card, t);
+                        OnCardPlayed(card);
+                    }
 
                     break;
                 case Card.CardType.Structure:

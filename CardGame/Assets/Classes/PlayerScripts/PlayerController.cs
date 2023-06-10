@@ -12,16 +12,14 @@ public class PlayerController : PlayerEntityController
 
     public GameObject cardSelectDisplay;
 
-    public TargetController[] targetArray;
-
     private List<PlayerEntityController> playerList = new List<PlayerEntityController>();
     private List<SlotController> slotList = new List<SlotController>();
     private List<CreatureController> creatureList = new List<CreatureController>();
     private List<StructureController> structureList = new List<StructureController>();
 
-    private void Awake()
+    private void Start()
     {
-        foreach (TargetController target in targetArray)
+        foreach (TargetController target in GameplayManager.targetControllerList)
         {
             if (target.PlayerControllerRef != null)
             {
@@ -69,23 +67,31 @@ public class PlayerController : PlayerEntityController
         {
             cardSelectDisplay.SetActive(true);
             selectedCard.gameObject.SetActive(false);
+
+            GameplayManager.gameDisplay.DisplayTargets(selectedCard.AssignedCard, this, true);
         }
     }
 
     public void ReleaseCard()
     {
-        if(hoverTarget != null && cardSelectDisplay.activeSelf && selectedCard != null)
+        if(cardSelectDisplay.activeSelf && selectedCard != null)
         {
-            //Play Card
-
             selectedCard.gameObject.SetActive(true);
 
-            PlayCard(selectedCard.AssignedCard, hoverTarget);
+            if(hoverTarget != null)
+            {
+                if(GameplayManager.potentialTargets.Contains(hoverTarget))
+                {
+                    PlayCard(selectedCard.AssignedCard, hoverTarget);
+                }
+            }
 
             cardSelectDisplay.SetActive(false);
             selectedCard = null;
 
             Debug.Log("Card Released");
+
+            GameplayManager.gameDisplay.HideDisplayTargets();
         }
     }
 
@@ -140,7 +146,7 @@ public class PlayerController : PlayerEntityController
                 {
                     if (card.TargetTypeArray.Count > 0)
                     {
-                        GameplayManager.gameDisplay.DisplayTargets(card, clickedTarget);
+                        GameplayManager.gameDisplay.DisplayTargets(card, clickedTarget, false);
                     }
                     else
                     {

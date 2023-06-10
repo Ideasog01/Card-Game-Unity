@@ -10,13 +10,21 @@ public class GameplayManager : MonoBehaviour
     public static CardEffectManager cardEffectManager;
     public static CardDisplayManager cardDisplayManager;
 
+    public static List<Target> potentialTargets = new List<Target>();
+
+    public static PlayerEntityController activePlayer;
     public static PlayerController humanPlayer;
     public static EnemyController enemyPlayer;
 
-    public SlotController[] slotArray;
+    public static List<TargetController> targetControllerList = new List<TargetController>();
 
     private void Awake()
     {
+        foreach(TargetController target in FindObjectsOfType<TargetController>())
+        {
+            targetControllerList.Add(target);
+        }
+
         gameDisplay = this.GetComponent<GameDisplay>();
         cardEffectManager = this.GetComponent<CardEffectManager>();
         cardDisplayManager = this.GetComponent<CardDisplayManager>();
@@ -54,15 +62,30 @@ public class GameplayManager : MonoBehaviour
             cardDisplayManager.DisplayMana();
             GameUtilities.ResetMana(humanPlayer);
             cardDisplayManager.DisplayMana();
+            activePlayer = humanPlayer;
         }
         else if(playerIndex == 1)
         {
             GameUtilities.DrawCard(enemyPlayer);
             enemyPlayer.PlayRandomCard();
             GameUtilities.ResetMana(enemyPlayer);
+            activePlayer = enemyPlayer;
         }
 
-        if(playerIndex == 1)
+        foreach (TargetController target in targetControllerList)
+        {
+            if (target.CreatureControlllerRef != null && target.CreatureControlllerRef.CreatureCard != null)
+            {
+                cardEffectManager.OnStartTurnEffect(target.CreatureControlllerRef.CreatureCard);
+            }
+
+            if (target.StructureControllerRef != null && target.StructureControllerRef.StructureCard != null)
+            {
+                cardEffectManager.OnStartTurnEffect(target.StructureControllerRef.StructureCard);
+            }
+        }
+
+        if (playerIndex == 1)
         {
             OnEndPlayerTurn();
         }
@@ -71,7 +94,20 @@ public class GameplayManager : MonoBehaviour
     public void OnEndPlayerTurn()
     {
         //On End Turn Card Effects
+        
+        foreach(TargetController target in targetControllerList)
+        {
+            if(target.CreatureControlllerRef != null && target.CreatureControlllerRef.CreatureCard != null)
+            {
+                cardEffectManager.OnEndTurnEffect(target.CreatureControlllerRef.CreatureCard);
+            }
 
+            if(target.StructureControllerRef != null && target.StructureControllerRef.StructureCard != null)
+            {
+                cardEffectManager.OnEndTurnEffect(target.StructureControllerRef.StructureCard);
+            }
+        }
+        
         OnNewPlayerTurn();
     }
 }
