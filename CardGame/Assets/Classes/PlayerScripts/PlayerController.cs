@@ -121,13 +121,16 @@ public class PlayerController : PlayerEntityController
                 {
                     case Card.TargetType.Creature:
 
-                        if(newTarget.TargetType == Card.TargetType.Creature )
+                        if(GameplayManager.potentialTargets.Contains(newTarget))
                         {
-                            clickedTarget.TargetControllerRef.CreatureControlllerRef.FightCreature(newTarget.TargetControllerRef.CreatureControlllerRef);
-                        }
-                        else if(newTarget.TargetType == Card.TargetType.Player)
-                        {
-                            newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard.CreatureAttack);
+                            if (newTarget.TargetType == Card.TargetType.Creature)
+                            {
+                                clickedTarget.TargetControllerRef.CreatureControlllerRef.FightCreature(newTarget.TargetControllerRef.CreatureControlllerRef);
+                            }
+                            else if (newTarget.TargetType == Card.TargetType.Player)
+                            {
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard.CreatureAttack);
+                            }
                         }
 
                         break;

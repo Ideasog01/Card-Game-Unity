@@ -55,7 +55,7 @@ public class TargetController : MonoBehaviour
 
         if(playerController != null)
         {
-            if(card.TargetTypeArray.Contains(Card.TargetType.Player) && attacker != playerController && attacker.AssignedPlayer != playerController || card.CanAttackFriendly)
+            if(card.TargetTypeArray.Contains(Card.TargetType.Player) && attacker.AssignedPlayer != playerController || card.CanAttackFriendly)
             {
                 playerController.PlayerPortrait.SetParent(overlay);
                 GameplayManager.potentialTargets.Add(playerController);
@@ -71,7 +71,7 @@ public class TargetController : MonoBehaviour
         {
             if(attacker.TargetControllerRef.CreatureControlllerRef != null)
             {
-                if (attacker != creatureController)
+                if (attacker != creatureController && creatureController.AssignedPlayer != attacker.AssignedPlayer)
                 {
                     if (card.TargetTypeArray.Contains(Card.TargetType.Creature) && GameUtilities.IsCreatureRange(creatureController, attacker.TargetControllerRef.CreatureControlllerRef))
                     {
