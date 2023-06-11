@@ -19,7 +19,7 @@ MonoBehaviour:
   _cardTags:
   - Weapon
   _targetTypeArray: 0000000001000000
-  _cardReleaseTargets: 
+  _cardReleaseTargets: 0000000001000000
   _canTargetFriendly: 0
   _manaCost: 0
   _manaType: 2

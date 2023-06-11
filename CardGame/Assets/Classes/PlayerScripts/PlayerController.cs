@@ -84,21 +84,13 @@ public class PlayerController : PlayerEntityController
         {
             selectedCard.gameObject.SetActive(true);
 
-            if(selectedCard.AssignedCard.Object_cardType == Card.CardType.Equipment)
+            if (hoverTarget != null)
             {
-                AssignWeapon(selectedCard.AssignedCard);
-            }
-            else
-            {
-                if (hoverTarget != null)
+                if (GameplayManager.potentialTargets.Contains(hoverTarget))
                 {
-                    if (GameplayManager.potentialTargets.Contains(hoverTarget))
-                    {
-                        PlayCard(selectedCard.AssignedCard, hoverTarget);
-                    }
+                    PlayCard(selectedCard.AssignedCard, hoverTarget);
                 }
             }
-            
 
             cardSelectDisplay.SetActive(false);
             selectedCard = null;
@@ -129,7 +121,7 @@ public class PlayerController : PlayerEntityController
                             }
                             else if (newTarget.TargetType == Card.TargetType.Player)
                             {
-                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard.CreatureAttack);
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureAttack);
                             }
                         }
 
@@ -137,13 +129,16 @@ public class PlayerController : PlayerEntityController
 
                     case Card.TargetType.Weapon:
 
-                        if (newTarget.TargetType == Card.TargetType.Creature)
+                        if (GameplayManager.potentialTargets.Contains(newTarget))
                         {
-                            newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
-                        }
-                        else if (newTarget.TargetType == Card.TargetType.Player)
-                        {
-                            newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                            if (newTarget.TargetType == Card.TargetType.Creature)
+                            {
+                                newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                            }
+                            else if (newTarget.TargetType == Card.TargetType.Player)
+                            {
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                            }
                         }
 
                         break;

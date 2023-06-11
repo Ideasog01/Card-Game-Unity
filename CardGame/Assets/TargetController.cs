@@ -142,23 +142,39 @@ public class TargetController : MonoBehaviour
 
         if (playerController != null)
         {
-            if (card.CardReleaseTargetArray.Contains(Card.TargetType.Player) && attacker != playerController && attacker.AssignedPlayer != playerController || card.CanAttackFriendly)
+            if(card.Object_cardType == Card.CardType.Equipment)
             {
-                playerController.PlayerPortrait.SetParent(overlay);
-                GameplayManager.potentialTargets.Add(playerController);
-                targets++;
+                if(card.CardReleaseTargetArray.Contains(Card.TargetType.Player) && attacker.AssignedPlayer == playerController)
+                {
+                    playerController.PlayerPortrait.SetParent(overlay);
+                    GameplayManager.potentialTargets.Add(playerController);
+                    targets++;
+                }
+                else
+                {
+                    playerController.PlayerPortrait.SetParent(playerController.DisplayDefaultParent);
+                }
             }
             else
             {
-                playerController.PlayerPortrait.SetParent(playerController.DisplayDefaultParent);
+                if (card.CardReleaseTargetArray.Contains(Card.TargetType.Player) && attacker != playerController && attacker.AssignedPlayer != playerController || card.CanAttackFriendly)
+                {
+                    playerController.PlayerPortrait.SetParent(overlay);
+                    GameplayManager.potentialTargets.Add(playerController);
+                    targets++;
+                }
+                else
+                {
+                    playerController.PlayerPortrait.SetParent(playerController.DisplayDefaultParent);
+                }
             }
         }
 
         if (creatureController != null && creatureController.CreatureCard != null && creatureController != attacker)
         {
-            if (attacker != creatureController)
+            if(card.Object_cardType == Card.CardType.Equipment)
             {
-                if (card.CardReleaseTargetArray.Contains(Card.TargetType.Creature))
+                if (card.CardReleaseTargetArray.Contains(Card.TargetType.Creature) && attacker.AssignedPlayer == creatureController.AssignedPlayer)
                 {
                     creatureController.CreatureUI.SetParent(overlay);
                     GameplayManager.potentialTargets.Add(creatureController);
@@ -167,6 +183,22 @@ public class TargetController : MonoBehaviour
                 else
                 {
                     creatureController.CreatureUI.SetParent(creatureController.DisplayDefaultParent);
+                }
+            }
+            else
+            {
+                if (attacker != creatureController)
+                {
+                    if (card.CardReleaseTargetArray.Contains(Card.TargetType.Creature))
+                    {
+                        creatureController.CreatureUI.SetParent(overlay);
+                        GameplayManager.potentialTargets.Add(creatureController);
+                        targets++;
+                    }
+                    else
+                    {
+                        creatureController.CreatureUI.SetParent(creatureController.DisplayDefaultParent);
+                    }
                 }
             }
         }

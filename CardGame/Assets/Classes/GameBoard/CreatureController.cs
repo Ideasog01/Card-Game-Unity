@@ -44,6 +44,11 @@ public class CreatureController : EntityController
         get { return creatureUI.transform; }
     }
 
+    public int CreatureAttack
+    {
+        get { return _creatureAttack; }
+    }
+
     private void Awake()
     {
         DisplayCreatureUI(false);
@@ -77,7 +82,7 @@ public class CreatureController : EntityController
     {
         Debug.Log("FIGHT!\n" + _creatureCard.CardName + " attacks " + other.CreatureCard.CardName);
 
-        int otherDamage = other.CreatureCard.CreatureAttack;
+        int otherDamage = other.CreatureAttack;
 
         other.TakeDamage(_creatureAttack);
         TakeDamage(otherDamage);
@@ -99,5 +104,11 @@ public class CreatureController : EntityController
         creatureAttackText.gameObject.SetActive(active);
         creatureHealthText.gameObject.SetActive(active);
         creatureRangeImage.gameObject.SetActive(active);
+    }
+
+    public void ChangeCreatureProperties(int attack)
+    {
+        _creatureAttack = attack;
+        creatureAttackText.text = _creatureAttack.ToString();
     }
 }

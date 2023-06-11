@@ -102,6 +102,23 @@ public class PlayerEntityController : EntityController
                         }
 
                         break;
+                    case Card.CardType.Equipment:
+
+                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                        {
+                            if (target.CreatureControlllerRef != null && target.CreatureControlllerRef.CreatureCard != null)
+                            {
+                                target.CreatureControlllerRef.ChangeCreatureProperties(card.WeaponAttack);
+                                OnCardPlayed(card);
+                            }
+                            else if (target.PlayerControllerRef != null)
+                            {
+                                target.PlayerControllerRef.AssignWeapon(card);
+                                OnCardPlayed(card);
+                            }
+                        }
+
+                        break;
                 }
             }
         }
@@ -111,7 +128,6 @@ public class PlayerEntityController : EntityController
     {
         playerWeapon.AssignedWeapon = card;
         playerWeaponIcon.sprite = card.CardArt;
-        OnCardPlayed(card);
     }
 
     private void OnCardPlayed(Card card)
