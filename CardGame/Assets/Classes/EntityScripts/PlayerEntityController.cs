@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class PlayerEntityController : EntityController
 {
     [SerializeField]
-    private Card assignedWeapon;
-
-    [SerializeField]
     private List<Card> playerCards = new List<Card>();
 
     [SerializeField]
@@ -28,6 +25,9 @@ public class PlayerEntityController : EntityController
     [SerializeField]
     private Image playerWeaponIcon;
 
+    [SerializeField]
+    private WeaponController playerWeapon;
+
     public List<Card> PlayerCards
     {
         get { return playerCards; }
@@ -44,9 +44,9 @@ public class PlayerEntityController : EntityController
         get { return playerPortait; }
     }
 
-    public Card AssignedWeapon
+    public WeaponController PlayerWeapon
     {
-        get { return assignedWeapon; }
+        get { return playerWeapon; }
     }
 
     public void PlayCard(Card card, Target t)
@@ -109,7 +109,7 @@ public class PlayerEntityController : EntityController
 
     public void AssignWeapon(Card card)
     {
-        assignedWeapon = card;
+        playerWeapon.AssignedWeapon = card;
         playerWeaponIcon.sprite = card.CardArt;
         OnCardPlayed(card);
     }

@@ -134,16 +134,13 @@ public class PlayerController : PlayerEntityController
 
                     case Card.TargetType.Weapon:
 
-                        if(AssignedWeapon != null)
+                        if (newTarget.TargetType == Card.TargetType.Creature)
                         {
-                            if(newTarget.TargetType == Card.TargetType.Creature)
-                            {
-                                newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(AssignedWeapon.WeaponAttack); 
-                            }
-                            else if (newTarget.TargetType == Card.TargetType.Player)
-                            {
-                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(AssignedWeapon.WeaponAttack);
-                            }
+                            newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                        }
+                        else if (newTarget.TargetType == Card.TargetType.Player)
+                        {
+                            newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
                         }
 
                         break;
@@ -170,6 +167,10 @@ public class PlayerController : PlayerEntityController
                 else if (clickedTarget.TargetType == Card.TargetType.Structure)
                 {
                     card = clickedTarget.TargetControllerRef.StructureControllerRef.StructureCard;
+                }
+                else if(clickedTarget.TargetType == Card.TargetType.Weapon)
+                {
+                    card = clickedTarget.TargetControllerRef.WeaponControllerRef.AssignedWeapon;
                 }
 
                 if (card != null)

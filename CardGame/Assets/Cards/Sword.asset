@@ -18,6 +18,9 @@ MonoBehaviour:
   _cardArt: {fileID: 21300000, guid: 5d52b20f865aff242bfcb08c3b6f61a5, type: 3}
   _cardTags:
   - Weapon
+  _targetTypeArray: 0000000001000000
+  _cardReleaseTargets: 
+  _canTargetFriendly: 0
   _manaCost: 0
   _manaType: 2
   _manaGain: 0

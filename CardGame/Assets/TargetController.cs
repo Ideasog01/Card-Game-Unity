@@ -69,9 +69,25 @@ public class TargetController : MonoBehaviour
 
         if(creatureController != null && creatureController.CreatureCard != null && creatureController != attacker)
         {
-            if(attacker != creatureController)
+            if(attacker.TargetControllerRef.CreatureControlllerRef != null)
             {
-                if (card.TargetTypeArray.Contains(Card.TargetType.Creature) && GameUtilities.IsCreatureRange(creatureController, attacker.TargetControllerRef.CreatureControlllerRef))
+                if (attacker != creatureController)
+                {
+                    if (card.TargetTypeArray.Contains(Card.TargetType.Creature) && GameUtilities.IsCreatureRange(creatureController, attacker.TargetControllerRef.CreatureControlllerRef))
+                    {
+                        creatureController.CreatureUI.SetParent(overlay);
+                        GameplayManager.potentialTargets.Add(creatureController);
+                        targets++;
+                    }
+                    else
+                    {
+                        creatureController.CreatureUI.SetParent(creatureController.DisplayDefaultParent);
+                    }
+                }
+            }
+            else if(attacker.TargetControllerRef.WeaponControllerRef != null)
+            {
+                if(card.TargetTypeArray.Contains(Card.TargetType.Creature) && creatureController.AssignedPlayer != attacker.AssignedPlayer)
                 {
                     creatureController.CreatureUI.SetParent(overlay);
                     GameplayManager.potentialTargets.Add(creatureController);
