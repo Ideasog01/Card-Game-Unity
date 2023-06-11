@@ -16,6 +16,7 @@ public class PlayerController : PlayerEntityController
     private List<SlotController> slotList = new List<SlotController>();
     private List<CreatureController> creatureList = new List<CreatureController>();
     private List<StructureController> structureList = new List<StructureController>();
+    private List<WeaponController> weaponList = new List<WeaponController>();
 
     private void Start()
     {
@@ -39,6 +40,11 @@ public class PlayerController : PlayerEntityController
             if(target.StructureControllerRef != null)
             {
                 structureList.Add(target.StructureControllerRef);
+            }
+
+            if(target.WeaponControllerRef != null)
+            {
+                weaponList.Add(target.WeaponControllerRef);
             }
         }
     }
@@ -78,13 +84,21 @@ public class PlayerController : PlayerEntityController
         {
             selectedCard.gameObject.SetActive(true);
 
-            if(hoverTarget != null)
+            if(selectedCard.AssignedCard.Object_cardType == Card.CardType.Equipment)
             {
-                if(GameplayManager.potentialTargets.Contains(hoverTarget))
+                AssignWeapon(selectedCard.AssignedCard);
+            }
+            else
+            {
+                if (hoverTarget != null)
                 {
-                    PlayCard(selectedCard.AssignedCard, hoverTarget);
+                    if (GameplayManager.potentialTargets.Contains(hoverTarget))
+                    {
+                        PlayCard(selectedCard.AssignedCard, hoverTarget);
+                    }
                 }
             }
+            
 
             cardSelectDisplay.SetActive(false);
             selectedCard = null;
@@ -114,6 +128,22 @@ public class PlayerController : PlayerEntityController
                         else if(newTarget.TargetType == Card.TargetType.Player)
                         {
                             newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureCard.CreatureAttack);
+                        }
+
+                        break;
+
+                    case Card.TargetType.Weapon:
+
+                        if(AssignedWeapon != null)
+                        {
+                            if(newTarget.TargetType == Card.TargetType.Creature)
+                            {
+                                newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(AssignedWeapon.WeaponAttack); 
+                            }
+                            else if (newTarget.TargetType == Card.TargetType.Player)
+                            {
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(AssignedWeapon.WeaponAttack);
+                            }
                         }
 
                         break;
@@ -204,6 +234,14 @@ public class PlayerController : PlayerEntityController
             if (slot.BoxCollider.bounds.Contains(mousePosition))
             {
                 return slot;
+            }
+        }
+
+        foreach(WeaponController weapon in weaponList)
+        {
+            if(weapon.BoxCollider.bounds.Contains(mousePosition))
+            {
+                return weapon;
             }
         }
 

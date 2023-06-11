@@ -21,6 +21,9 @@ public class TargetController : MonoBehaviour
     [SerializeField]
     private StructureController structureController;
 
+    [SerializeField]
+    private WeaponController weaponController;
+
     public PlayerEntityController PlayerControllerRef
     {
         get { return playerController; }
@@ -39,6 +42,11 @@ public class TargetController : MonoBehaviour
     public StructureController StructureControllerRef
     {
         get { return structureController; }
+    }
+
+    public WeaponController WeaponControllerRef
+    {
+        get { return weaponController; }
     }
 
     public int HighlightTarget(Transform overlay, Card card, Target attacker)
@@ -102,6 +110,11 @@ public class TargetController : MonoBehaviour
             {
                 slotController.SlotBorder.transform.SetParent(slotController.DefaultParent);
             }
+        }
+
+        if(weaponController != null && weaponController.AssignedWeapon != null)
+        {
+
         }
 
         return targets;

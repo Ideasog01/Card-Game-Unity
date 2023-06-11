@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerEntityController : EntityController
 {
+    [SerializeField]
+    private Card assignedWeapon;
+
     [SerializeField]
     private List<Card> playerCards = new List<Card>();
 
@@ -20,6 +24,9 @@ public class PlayerEntityController : EntityController
 
     [SerializeField]
     private Transform playerPortait;
+
+    [SerializeField]
+    private Image playerWeaponIcon;
 
     public List<Card> PlayerCards
     {
@@ -37,65 +44,74 @@ public class PlayerEntityController : EntityController
         get { return playerPortait; }
     }
 
+    public Card AssignedWeapon
+    {
+        get { return assignedWeapon; }
+    }
+
     public void PlayCard(Card card, Target t)
     {
         TargetController target = t.TargetControllerRef;
 
-        if (target != null)
+        if (t != null)
         {
-            switch (card.Object_cardType)
+            if (target != null)
             {
-                case Card.CardType.Mana:
+                switch (card.Object_cardType)
+                {
+                    case Card.CardType.Mana:
 
-                    if (target.SlotControllerRef != null && target.SlotControllerRef.ManaCard == null)
-                    {
-                        target.SlotControllerRef.AddMana(card, this);
-                        GameUtilities.AddMana(this, (int)card.ObjectManaType, card.ManaGain);
-                        OnCardPlayed(card);
-                    }
-
-                    break;
-                case Card.CardType.Creature:
-
-                    if (target.CreatureControlllerRef != null && target.SlotControllerRef != null && target.CreatureControlllerRef.CreatureCard == null && target.SlotControllerRef.AssignedPlayer == this)
-                    {
-                        if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                        if (target.SlotControllerRef != null && target.SlotControllerRef.ManaCard == null)
                         {
-                            target.CreatureControlllerRef.AddCreature(card);
+                            target.SlotControllerRef.AddMana(card, this);
+                            GameUtilities.AddMana(this, (int)card.ObjectManaType, card.ManaGain);
                             OnCardPlayed(card);
                         }
-                    }
 
-                    break;
-                case Card.CardType.Spell:
+                        break;
+                    case Card.CardType.Creature:
 
-                    if(GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
-                    {
-                        GameplayManager.cardEffectManager.OnCardReleaseEffect(card, t);
-                        OnCardPlayed(card);
-                    }
+                        if (target.CreatureControlllerRef != null && target.SlotControllerRef != null && target.CreatureControlllerRef.CreatureCard == null && target.SlotControllerRef.AssignedPlayer == this)
+                        {
+                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                            {
+                                target.CreatureControlllerRef.AddCreature(card);
+                                OnCardPlayed(card);
+                            }
+                        }
 
-                    break;
-                case Card.CardType.Structure:
+                        break;
+                    case Card.CardType.Spell:
 
-                    if (target.StructureControllerRef != null && target.StructureControllerRef.StructureCard == null && target.SlotControllerRef.AssignedPlayer == this)
-                    {
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
-                            target.StructureControllerRef.AddStructure(card);
+                            GameplayManager.cardEffectManager.OnCardReleaseEffect(card, t);
                             OnCardPlayed(card);
                         }
-                    }
 
-                    break;
+                        break;
+                    case Card.CardType.Structure:
 
-                case Card.CardType.Equipment:
+                        if (target.StructureControllerRef != null && target.StructureControllerRef.StructureCard == null && target.SlotControllerRef.AssignedPlayer == this)
+                        {
+                            if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                            {
+                                target.StructureControllerRef.AddStructure(card);
+                                OnCardPlayed(card);
+                            }
+                        }
 
-                    Debug.Log("Equipment are not implemented yet. :)");
-
-                    break;
+                        break;
+                }
             }
         }
+    }
+
+    public void AssignWeapon(Card card)
+    {
+        assignedWeapon = card;
+        playerWeaponIcon.sprite = card.CardArt;
+        OnCardPlayed(card);
     }
 
     private void OnCardPlayed(Card card)

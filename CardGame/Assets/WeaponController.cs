@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class WeaponController : Target
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private BoxCollider2D boxCollider;
+
+    private Card _assignedWeapon;
+
+    public Card AssignedWeapon
     {
-        
+        get { return _assignedWeapon; }
+        set { _assignedWeapon = value; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public BoxCollider2D BoxCollider
     {
-        
+        get { return boxCollider; }
     }
 }
