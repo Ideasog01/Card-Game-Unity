@@ -22,13 +22,14 @@ MonoBehaviour:
   - Supernatural
   _targetTypeArray: 0000000001000000
   _cardReleaseTargets: 04000000
+  _cardEffectList:
+  - {fileID: 11400000, guid: 039abcc97f9c90942ad7f52f5fdbc594, type: 2}
   _canTargetFriendly: 0
   _manaCost: 2
   _manaType: 0
   _manaGain: 0
   _creatureAttack: 1
-  _creatureHealth: 1
+  _creatureHealth: 3
   _creatureReach: 2
-  creatureEffects: 
   cardEffectFunction: 
   weaponAttack: 0

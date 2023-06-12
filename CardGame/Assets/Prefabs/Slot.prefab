@@ -346,7 +346,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3063479908487707990}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -451,8 +451,9 @@ RectTransform:
   - {fileID: 3063479907049759873}
   - {fileID: 3063479908155741345}
   - {fileID: 3063479906792857697}
+  - {fileID: 2561517055806819562}
   m_Father: {fileID: 3063479908487707990}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -693,8 +694,8 @@ RectTransform:
   m_Children:
   - {fileID: 4856667563719448496}
   - {fileID: 2962620634062790271}
-  - {fileID: 3063479907675276491}
   - {fileID: 3063479907611083761}
+  - {fileID: 3063479907675276491}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -727,6 +728,7 @@ MonoBehaviour:
   slotController: {fileID: 2074742018216544416}
   creatureController: {fileID: 2705692881573822802}
   structureController: {fileID: 3746359308980656797}
+  weaponController: {fileID: 0}
 --- !u!114 &2074742018216544416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +769,9 @@ MonoBehaviour:
   onEntityDeathEvent:
     m_PersistentCalls:
       m_Calls: []
+  onEntityHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
   boxCollider: {fileID: 5305262592541347839}
   _displayDefaultParent: {fileID: 3063479908487707990}
   creatureUI: {fileID: 3063479907675276488}
@@ -775,6 +780,7 @@ MonoBehaviour:
   creatureAttackText: {fileID: 3063479907049759872}
   creatureHealthText: {fileID: 3063479908155741344}
   creatureRangeImage: {fileID: 3063479906792857696}
+  cardEffectParent: {fileID: 2561517055806819562}
 --- !u!114 &3746359308980656797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,6 +799,69 @@ MonoBehaviour:
   slot: {fileID: 2074742018216544416}
   boxCollider: {fileID: 1506254337134596544}
   structureImage: {fileID: 3063479907611083760}
+--- !u!1 &5617525265017775007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2561517055806819562}
+  - component: {fileID: 3820044296069457551}
+  m_Layer: 2
+  m_Name: OvertimeEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2561517055806819562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617525265017775007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3063479907675276491}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0.134, y: -0.351}
+  m_SizeDelta: {x: 0.4, y: 2}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &3820044296069457551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617525265017775007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_Spacing: 0.02
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &8897339433539848219
 GameObject:
   m_ObjectHideFlags: 0

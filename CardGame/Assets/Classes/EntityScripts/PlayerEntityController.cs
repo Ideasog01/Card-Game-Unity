@@ -85,7 +85,14 @@ public class PlayerEntityController : EntityController
 
                         if (GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
                         {
-                            GameplayManager.cardEffectManager.OnCardReleaseEffect(card, t);
+                            foreach(CardEffect effect in card.CardEffectList)
+                            {
+                                if(effect.ActivationTypeRef == CardEffect.ActivationType.OnCardPlayed)
+                                {
+                                    GameplayManager.cardEffectManager.CardEffect(effect, t);
+                                }
+                            }
+                            
                             OnCardPlayed(card);
                         }
 

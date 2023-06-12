@@ -1,28 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class CardEffectManager : MonoBehaviour
 {
-    public void OnStartTurnEffect(Card card)
+    [SerializeField]
+    public Transform cardEffectDisplayPrefab;
+
+    public void CardEffect(CardEffect cardEffect, Target target)
     {
-        if(card.name == "House")
+        if(cardEffect.name == "DealTwoDamage")
         {
-            GameUtilities.AddMana(GameplayManager.activePlayer, 2, 1);
+            target.GetComponent<EntityController>().TakeDamage(cardEffect.EffectValue);
+        }
+
+        if(cardEffect.name == "Mending")
+        {
+            target.GetComponent<EntityController>().Heal(cardEffect.EffectValue);
         }
     }
+}
 
-    public void OnEndTurnEffect(Card card)
+public class ActiveEffect
+{
+    private int _remainingActivations;
+
+    private CardEffect _activeEffect;
+
+    private Image _effectIcon;
+
+    private TextMeshProUGUI _effectDurationText;
+
+    public ActiveEffect(CardEffect effect, GameObject effectDisplay)
     {
-
+        _remainingActivations = effect.EffectDuration;
+        _activeEffect = effect;
+        _effectIcon = effectDisplay.GetComponent<Image>();
+        _effectDurationText = effectDisplay.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
-    public void OnCardReleaseEffect(Card card, Target target)
+    public int RemainingActivations
     {
-        if(card.name == "Arcane Missiles")
-        {
-            target.GetComponent<EntityController>().TakeDamage(2);
-        }
+        get { return _remainingActivations; }
+        set { _remainingActivations = value; }
+    }
+
+    public CardEffect Effect
+    {
+        get { return _activeEffect; }
+    }
+
+    public Image EffectIcon
+    {
+        get { return _effectIcon; }
+    }
+
+    public TextMeshProUGUI EffectDurationText
+    {
+        get { return _effectDurationText; }
     }
 }

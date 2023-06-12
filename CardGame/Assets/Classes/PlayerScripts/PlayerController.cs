@@ -12,39 +12,33 @@ public class PlayerController : PlayerEntityController
 
     public GameObject cardSelectDisplay;
 
-    private List<PlayerEntityController> playerList = new List<PlayerEntityController>();
-    private List<SlotController> slotList = new List<SlotController>();
-    private List<CreatureController> creatureList = new List<CreatureController>();
-    private List<StructureController> structureList = new List<StructureController>();
-    private List<WeaponController> weaponList = new List<WeaponController>();
-
     private void Start()
     {
         foreach (TargetController target in GameplayManager.targetControllerList)
         {
             if (target.PlayerControllerRef != null)
             {
-                playerList.Add(target.PlayerControllerRef);
+                GameplayManager.playerList.Add(target.PlayerControllerRef);
             }
 
             if (target.SlotControllerRef != null)
             {
-                slotList.Add(target.SlotControllerRef);
+                GameplayManager.slotList.Add(target.SlotControllerRef);
             }
 
             if (target.CreatureControlllerRef != null)
             {
-                creatureList.Add(target.CreatureControlllerRef);
+                GameplayManager.creatureList.Add(target.CreatureControlllerRef);
             }
 
             if(target.StructureControllerRef != null)
             {
-                structureList.Add(target.StructureControllerRef);
+                GameplayManager.structureList.Add(target.StructureControllerRef);
             }
 
             if(target.WeaponControllerRef != null)
             {
-                weaponList.Add(target.WeaponControllerRef);
+                GameplayManager.weaponList.Add(target.WeaponControllerRef);
             }
         }
     }
@@ -204,7 +198,7 @@ public class PlayerController : PlayerEntityController
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        foreach (PlayerEntityController player in playerList)
+        foreach (PlayerEntityController player in GameplayManager.playerList)
         {
             if (player.BoxCollider.bounds.Contains(mousePosition))
             {
@@ -212,7 +206,7 @@ public class PlayerController : PlayerEntityController
             }
         }
 
-        foreach (CreatureController creature in creatureList)
+        foreach (CreatureController creature in GameplayManager.creatureList)
         {
             if (creature.BoxCollider.bounds.Contains(mousePosition))
             {
@@ -220,7 +214,7 @@ public class PlayerController : PlayerEntityController
             }
         }
 
-        foreach (StructureController structure in structureList)
+        foreach (StructureController structure in GameplayManager.structureList)
         {
             if (structure.BoxCollider.bounds.Contains(mousePosition))
             {
@@ -228,7 +222,7 @@ public class PlayerController : PlayerEntityController
             }
         }
 
-        foreach (SlotController slot in slotList)
+        foreach (SlotController slot in GameplayManager.slotList)
         {
             if (slot.BoxCollider.bounds.Contains(mousePosition))
             {
@@ -236,7 +230,7 @@ public class PlayerController : PlayerEntityController
             }
         }
 
-        foreach(WeaponController weapon in weaponList)
+        foreach(WeaponController weapon in GameplayManager.weaponList)
         {
             if(weapon.BoxCollider.bounds.Contains(mousePosition))
             {

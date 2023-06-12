@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.iOS;
 
 public class EntityController : Target
 {
@@ -18,6 +19,9 @@ public class EntityController : Target
     private UnityEvent onEntityDeathEvent;
 
     [SerializeField]
+    private UnityEvent onEntityHealEvent;
+
+    [SerializeField]
     private BoxCollider2D boxCollider;
 
     [Header("Display")]
@@ -29,6 +33,8 @@ public class EntityController : Target
 
     private bool _isPlayerDead;
 
+    private int _maxEntityHealth;
+
     public int[] ManaAmountArray
     {
         get { return manaAmountArray; }
@@ -38,6 +44,12 @@ public class EntityController : Target
     {
         get { return entityHealth; }
         set { entityHealth = value; }
+    }
+
+    public int EntityMaxHealth
+    {
+        get { return _maxEntityHealth; }
+        set { _maxEntityHealth = value; }
     }
 
     public int FatigueAmount
@@ -64,7 +76,25 @@ public class EntityController : Target
             entityHealth -= amount;
             onEntityTakeDamageEvent.Invoke();
 
-            Debug.Log("Player Took Damage!");
+            if (entityHealth <= 0)
+            {
+                PlayerDeath();
+            }
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        if (!_isPlayerDead)
+        {
+            entityHealth += amount;
+
+            if(entityHealth > _maxEntityHealth)
+            {
+                entityHealth = _maxEntityHealth;
+            }
+
+            onEntityHealEvent.Invoke();
 
             if (entityHealth <= 0)
             {

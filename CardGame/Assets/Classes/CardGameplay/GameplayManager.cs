@@ -18,6 +18,12 @@ public class GameplayManager : MonoBehaviour
 
     public static List<TargetController> targetControllerList = new List<TargetController>();
 
+    public static List<PlayerEntityController> playerList = new List<PlayerEntityController>();
+    public static List<SlotController> slotList = new List<SlotController>();
+    public static List<CreatureController> creatureList = new List<CreatureController>();
+    public static List<StructureController> structureList = new List<StructureController>();
+    public static List<WeaponController> weaponList = new List<WeaponController>();
+
     private void Awake()
     {
         foreach(TargetController target in FindObjectsOfType<TargetController>())
@@ -72,20 +78,18 @@ public class GameplayManager : MonoBehaviour
             activePlayer = enemyPlayer;
         }
 
-        foreach (TargetController target in targetControllerList)
+        foreach (CreatureController creature in creatureList)
         {
-            if (target.CreatureControlllerRef != null && target.CreatureControlllerRef.CreatureCard != null)
+            if (creature.AssignedPlayer == activePlayer)
             {
-                cardEffectManager.OnStartTurnEffect(target.CreatureControlllerRef.CreatureCard);
-            }
-
-            if (target.StructureControllerRef != null && target.StructureControllerRef.StructureCard != null)
-            {
-                cardEffectManager.OnStartTurnEffect(target.StructureControllerRef.StructureCard);
+                if (creature.CreatureCard != null)
+                {
+                    creature.TurnEffect(CardEffect.ActivationType.OnStartTurn);
+                }
             }
         }
 
-        if (playerIndex == 1)
+        if (playerIndex == 1) //If it is the enemy's turn, immediately end it after actions have taken place (for testing)
         {
             OnEndPlayerTurn();
         }
@@ -94,17 +98,15 @@ public class GameplayManager : MonoBehaviour
     public void OnEndPlayerTurn()
     {
         //On End Turn Card Effects
-        
-        foreach(TargetController target in targetControllerList)
-        {
-            if(target.CreatureControlllerRef != null && target.CreatureControlllerRef.CreatureCard != null)
-            {
-                cardEffectManager.OnEndTurnEffect(target.CreatureControlllerRef.CreatureCard);
-            }
 
-            if(target.StructureControllerRef != null && target.StructureControllerRef.StructureCard != null)
+        foreach (CreatureController creature in creatureList)
+        {
+            if (creature.AssignedPlayer == activePlayer)
             {
-                cardEffectManager.OnEndTurnEffect(target.StructureControllerRef.StructureCard);
+                if (creature.CreatureCard != null)
+                {
+                    creature.TurnEffect(CardEffect.ActivationType.OnEndTurn);
+                }
             }
         }
         

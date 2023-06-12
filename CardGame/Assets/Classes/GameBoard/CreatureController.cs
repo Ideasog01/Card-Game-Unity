@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,11 @@ public class CreatureController : EntityController
 
     [SerializeField]
     private Image creatureRangeImage;
+
+    [SerializeField]
+    private Transform cardEffectParent;
+
+    private List<ActiveEffect> _activeEffects = new List<ActiveEffect>();
 
     public Card CreatureCard
     {
@@ -60,6 +66,7 @@ public class CreatureController : EntityController
     {
         _creatureCard = creatureCard;
         EntityHealth = creatureCard.CreatureHealth;
+        EntityMaxHealth = creatureCard.CreatureHealth;
         _creatureAttack = creatureCard.CreatureAttack;
     }
 
@@ -75,7 +82,7 @@ public class CreatureController : EntityController
 
         AssignedPlayer = slot.AssignedPlayer;
 
-        //GameplayManager.creatureControllerList.Add(_creatureController);
+        ApplyEffects();
     }
 
     public void FightCreature(CreatureController other)
@@ -110,5 +117,64 @@ public class CreatureController : EntityController
     {
         _creatureAttack = attack;
         creatureAttackText.text = _creatureAttack.ToString();
+    }
+
+    public void DisplayOvertimeEffects()
+    {
+        foreach(ActiveEffect effect in _activeEffects)
+        {
+            if(effect.RemainingActivations == 0)
+            {
+                effect.EffectIcon.gameObject.SetActive(false);
+            }
+            else
+            {
+                effect.EffectIcon.gameObject.SetActive(true);
+                effect.EffectIcon.sprite = effect.Effect.EffectIcon;
+                effect.EffectDurationText.text = effect.RemainingActivations.ToString("F0");
+            }
+        }
+    }
+
+    public void TurnEffect(CardEffect.ActivationType activationType)
+    {
+        foreach(ActiveEffect effect in _activeEffects)
+        {
+            if(effect.Effect.ActivationTypeRef == activationType && effect.RemainingActivations > 0)
+            {
+                GameplayManager.cardEffectManager.CardEffect(effect.Effect, this);
+                effect.RemainingActivations--;
+            }
+        }
+
+        DisplayOvertimeEffects();
+    }
+
+    private void ApplyEffects()
+    {
+        foreach (CardEffect effect in _creatureCard.CardEffectList)
+        {
+            ActiveEffect activeEffect = null;
+
+            foreach (ActiveEffect active in _activeEffects) //Check to see if there is an effect object in the list that is no longer being used. If so, use it!
+            {
+                if (active.RemainingActivations == 0)
+                {
+                    activeEffect = active;
+                    break;
+                }
+            }
+
+            if(activeEffect == null)
+            {
+                GameObject display = Instantiate(GameplayManager.cardEffectManager.cardEffectDisplayPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                display.transform.SetParent(cardEffectParent);
+                activeEffect = new ActiveEffect(effect, display);
+            }
+
+            _activeEffects.Add(activeEffect);
+        }
+
+        DisplayOvertimeEffects();
     }
 }

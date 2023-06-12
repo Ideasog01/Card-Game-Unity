@@ -9,8 +9,6 @@ public class Card : ScriptableObject
 
     public enum Range { NormalReach, FarReach, InfiniteReach };
 
-    public enum CardEffect { Deathrattle, Battlecry, Frenzy, Avenge };
-
     public enum TargetType { Creature, Player, Weapon, Structure, Slot }
 
     [Header("Card Details")]
@@ -37,6 +35,9 @@ public class Card : ScriptableObject
     private List<TargetType> _cardReleaseTargets = new List<TargetType>();
 
     [SerializeField]
+    private List<CardEffect> _cardEffectList = new List<CardEffect>();
+
+    [SerializeField]
     bool _canTargetFriendly;
 
     [Header("Mana")]
@@ -60,9 +61,6 @@ public class Card : ScriptableObject
 
     [SerializeField]
     private Range _creatureReach;
-
-    [SerializeField]
-    private CardEffect[] creatureEffects;
 
     [Header("Spell")]
 
@@ -104,6 +102,11 @@ public class Card : ScriptableObject
     {
         get { return _cardType; }
         set { _cardType = value; }
+    }
+
+    public List<CardEffect> CardEffectList
+    {
+        get { return _cardEffectList; }
     }
 
     #endregion
