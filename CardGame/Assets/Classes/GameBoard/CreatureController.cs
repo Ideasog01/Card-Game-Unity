@@ -58,7 +58,6 @@ public class CreatureController : EntityController
     private void Awake()
     {
         DisplayCreatureUI(false);
-
         DisplayDefaultParent = creatureUI.transform.parent;
     }
 
