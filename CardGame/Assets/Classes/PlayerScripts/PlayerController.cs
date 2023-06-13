@@ -40,6 +40,11 @@ public class PlayerController : PlayerEntityController
             {
                 GameplayManager.weaponList.Add(target.WeaponControllerRef);
             }
+
+            if(target.EnchantmentControllerRef != null)
+            {
+                GameplayManager.enchantmentList.Add(target.EnchantmentControllerRef);
+            }
         }
     }
 
@@ -80,7 +85,11 @@ public class PlayerController : PlayerEntityController
 
             if (hoverTarget != null)
             {
-                if (GameplayManager.potentialTargets.Contains(hoverTarget))
+                if(selectedCard.AssignedCard.DoesNotRequireTarget)
+                {
+                    PlayCard(selectedCard.AssignedCard, this);
+                }
+                else if (GameplayManager.potentialTargets.Contains(hoverTarget))
                 {
                     PlayCard(selectedCard.AssignedCard, hoverTarget);
                 }
@@ -235,6 +244,14 @@ public class PlayerController : PlayerEntityController
             if(weapon.BoxCollider.bounds.Contains(mousePosition))
             {
                 return weapon;
+            }
+        }
+
+        foreach(EnchantmentController enchantment in GameplayManager.enchantmentList)
+        {
+            if(enchantment.BoxCollider.bounds.Contains(mousePosition))
+            {
+                return enchantment;
             }
         }
 

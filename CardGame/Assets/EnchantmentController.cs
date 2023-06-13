@@ -26,6 +26,16 @@ public class EnchantmentController : Target
         get { return displayDefaultParent; }
     }
 
+    public Card EnchantmentCard
+    {
+        get { return _enchantmentCard; }
+    }
+
+    public Transform EnchantmentUI
+    {
+        get { return enchantmentIcon.transform; }
+    }
+
     private void Awake()
     {
         DisplayEnchantmentUI(false);
@@ -35,7 +45,7 @@ public class EnchantmentController : Target
     public void AddEnchantment(Card enchantmentCard)
     {
         _enchantmentCard = enchantmentCard;
-        DisplayEnchantmentUI(false);
+        DisplayEnchantmentUI(true);
     }
 
     private void DisplayEnchantmentUI(bool active)

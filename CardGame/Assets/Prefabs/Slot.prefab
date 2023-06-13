@@ -731,6 +731,7 @@ MonoBehaviour:
   creatureController: {fileID: 2705692881573822802}
   structureController: {fileID: 3746359308980656797}
   weaponController: {fileID: 0}
+  enchantmentController: {fileID: 667496042997298849}
 --- !u!114 &2074742018216544416
 MonoBehaviour:
   m_ObjectHideFlags: 0

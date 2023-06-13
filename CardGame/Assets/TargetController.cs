@@ -24,6 +24,12 @@ public class TargetController : MonoBehaviour
     [SerializeField]
     private WeaponController weaponController;
 
+    [SerializeField]
+    private EnchantmentController enchantmentController;
+
+    [SerializeField]
+    private ProphecyController prophecyController;
+
     public PlayerEntityController PlayerControllerRef
     {
         get { return playerController; }
@@ -47,6 +53,16 @@ public class TargetController : MonoBehaviour
     public WeaponController WeaponControllerRef
     {
         get { return weaponController; }
+    }
+
+    public EnchantmentController EnchantmentControllerRef
+    {
+        get { return enchantmentController; }
+    }
+
+    public ProphecyController ProphecyControllerRef
+    {
+        get { return prophecyController; }
     }
 
     public int HighlightTarget(Transform overlay, Card card, Target attacker)
@@ -126,11 +142,6 @@ public class TargetController : MonoBehaviour
             {
                 slotController.SlotBorder.transform.SetParent(slotController.DefaultParent);
             }
-        }
-
-        if(weaponController != null && weaponController.AssignedWeapon != null)
-        {
-
         }
 
         return targets;
@@ -219,7 +230,7 @@ public class TargetController : MonoBehaviour
 
         if (slotController != null)
         {
-            if(slotController.ManaCard == null && card.Object_cardType == Card.CardType.Mana || card.Object_cardType == CardType.Creature && slotController.ManaCard != null && creatureController.CreatureCard == null || card.Object_cardType == CardType.Structure && slotController.ManaCard != null && structureController.StructureCard == null)
+            if(slotController.ManaCard == null && card.Object_cardType == Card.CardType.Mana || card.Object_cardType == CardType.Creature && slotController.ManaCard != null && creatureController.CreatureCard == null || card.Object_cardType == CardType.Structure && slotController.ManaCard != null && structureController.StructureCard == null || card.Object_cardType == CardType.Enchantment && slotController.ManaCard != null)
             {
                 if (card.CardReleaseTargetArray.Contains(Card.TargetType.Slot))
                 {

@@ -126,6 +126,32 @@ public class PlayerEntityController : EntityController
                         }
 
                         break;
+
+                    case Card.CardType.Enchantment:
+
+                        if(GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                        {
+                            if(target.EnchantmentControllerRef != null)
+                            {
+                                target.EnchantmentControllerRef.AddEnchantment(card);
+                                OnCardPlayed(card);
+                            }
+                        }
+
+                        break;
+
+                    case Card.CardType.Prophecy:
+
+                        if(GameUtilities.HasMana(this, card.ManaCost, (int)card.ObjectManaType))
+                        {
+                            if(target.ProphecyControllerRef != null)
+                            {
+                                target.ProphecyControllerRef.AddProphecy(card);
+                                OnCardPlayed(card);
+                            }
+                        }
+
+                        break;
                 }
             }
         }

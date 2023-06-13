@@ -38,6 +38,9 @@ public class Card : ScriptableObject
     private List<CardEffect> _cardEffectList = new List<CardEffect>();
 
     [SerializeField]
+    private bool _doesNotRequireTarget;
+
+    [SerializeField]
     bool _canTargetFriendly;
 
     [Header("Mana")]
@@ -107,6 +110,11 @@ public class Card : ScriptableObject
     public List<CardEffect> CardEffectList
     {
         get { return _cardEffectList; }
+    }
+
+    public bool DoesNotRequireTarget
+    {
+        get { return _doesNotRequireTarget; }
     }
 
     #endregion

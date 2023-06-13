@@ -23,6 +23,7 @@ public class GameplayManager : MonoBehaviour
     public static List<CreatureController> creatureList = new List<CreatureController>();
     public static List<StructureController> structureList = new List<StructureController>();
     public static List<WeaponController> weaponList = new List<WeaponController>();
+    public static List<EnchantmentController> enchantmentList = new List<EnchantmentController>();
 
     private void Awake()
     {

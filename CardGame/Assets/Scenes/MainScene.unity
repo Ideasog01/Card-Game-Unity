@@ -942,6 +942,7 @@ Transform:
   - {fileID: 1700847863}
   - {fileID: 969534543}
   - {fileID: 26599411}
+  - {fileID: 1280998966}
   m_Father: {fileID: 623424740}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1637,6 +1638,8 @@ MonoBehaviour:
   creatureController: {fileID: 0}
   structureController: {fileID: 0}
   weaponController: {fileID: 120375528}
+  enchantmentController: {fileID: 0}
+  prophecyController: {fileID: 0}
 --- !u!114 &120375528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8679,6 +8682,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822494102}
   m_CullTransparentMesh: 1
+--- !u!1 &854775088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 854775089}
+  - component: {fileID: 854775091}
+  - component: {fileID: 854775090}
+  m_Layer: 0
+  m_Name: PlayerProphecy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &854775089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854775088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647307721}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3.2}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &854775090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854775088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &854775091
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854775088}
+  m_CullTransparentMesh: 1
 --- !u!1 &863839557
 GameObject:
   m_ObjectHideFlags: 0
@@ -12521,6 +12600,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259295012}
+  m_CullTransparentMesh: 1
+--- !u!1 &1280998965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280998966}
+  - component: {fileID: 1280998968}
+  - component: {fileID: 1280998967}
+  m_Layer: 0
+  m_Name: PlayerProphecy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1280998966
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280998965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 73006398}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3.1999998}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1280998967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280998965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1280998968
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280998965}
   m_CullTransparentMesh: 1
 --- !u!1 &1283140376
 GameObject:
@@ -17984,6 +18139,7 @@ Transform:
   - {fileID: 977233351}
   - {fileID: 2080617338}
   - {fileID: 120375524}
+  - {fileID: 854775089}
   m_Father: {fileID: 623424740}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19991,6 +20147,7 @@ GameObject:
   - component: {fileID: 1781239520}
   - component: {fileID: 1781239521}
   - component: {fileID: 1781239519}
+  - component: {fileID: 1781239522}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -20071,7 +20228,7 @@ MonoBehaviour:
   playerHand:
   - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
   - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: d215aaf473a0f044aba767af427b9393, type: 2}
+  - {fileID: 11400000, guid: 5187c75e8e194e743af92b254074252c, type: 2}
   onCardPlayedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -20138,6 +20295,23 @@ MonoBehaviour:
   creatureController: {fileID: 0}
   structureController: {fileID: 0}
   weaponController: {fileID: 0}
+  enchantmentController: {fileID: 0}
+  prophecyController: {fileID: 1781239522}
+--- !u!114 &1781239522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781239518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2917bb50c8f0894fb02b4b8c2b0c5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: 1
+  _assignedPlayer: {fileID: 1781239519}
+  prophecyIcon: {fileID: 854775090}
 --- !u!1 &1786825711
 GameObject:
   m_ObjectHideFlags: 0
@@ -20811,6 +20985,7 @@ GameObject:
   - component: {fileID: 1870315914}
   - component: {fileID: 1870315915}
   - component: {fileID: 1870315913}
+  - component: {fileID: 1870315916}
   m_Layer: 0
   m_Name: EnemyController
   m_TagString: Untagged
@@ -20947,6 +21122,23 @@ MonoBehaviour:
   creatureController: {fileID: 0}
   structureController: {fileID: 0}
   weaponController: {fileID: 0}
+  enchantmentController: {fileID: 0}
+  prophecyController: {fileID: 1870315916}
+--- !u!114 &1870315916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870315912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2917bb50c8f0894fb02b4b8c2b0c5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: 1
+  _assignedPlayer: {fileID: 1870315913}
+  prophecyIcon: {fileID: 1280998967}
 --- !u!1 &1888194251
 GameObject:
   m_ObjectHideFlags: 0
