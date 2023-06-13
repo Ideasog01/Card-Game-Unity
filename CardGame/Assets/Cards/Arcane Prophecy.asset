@@ -19,7 +19,8 @@ MonoBehaviour:
   _cardTags: []
   _targetTypeArray: 
   _cardReleaseTargets: 
-  _cardEffectList: []
+  _cardEffectList:
+  - {fileID: 11400000, guid: 8269e9665b3c62c4486e8d4437c88690, type: 2}
   _doesNotRequireTarget: 1
   _canTargetFriendly: 0
   _manaCost: 0
@@ -30,3 +31,4 @@ MonoBehaviour:
   _creatureReach: 0
   cardEffectFunction: 
   weaponAttack: 0
+  prophecyMaxProgress: 5

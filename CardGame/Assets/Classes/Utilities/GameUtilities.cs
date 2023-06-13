@@ -21,6 +21,12 @@ public static class GameUtilities
         if (entity.PlayerHand.Count < 10)
         {
             entity.PlayerHand.Add(newCard);
+
+            if(GameplayManager.onDrawCard != null)
+            {
+                GameplayManager.onDrawCard();
+            }
+            
         }
         else
         {
@@ -59,12 +65,14 @@ public static class GameUtilities
             manaTotal += manaCount;
         }
 
-        if (manaTotal < 12) //12 is the max mana
+        if (manaTotal + amount < 12) //12 is the max mana
         {
             entity.ManaAmountArray[manaType] += amount;
         }
 
         GameplayManager.cardDisplayManager.DisplayMana();
+
+        Debug.Log("Mana Gain!");
     }
 
     public static void ResetMana(EntityController entity)
@@ -73,6 +81,8 @@ public static class GameUtilities
         {
             entity.ManaAmountArray[i] = 0;
         }
+
+        Debug.Log("Mana Reset");
     }
 
     public static bool HasMana(EntityController entity, int amount, int manaIndex)

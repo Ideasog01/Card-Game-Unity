@@ -9,7 +9,9 @@ public class Card : ScriptableObject
 
     public enum Range { NormalReach, FarReach, InfiniteReach };
 
-    public enum TargetType { Creature, Player, Weapon, Structure, Slot, Enchantment }
+    public enum TargetType { Creature, Player, Weapon, Structure, Slot, Enchantment };
+
+    public enum EventType { DrawCard, PlayerTakeDamage, PlayerHeal, CreatureTakeDamage };
 
     [Header("Card Details")]
 
@@ -74,6 +76,14 @@ public class Card : ScriptableObject
 
     [SerializeField]
     private int weaponAttack;
+
+    [Header("Prophecy")]
+
+    [SerializeField]
+    private int prophecyMaxProgress;
+
+    [SerializeField]
+    private EventType prophecyIncreaseEvent;
 
     #region CardDetails
 
@@ -183,6 +193,20 @@ public class Card : ScriptableObject
     public int WeaponAttack
     {
         get { return weaponAttack; }
+    }
+
+    #endregion
+
+    #region Prophecy CardType
+
+    public int ProphecyMaxProgress
+    {
+        get { return prophecyMaxProgress; }
+    }
+
+    public EventType ProphecyIncreaseEvent
+    {
+        get { return prophecyIncreaseEvent; }
     }
 
     #endregion

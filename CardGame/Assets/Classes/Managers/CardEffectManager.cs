@@ -21,6 +21,11 @@ public class CardEffectManager : MonoBehaviour
         {
             target.GetComponent<EntityController>().Heal(cardEffect.EffectValue);
         }
+
+        if(cardEffect.name == "GainMana")
+        {
+            GameUtilities.AddMana(target.GetComponent<EntityController>(), 0, cardEffect.EffectValue);
+        }
     }
 }
 

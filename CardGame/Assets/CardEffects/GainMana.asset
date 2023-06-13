@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d9b2d2c47afdf488bf0833a84a22d4, type: 3}
+  m_Name: GainMana
+  m_EditorClassIdentifier: 
+  effectDescription: Gain mana
+  effectIcon: {fileID: 0}
+  activationType: 0
+  effectDuration: 0
+  effectValue: 5

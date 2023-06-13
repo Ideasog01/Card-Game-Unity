@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public static int playerIndex;
+
+    public static Action onDrawCard;
 
     public static GameDisplay gameDisplay;
     public static CardEffectManager cardEffectManager;
@@ -67,15 +70,12 @@ public class GameplayManager : MonoBehaviour
             GameUtilities.DrawCard(humanPlayer);
             cardDisplayManager.DisplayCardData();
             cardDisplayManager.DisplayMana();
-            GameUtilities.ResetMana(humanPlayer);
-            cardDisplayManager.DisplayMana();
             activePlayer = humanPlayer;
         }
         else if(playerIndex == 1)
         {
             GameUtilities.DrawCard(enemyPlayer);
             enemyPlayer.PlayRandomCard();
-            GameUtilities.ResetMana(enemyPlayer);
             activePlayer = enemyPlayer;
         }
 
@@ -110,7 +110,9 @@ public class GameplayManager : MonoBehaviour
                 }
             }
         }
-        
+
+        GameUtilities.ResetMana(activePlayer);
+
         OnNewPlayerTurn();
     }
 }
