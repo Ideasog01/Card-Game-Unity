@@ -14,7 +14,7 @@ public class CardEffectManager : MonoBehaviour
     {
         if(cardEffect.name == "DealTwoDamage")
         {
-            target.GetComponent<EntityController>().TakeDamage(cardEffect.EffectValue);
+            target.GetComponent<EntityController>().TakeDamage(cardEffect.EffectValue, null);
         }
 
         if(cardEffect.name == "Mending")

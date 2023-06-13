@@ -90,8 +90,8 @@ public class CreatureController : EntityController
 
         int otherDamage = other.CreatureAttack;
 
-        other.TakeDamage(_creatureAttack);
-        TakeDamage(otherDamage);
+        other.TakeDamage(_creatureAttack, this);
+        TakeDamage(otherDamage, other);
     }
 
     public void OnCreatureDeath()
@@ -110,6 +110,12 @@ public class CreatureController : EntityController
         creatureAttackText.gameObject.SetActive(active);
         creatureHealthText.gameObject.SetActive(active);
         creatureRangeImage.gameObject.SetActive(active);
+    }
+
+    public void UpdateCreatureUI()
+    {
+        creatureHealthText.text = EntityHealth.ToString();
+        creatureAttackText.text = _creatureAttack.ToString();
     }
 
     public void ChangeCreatureProperties(int attack)

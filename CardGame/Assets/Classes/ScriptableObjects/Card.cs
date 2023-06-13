@@ -9,7 +9,7 @@ public class Card : ScriptableObject
 
     public enum Range { NormalReach, FarReach, InfiniteReach };
 
-    public enum TargetType { Creature, Player, Weapon, Structure, Slot, Enchantment };
+    public enum TargetType { Creature, Player, Weapon, Structure, Slot, Enchantment, Ability };
 
     public enum EventType { DrawCard, PlayerTakeDamage, PlayerHeal, CreatureTakeDamage };
 

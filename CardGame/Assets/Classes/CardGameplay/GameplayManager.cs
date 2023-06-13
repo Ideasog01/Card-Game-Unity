@@ -8,6 +8,11 @@ public class GameplayManager : MonoBehaviour
     public static int playerIndex;
 
     public static Action onDrawCard;
+    public static Action onTakeDamage;
+    public static Action onStartTurn;
+    public static Action onEndTurn;
+
+    public static EntityController lastEntityAttacker;
 
     public static GameDisplay gameDisplay;
     public static CardEffectManager cardEffectManager;
@@ -90,6 +95,11 @@ public class GameplayManager : MonoBehaviour
             }
         }
 
+        if(onStartTurn != null)
+        {
+            onStartTurn();
+        }
+
         if (playerIndex == 1) //If it is the enemy's turn, immediately end it after actions have taken place (for testing)
         {
             OnEndPlayerTurn();
@@ -112,6 +122,11 @@ public class GameplayManager : MonoBehaviour
         }
 
         GameUtilities.ResetMana(activePlayer);
+
+        if(onEndTurn != null)
+        {
+            onEndTurn();
+        }
 
         OnNewPlayerTurn();
     }

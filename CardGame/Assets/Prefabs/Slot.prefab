@@ -732,6 +732,7 @@ MonoBehaviour:
   structureController: {fileID: 3746359308980656797}
   weaponController: {fileID: 0}
   enchantmentController: {fileID: 667496042997298849}
+  prophecyController: {fileID: 0}
 --- !u!114 &2074742018216544416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +769,19 @@ MonoBehaviour:
   entityHealth: 0
   onEntityTakeDamageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2705692881573822802}
+        m_TargetAssemblyTypeName: CreatureController, Assembly-CSharp
+        m_MethodName: UpdateCreatureUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onEntityDeathEvent:
     m_PersistentCalls:
       m_Calls: []

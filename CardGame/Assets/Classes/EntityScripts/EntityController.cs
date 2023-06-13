@@ -69,7 +69,7 @@ public class EntityController : Target
         set { _displayDefaultParent = value; }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, Target attacker)
     {
         if(!_isPlayerDead)
         {
@@ -80,6 +80,16 @@ public class EntityController : Target
             {
                 PlayerDeath();
             }
+
+            if(attacker != null)
+            {
+                if (attacker.GetComponent<EntityController>() != null)
+                {
+                    GameplayManager.lastEntityAttacker = attacker.GetComponent<EntityController>();
+                }
+            }
+            
+            GameplayManager.onTakeDamage();
         }
     }
 

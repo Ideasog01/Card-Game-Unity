@@ -124,7 +124,7 @@ public class PlayerController : PlayerEntityController
                             }
                             else if (newTarget.TargetType == Card.TargetType.Player)
                             {
-                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureAttack);
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(clickedTarget.TargetControllerRef.CreatureControlllerRef.CreatureAttack, clickedTarget);
                             }
                         }
 
@@ -136,11 +136,11 @@ public class PlayerController : PlayerEntityController
                         {
                             if (newTarget.TargetType == Card.TargetType.Creature)
                             {
-                                newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                                newTarget.TargetControllerRef.CreatureControlllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack, PlayerWeapon);
                             }
                             else if (newTarget.TargetType == Card.TargetType.Player)
                             {
-                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack);
+                                newTarget.TargetControllerRef.PlayerControllerRef.TakeDamage(PlayerWeapon.AssignedWeapon.WeaponAttack, PlayerWeapon);
                             }
                         }
 
