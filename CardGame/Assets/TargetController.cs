@@ -30,6 +30,12 @@ public class TargetController : MonoBehaviour
     [SerializeField]
     private ProphecyController prophecyController;
 
+    [SerializeField]
+    private AbilityController abilityController;
+
+    [SerializeField]
+    private TributeController tributeController;
+
     public PlayerEntityController PlayerControllerRef
     {
         get { return playerController; }
@@ -63,6 +69,16 @@ public class TargetController : MonoBehaviour
     public ProphecyController ProphecyControllerRef
     {
         get { return prophecyController; }
+    }
+
+    public AbilityController AbilityControllerRef
+    {
+        get { return abilityController; }
+    }
+
+    public TributeController TributeControllerRef
+    {
+        get { return tributeController; }
     }
 
     public int HighlightTarget(Transform overlay, Card card, Target attacker)

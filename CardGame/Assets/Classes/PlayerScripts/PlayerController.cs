@@ -45,6 +45,16 @@ public class PlayerController : PlayerEntityController
             {
                 GameplayManager.enchantmentList.Add(target.EnchantmentControllerRef);
             }
+
+            if(target.AbilityControllerRef != null)
+            {
+                GameplayManager.abilityList.Add(target.AbilityControllerRef);
+            }
+
+            if(target.TributeControllerRef != null)
+            {
+                GameplayManager.tributeList.Add(target.TributeControllerRef);
+            }
         }
     }
 
@@ -173,6 +183,10 @@ public class PlayerController : PlayerEntityController
                 {
                     card = clickedTarget.TargetControllerRef.WeaponControllerRef.AssignedWeapon;
                 }
+                else if(clickedTarget.TargetType == Card.TargetType.Ability)
+                {
+                    TargetControllerRef.AbilityControllerRef.ActivateAbility();
+                }
 
                 if (card != null)
                 {
@@ -252,6 +266,22 @@ public class PlayerController : PlayerEntityController
             if(enchantment.BoxCollider.bounds.Contains(mousePosition))
             {
                 return enchantment;
+            }
+        }
+
+        foreach(AbilityController ability in GameplayManager.abilityList)
+        {
+            if(ability.BoxCollider.bounds.Contains(mousePosition))
+            {
+                return ability;
+            }
+        }
+
+        foreach(TributeController tribute in GameplayManager.tributeList)
+        {
+            if(tribute.BoxCollider.bounds.Contains(mousePosition))
+            {
+                return tribute;
             }
         }
 

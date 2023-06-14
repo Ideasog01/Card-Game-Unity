@@ -10,6 +10,9 @@ public class CardEffectManager : MonoBehaviour
     [SerializeField]
     public Transform cardEffectDisplayPrefab;
 
+    //Card Effects
+    public CardEffect divineShield;
+
     public void CardEffect(CardEffect cardEffect, Target target)
     {
         if(cardEffect.name == "DealTwoDamage")
@@ -56,6 +59,7 @@ public class ActiveEffect
     public CardEffect Effect
     {
         get { return _activeEffect; }
+        set { _activeEffect = value; }
     }
 
     public Image EffectIcon

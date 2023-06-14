@@ -11,6 +11,10 @@ public class GameplayManager : MonoBehaviour
     public static Action onTakeDamage;
     public static Action onStartTurn;
     public static Action onEndTurn;
+    public static Action onPlayCreature;
+    public static Action onTributeActivation;
+
+    public static Card lastCardPlayed;
 
     public static EntityController lastEntityAttacker;
 
@@ -32,6 +36,8 @@ public class GameplayManager : MonoBehaviour
     public static List<StructureController> structureList = new List<StructureController>();
     public static List<WeaponController> weaponList = new List<WeaponController>();
     public static List<EnchantmentController> enchantmentList = new List<EnchantmentController>();
+    public static List<AbilityController> abilityList = new List<AbilityController>();
+    public static List<TributeController> tributeList = new List<TributeController>();
 
     private void Awake()
     {

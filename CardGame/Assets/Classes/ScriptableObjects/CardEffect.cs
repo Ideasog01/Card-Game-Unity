@@ -20,6 +20,9 @@ public class CardEffect : ScriptableObject
     [SerializeField]
     private int effectValue; //The value that this effect uses, for example, healing or damage etc.
 
+    [SerializeField]
+    private bool infiniteDuration;
+
     public string EffectDescription
     {
         get { return effectDescription; }
@@ -43,5 +46,10 @@ public class CardEffect : ScriptableObject
     public int EffectValue
     {
         get { return effectValue; }
+    }
+
+    public bool InfiniteDuration
+    {
+        get { return infiniteDuration; }
     }
 }

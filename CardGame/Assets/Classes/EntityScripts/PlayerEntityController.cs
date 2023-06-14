@@ -28,6 +28,9 @@ public class PlayerEntityController : EntityController
     [SerializeField]
     private WeaponController playerWeapon;
 
+    [SerializeField]
+    private PlayerHero playerHero;
+
     public List<Card> PlayerCards
     {
         get { return playerCards; }
@@ -47,6 +50,11 @@ public class PlayerEntityController : EntityController
     public WeaponController PlayerWeapon
     {
         get { return playerWeapon; }
+    }
+
+    public PlayerHero PlayerHeroRef
+    {
+        get { return playerHero; }
     }
 
     public void PlayCard(Card card, Target t)
@@ -167,6 +175,7 @@ public class PlayerEntityController : EntityController
     {
         GameUtilities.RemoveCard(this, card);
         onCardPlayedEvent.Invoke();
+        GameplayManager.lastCardPlayed = card;
         Debug.Log("CARD PLAYED");
     }
 }

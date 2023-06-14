@@ -82,6 +82,11 @@ public class CreatureController : EntityController
         AssignedPlayer = slot.AssignedPlayer;
 
         ApplyEffects();
+
+        if(GameplayManager.onPlayCreature != null)
+        {
+            GameplayManager.onPlayCreature();
+        }
     }
 
     public void FightCreature(CreatureController other)
@@ -159,27 +164,65 @@ public class CreatureController : EntityController
     {
         foreach (CardEffect effect in _creatureCard.CardEffectList)
         {
-            ActiveEffect activeEffect = null;
+            AddEffect(effect);
+        }
+    }
 
-            foreach (ActiveEffect active in _activeEffects) //Check to see if there is an effect object in the list that is no longer being used. If so, use it!
+    public void AddEffect(CardEffect effect)
+    {
+        if(HasEffect(effect))
+        {
+            return;
+        }
+
+        ActiveEffect activeEffect = null;
+
+        foreach (ActiveEffect active in _activeEffects) //Check to see if there is an effect object in the list that is no longer being used. If so, use it!
+        {
+            if (active.RemainingActivations == 0)
             {
-                if (active.RemainingActivations == 0)
-                {
-                    activeEffect = active;
-                    break;
-                }
-            }
+                activeEffect = active;
+                activeEffect.Effect = effect;
+                activeEffect.RemainingActivations = effect.EffectDuration;
 
-            if(activeEffect == null)
-            {
-                GameObject display = Instantiate(GameplayManager.cardEffectManager.cardEffectDisplayPrefab.gameObject, Vector3.zero, Quaternion.identity);
-                display.transform.SetParent(cardEffectParent);
-                activeEffect = new ActiveEffect(effect, display);
+                break;
             }
+        }
 
+        if (activeEffect == null)
+        {
+            GameObject display = Instantiate(GameplayManager.cardEffectManager.cardEffectDisplayPrefab.gameObject, Vector3.zero, Quaternion.identity);
+            display.transform.SetParent(cardEffectParent);
+            activeEffect = new ActiveEffect(effect, display);
             _activeEffects.Add(activeEffect);
         }
 
         DisplayOvertimeEffects();
+    }
+
+    public void RemoveEffect(CardEffect effect)
+    {
+        foreach(ActiveEffect active in _activeEffects)
+        {
+            if(active.Effect == effect)
+            {
+                active.RemainingActivations = 0;
+            }
+        }
+
+        DisplayOvertimeEffects();
+    }
+
+    public bool HasEffect(CardEffect effect)
+    {
+        foreach (ActiveEffect active in _activeEffects)
+        {
+            if (active.Effect == effect && active.RemainingActivations > 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

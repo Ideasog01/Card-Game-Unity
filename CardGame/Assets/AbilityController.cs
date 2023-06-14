@@ -11,4 +11,9 @@ public class AbilityController : Target
     {
         get { return boxCollider; }
     }
+
+    public void ActivateAbility()
+    {
+
+    }
 }
