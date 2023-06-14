@@ -144,7 +144,7 @@ public class Card : ScriptableObject
 
     #region Mana CardType
 
-    public enum ManaType { astral, unholy, neutral, wild, infernal };
+    public enum ManaType { astral, unholy, neutral, wild, infernal, radiant };
 
     public ManaType ObjectManaType
     {

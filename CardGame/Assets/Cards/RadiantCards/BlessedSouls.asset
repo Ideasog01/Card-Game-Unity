@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
+  m_Name: BlessedSouls
+  m_EditorClassIdentifier: 
+  _cardName: Blessed Souls
+  _cardDescription: '*makes ghostly sounds'
+  _cardType: 1
+  _cardArt: {fileID: 21300000, guid: eeebbac7d0ddafe4c8180382f2323fca, type: 3}
+  _cardTags:
+  - Radiant
+  - Creature
+  - Ethereal
+  - Angel
+  _targetTypeArray: 0000000001000000
+  _cardReleaseTargets: 04000000
+  _cardEffectList: []
+  _doesNotRequireTarget: 0
+  _canTargetFriendly: 0
+  _manaCost: 2
+  _manaType: 5
+  _manaGain: 0
+  _creatureAttack: 1
+  _creatureHealth: 2
+  _creatureReach: 0
+  cardEffectFunction: 
+  weaponAttack: 0
+  prophecyMaxProgress: 0
+  prophecyMaxTurns: 0
+  prophecyIncreaseEvent: 0
