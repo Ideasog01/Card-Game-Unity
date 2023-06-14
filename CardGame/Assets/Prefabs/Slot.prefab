@@ -801,7 +801,19 @@ MonoBehaviour:
         m_CallState: 2
   onEntityHealEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2705692881573822802}
+        m_TargetAssemblyTypeName: CreatureController, Assembly-CSharp
+        m_MethodName: UpdateCreatureUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   boxCollider: {fileID: 5305262592541347839}
   _displayDefaultParent: {fileID: 3063479908487707990}
   creatureUI: {fileID: 3063479907675276488}

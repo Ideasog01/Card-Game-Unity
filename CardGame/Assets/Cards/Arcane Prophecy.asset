@@ -32,3 +32,5 @@ MonoBehaviour:
   cardEffectFunction: 
   weaponAttack: 0
   prophecyMaxProgress: 5
+  prophecyMaxTurns: 3
+  prophecyIncreaseEvent: 0

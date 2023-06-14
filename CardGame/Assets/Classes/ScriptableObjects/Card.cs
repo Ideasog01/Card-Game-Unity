@@ -83,6 +83,9 @@ public class Card : ScriptableObject
     private int prophecyMaxProgress;
 
     [SerializeField]
+    private int prophecyMaxTurns;
+
+    [SerializeField]
     private EventType prophecyIncreaseEvent;
 
     #region CardDetails
@@ -202,6 +205,11 @@ public class Card : ScriptableObject
     public int ProphecyMaxProgress
     {
         get { return prophecyMaxProgress; }
+    }
+
+    public int ProphecyMaxTurns
+    {
+        get { return prophecyMaxTurns; }
     }
 
     public EventType ProphecyIncreaseEvent

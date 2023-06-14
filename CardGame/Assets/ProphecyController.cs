@@ -10,6 +10,11 @@ public class ProphecyController : Target
     [SerializeField]
     private TextMeshProUGUI prophecyProgressText;
 
+    [SerializeField]
+    private TextMeshProUGUI prophecyTurnsText;
+
+    private int _turnsRemaining;
+
     private Card _prophecyCard;
 
     private int _prophecyProgress = 0;
@@ -28,16 +33,41 @@ public class ProphecyController : Target
     {
         _prophecyCard = card;
         _prophecyProgress = 0;
+        _turnsRemaining = card.ProphecyMaxTurns;
 
         prophecyIcon.gameObject.SetActive(true);
         prophecyIcon.sprite = card.CardArt;
         prophecyProgressText.text = _prophecyProgress.ToString() + "/" + card.ProphecyMaxProgress;
+        prophecyTurnsText.text = _turnsRemaining.ToString();
 
-        switch(_prophecyCard.ProphecyIncreaseEvent) //Subscribe to the event that will increase the prophecy's progress
+        switch (_prophecyCard.ProphecyIncreaseEvent) //Subscribe to the event that will increase the prophecy's progress
         {
             case Card.EventType.DrawCard:
                 GameplayManager.onDrawCard += IncreaseProphecyProgress;
                 break;
+        }
+
+        GameplayManager.onStartTurn += DecrementProphecyTurns;
+    }
+
+    private void RemoveProphecy()
+    {
+        prophecyIcon.gameObject.SetActive(false);
+        _prophecyCard = null;
+    }
+
+    public void DecrementProphecyTurns()
+    {
+        if(AssignedPlayer == GameplayManager.activePlayer)
+        {
+            _turnsRemaining--;
+            prophecyTurnsText.text = _turnsRemaining.ToString();
+
+            if (_turnsRemaining <= 0)
+            {
+                RemoveProphecy();
+                GameplayManager.onStartTurn -= DecrementProphecyTurns;
+            }
         }
     }
 
@@ -64,7 +94,6 @@ public class ProphecyController : Target
             Debug.Log("Prophecy effect activated.");
         }
 
-        prophecyIcon.gameObject.SetActive(false);
-        _prophecyCard = null;
+        RemoveProphecy();
     }
 }
