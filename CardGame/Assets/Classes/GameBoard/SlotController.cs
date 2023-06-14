@@ -60,6 +60,11 @@ public class SlotController : Target
 
     public void AddMana(Card card, EntityController player)
     {
+        if(_manaCard == null)
+        {
+            GameplayManager.onStartTurn += NewTurnMana;
+        }
+
         _manaCard = card;
 
         manaArt.gameObject.SetActive(true);
@@ -75,5 +80,15 @@ public class SlotController : Target
         }
 
         AssignedPlayer = player;
+
+        
+    }
+
+    public void NewTurnMana()
+    {
+        if(AssignedPlayer == GameplayManager.activePlayer)
+        {
+            GameUtilities.AddMana(AssignedPlayer, (int)_manaCard.ObjectManaType, _manaCard.ManaGain);
+        }
     }
 }

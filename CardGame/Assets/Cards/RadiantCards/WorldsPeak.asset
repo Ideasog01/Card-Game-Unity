@@ -10,27 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c263f9cec9b2a264db759928cb66d4de, type: 3}
-  m_Name: BlessedSouls
+  m_Name: WorldsPeak
   m_EditorClassIdentifier: 
-  _cardName: Blessed Souls
-  _cardDescription: '*makes ghostly sounds'
-  _cardType: 1
+  _cardName: World's Peak
+  _cardDescription: 
+  _cardType: 0
   _cardArt: {fileID: 21300000, guid: 14e151268c3992c40aadda5401040b8b, type: 3}
   _cardTags:
   - Radiant
-  - Creature
-  - Ethereal
-  - Angel
-  _targetTypeArray: 0000000001000000
+  - Mountain
+  _targetTypeArray: 
   _cardReleaseTargets: 04000000
   _cardEffectList: []
   _doesNotRequireTarget: 0
   _canTargetFriendly: 0
-  _manaCost: 2
+  _manaCost: 0
   _manaType: 5
-  _manaGain: 0
-  _creatureAttack: 1
-  _creatureHealth: 2
+  _manaGain: 2
+  _creatureAttack: 0
+  _creatureHealth: 0
   _creatureReach: 0
   cardEffectFunction: 
   weaponAttack: 0
