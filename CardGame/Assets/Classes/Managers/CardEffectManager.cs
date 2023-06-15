@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,12 +16,19 @@ public class CardEffectManager : MonoBehaviour
 
     public void CardEffect(CardEffect cardEffect, Target target)
     {
-        if(cardEffect.name == "DealTwoDamage")
+        CreatureController creature = target.TargetControllerRef.CreatureControlllerRef;
+
+        if (cardEffect.name == "DealTwoDamage")
         {
             target.GetComponent<EntityController>().TakeDamage(cardEffect.EffectValue, null);
         }
 
-        if(cardEffect.name == "Mending")
+        if (cardEffect.name == "DealOneDamage")
+        {
+            target.GetComponent<EntityController>().TakeDamage(cardEffect.EffectValue, null);
+        }
+
+        if (cardEffect.name == "Mending")
         {
             target.GetComponent<EntityController>().Heal(cardEffect.EffectValue);
         }
@@ -28,6 +36,37 @@ public class CardEffectManager : MonoBehaviour
         if(cardEffect.name == "GainMana")
         {
             GameUtilities.AddMana(target.GetComponent<EntityController>(), 0, cardEffect.EffectValue);
+        }
+
+        if(cardEffect.name == "SmiteEffect")
+        {
+            
+
+            if(creature != null)
+            {
+                if(creature.CreatureTagList.Contains("Infernal") || creature.CreatureTagList.Contains("Undead"))
+                {
+                    creature.TakeDamage(creature.EntityMaxHealth, GameplayManager.activePlayer);
+                }
+                else
+                {
+                    creature.TakeDamage(4, GameplayManager.activePlayer);
+                }
+            }
+            else
+            {
+                creature.TakeDamage(4, GameplayManager.activePlayer);
+            }
+        }
+
+        if(cardEffect.name == "DivineShield")
+        {
+            if(creature != null)
+            {
+                creature.AddEffect(divineShield);
+            }
+
+            Debug.Log("Divine Shield!");
         }
     }
 }

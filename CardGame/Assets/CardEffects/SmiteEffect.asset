@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69d9b2d2c47afdf488bf0833a84a22d4, type: 3}
-  m_Name: DivineShield
+  m_Name: SmiteEffect
   m_EditorClassIdentifier: 
-  effectDescription: Shields the target.
-  effectIcon: {fileID: 21300000, guid: ac3b5aa8274e1d649a3ee0faba0c0927, type: 3}
+  effectDescription: Deal 4 damage, if it is a creature with the "infernal" or "undead"
+    tag, destroy it instead.
+  effectIcon: {fileID: 0}
   activationType: 4
-  effectDuration: 1
-  effectValue: 0
-  infiniteDuration: 1
+  effectDuration: 0
+  effectValue: 4
+  infiniteDuration: 0

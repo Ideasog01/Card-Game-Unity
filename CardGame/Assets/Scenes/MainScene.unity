@@ -21436,7 +21436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType: 1
   _assignedPlayer: {fileID: 1781239519}
-  manaAmountArray: 0000000000000000000000000000000000000000
+  manaAmountArray: 000000000000000000000000000000000000000000000000
   entityHealth: 30
   onEntityTakeDamageEvent:
     m_PersistentCalls:
@@ -21462,40 +21462,23 @@ MonoBehaviour:
   boxCollider: {fileID: 977233355}
   _displayDefaultParent: {fileID: 1647307721}
   playerCards:
-  - {fileID: 11400000, guid: d215aaf473a0f044aba767af427b9393, type: 2}
-  - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 5187c75e8e194e743af92b254074252c, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 8ef01fdcb010d784ea8673ed8a142164, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: d215aaf473a0f044aba767af427b9393, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 1fa515e0440f8e842a890f8998b8c17f, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
-  - {fileID: 11400000, guid: 4f882938ffeaee948b56838c2cb99550, type: 2}
+  - {fileID: 11400000, guid: f12092579843004479179e1b7d2dab53, type: 2}
+  - {fileID: 11400000, guid: f12092579843004479179e1b7d2dab53, type: 2}
+  - {fileID: 11400000, guid: f12092579843004479179e1b7d2dab53, type: 2}
+  - {fileID: 11400000, guid: d39a234c482e7854bb072913b3b4f71a, type: 2}
+  - {fileID: 11400000, guid: d39a234c482e7854bb072913b3b4f71a, type: 2}
+  - {fileID: 11400000, guid: d39a234c482e7854bb072913b3b4f71a, type: 2}
+  - {fileID: 11400000, guid: 52701ab2170cf0b4e815421f227c4aec, type: 2}
+  - {fileID: 11400000, guid: 52701ab2170cf0b4e815421f227c4aec, type: 2}
+  - {fileID: 11400000, guid: 52701ab2170cf0b4e815421f227c4aec, type: 2}
+  - {fileID: 11400000, guid: 545b21142a954a043a3512ddcd3b47dd, type: 2}
+  - {fileID: 11400000, guid: 545b21142a954a043a3512ddcd3b47dd, type: 2}
+  - {fileID: 11400000, guid: 545b21142a954a043a3512ddcd3b47dd, type: 2}
   playerHand:
-  - {fileID: 11400000, guid: 748fa98415b83634d996c3871dc5bbfe, type: 2}
-  - {fileID: 11400000, guid: fe73ab3986c516e42a434e93ac6f0cef, type: 2}
-  - {fileID: 11400000, guid: 5187c75e8e194e743af92b254074252c, type: 2}
+  - {fileID: 11400000, guid: f12092579843004479179e1b7d2dab53, type: 2}
+  - {fileID: 11400000, guid: d39a234c482e7854bb072913b3b4f71a, type: 2}
+  - {fileID: 11400000, guid: 52701ab2170cf0b4e815421f227c4aec, type: 2}
+  - {fileID: 11400000, guid: 545b21142a954a043a3512ddcd3b47dd, type: 2}
   onCardPlayedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -22911,6 +22894,7 @@ MonoBehaviour:
   - {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   - {r: 0.22070035, g: 0.735849, b: 0.21867211, a: 1}
   - {r: 0.735849, g: 0.12842648, b: 0.12842648, a: 1}
+  - {r: 1, g: 0.62734854, b: 0, a: 1}
   disabledManaColor: {r: 0.45098042, g: 0.45098042, b: 0.45098042, a: 1}
   playerController: {fileID: 1781239519}
 --- !u!114 &1923986019

@@ -14,6 +14,7 @@ public class CreatureController : EntityController
     private int _creatureHealth;
     private int _creatureAttack;
     private Card _creatureCard;
+    private List<string> _creatureTagList = new List<string>();
 
     [Header("Creature Display")]
 
@@ -55,6 +56,11 @@ public class CreatureController : EntityController
         get { return _creatureAttack; }
     }
 
+    public List<string> CreatureTagList
+    {
+        get { return _creatureTagList; }
+    }
+
     private void Awake()
     {
         DisplayCreatureUI(false);
@@ -78,6 +84,11 @@ public class CreatureController : EntityController
         creatureAttackText.text = _creatureAttack.ToString();
         creatureHealthText.text = EntityHealth.ToString();
         creatureRangeImage.sprite = GameplayManager.gameDisplay.creatureReachIcons[(int)creatureCard.CreatureReach];
+
+        foreach(string tag in creatureCard.CardTags)
+        {
+            _creatureTagList.Add(tag);
+        }
 
         AssignedPlayer = slot.AssignedPlayer;
 
@@ -105,6 +116,7 @@ public class CreatureController : EntityController
         EntityHealth = 0;
         _creatureAttack = 0;
         _creatureCard = null;
+        _creatureTagList.Clear();
         DisplayCreatureUI(false);
     }
 

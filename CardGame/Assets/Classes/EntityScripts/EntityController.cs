@@ -73,14 +73,17 @@ public class EntityController : Target
     {
         if(!_isPlayerDead)
         {
-            if(TargetType == Card.TargetType.Creature)
+            if(TargetControllerRef.CreatureControlllerRef != null)
             {
                 if(TargetControllerRef.CreatureControlllerRef.HasEffect(GameplayManager.cardEffectManager.divineShield))
                 {
                     TargetControllerRef.CreatureControlllerRef.RemoveEffect(GameplayManager.cardEffectManager.divineShield);
+                    Debug.Log("Divine Shield used!");
                     return;
                 }
             }
+
+            Debug.Log("Took Damage!");
 
             entityHealth -= amount;
             onEntityTakeDamageEvent.Invoke();
@@ -96,10 +99,9 @@ public class EntityController : Target
                 {
                     GameplayManager.lastEntityAttacker = attacker.GetComponent<EntityController>();
                 }
+
+                GameplayManager.onTakeDamage();
             }
-
-            GameplayManager.onTakeDamage();
-
         }
     }
 

@@ -25,7 +25,7 @@ public class ShelteringThrone : PlayerHero
         {
             if (!attackers.Contains(GameplayManager.lastEntityAttacker))
             {
-                GameplayManager.lastEntityAttacker.TakeDamage(1, playerEntity);
+                GameplayManager.lastEntityAttacker.TakeDamage(1, null);
                 attackers.Add(GameplayManager.lastEntityAttacker);
             }
         }
