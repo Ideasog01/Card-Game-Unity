@@ -22816,6 +22816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde9d49c91be50f41b69447aa8182684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanPlayerClass: {fileID: 341216786}
+  enemyPlayerClass: {fileID: 1131103581}
 --- !u!114 &1923986016
 MonoBehaviour:
   m_ObjectHideFlags: 0

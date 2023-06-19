@@ -93,8 +93,9 @@ public class CreatureController : EntityController
         AssignedPlayer = slot.AssignedPlayer;
 
         ApplyEffects();
+        DisplayOvertimeEffects();
 
-        if(GameplayManager.onPlayCreature != null)
+        if (GameplayManager.onPlayCreature != null)
         {
             GameplayManager.onPlayCreature();
         }
@@ -112,10 +113,14 @@ public class CreatureController : EntityController
 
     public void OnCreatureDeath()
     {
+        foreach (ActiveEffect effect in _activeEffects)
+        {
+            effect.RemainingActivations = 0;
+        }
+
         _creatureCard = null;
         EntityHealth = 0;
         _creatureAttack = 0;
-        _creatureCard = null;
         _creatureTagList.Clear();
         DisplayCreatureUI(false);
     }
@@ -145,9 +150,10 @@ public class CreatureController : EntityController
     {
         foreach(ActiveEffect effect in _activeEffects)
         {
-            if(effect.RemainingActivations == 0)
+            if(effect.RemainingActivations <= 0)
             {
                 effect.EffectIcon.gameObject.SetActive(false);
+                Debug.Log("Lol");
             }
             else
             {
@@ -231,6 +237,7 @@ public class CreatureController : EntityController
         {
             if (active.Effect == effect && active.RemainingActivations > 0)
             {
+                Debug.Log("Remaining Activations: " + active.RemainingActivations);
                 return true;
             }
         }

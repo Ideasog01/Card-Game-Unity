@@ -39,6 +39,9 @@ public class GameplayManager : MonoBehaviour
     public static List<AbilityController> abilityList = new List<AbilityController>();
     public static List<TributeController> tributeList = new List<TributeController>();
 
+    public GameObject humanPlayerClass;
+    public GameObject enemyPlayerClass;
+
     private void Awake()
     {
         foreach(TargetController target in FindObjectsOfType<TargetController>())
@@ -89,6 +92,9 @@ public class GameplayManager : MonoBehaviour
             enemyPlayer.PlayRandomCard();
             activePlayer = enemyPlayer;
         }
+
+        //humanPlayerClass.SetActive(playerIndex == 0);
+        //enemyPlayerClass.SetActive(playerIndex == 1);
 
         foreach (CreatureController creature in creatureList)
         {

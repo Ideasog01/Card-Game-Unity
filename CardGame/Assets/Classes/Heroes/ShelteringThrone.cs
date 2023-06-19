@@ -8,7 +8,7 @@ public class ShelteringThrone : PlayerHero
     [SerializeField]
     private PlayerEntityController playerEntity;
 
-    private List<EntityController> attackers = new List<EntityController>();
+    private static List<EntityController> attackers = new List<EntityController>();
 
     private void Awake()
     {
@@ -27,6 +27,8 @@ public class ShelteringThrone : PlayerHero
             {
                 GameplayManager.lastEntityAttacker.TakeDamage(1, null);
                 attackers.Add(GameplayManager.lastEntityAttacker);
+
+                Debug.Log("Divine Retribution");
             }
         }
     }

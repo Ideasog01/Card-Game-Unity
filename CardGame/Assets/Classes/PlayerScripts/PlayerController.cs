@@ -211,10 +211,10 @@ public class PlayerController : PlayerEntityController
     {
         hoverTarget = FindTarget();
 
-        if(hoverTarget != null)
-        {
-            Debug.Log("Hover Target: " + hoverTarget);
-        }
+        //if(hoverTarget != null)
+        //{
+        //    Debug.Log("Hover Target: " + hoverTarget);
+        //}
     }
 
     private Target FindTarget()
